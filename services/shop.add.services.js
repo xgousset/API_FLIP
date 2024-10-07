@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const chemin = path.join(__dirname,"..","shops.json");
 const uuid = require('uuid');
+const { fetchShops } = require('./shop.show.services');
 
 
 
@@ -28,3 +29,24 @@ const createShop = (nom,description,callback) => {
         return callback(error);
     }
 }
+
+
+//supprime un magasin spécifique par son id à partir de la liste de magasins
+const deleteShop = (id,callback) => {
+    let shops = fetchShops();
+    let shop = shops.find(shop => shop.id === id);
+    if (!shop) {
+        return callback("Magasin non trouvé");
+    }
+    shops = shops.filter(shop => shop.id !== id);
+    try {
+        fs.writeFileSync(chemin,JSON.stringify(shops));
+        return callback(null,"suppression réussie");
+    }catch (error){
+        console.log(error);
+        return callback(error);
+    }
+
+}
+
+export {createShop,deleteShop};
