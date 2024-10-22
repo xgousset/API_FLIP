@@ -2,11 +2,20 @@ const fs = require('fs')
 const path = require('path')
 const chemin = path.join(__dirname, '..', 'users.json')
 const { v4: uuidv4 } = require('uuid')
+const bcrypt = require('bcrypt')
+const saltRounds = 10;
+
+
+//crypte un mot de passe avec bcrypt
+const createpassword = (password)=>{
+    let passwordC = bcrypt.hash(password,saltRounds)
+    return passwordC
+}
 
 
 
-//crée un nouvel utilisateur avec un nom, un prénom et un email
-const createUser = (nom, prenom, email, callback) => {
+//crée un nouvel utilisateur avec un nom, un prénom, un mot de passe et un email
+const createUser = (nom, prenom, email,password, callback) => {
     let users = []
     try {
         const data = fs.readFileSync(chemin)
@@ -17,7 +26,7 @@ const createUser = (nom, prenom, email, callback) => {
         return callback(error)
     }
 
-    const newUser = { id: uuidv4(), nom: nom, prenom: prenom, email: email }
+    const newUser = { id: uuidv4(), nom: nom, prenom: prenom, email: email, password: createpassword(password) }
     users.push(newUser)
 
     try {
@@ -67,4 +76,16 @@ const deleteUser = (id, callback) => {
     }
 }
 
-export { createUser, fetchUsers, fetchSpecificUser };
+
+const checkpassword = (password,uuid)=>{
+    let hash = fetchSpecificUser(uuid).password
+    return bcrypt.compare(password,hash)
+}
+
+
+const UserAttributesFetch = (uuid)=>{
+    let user = fetchSpecificUser(uuid)
+    return {nom:user.nom,prenom:user.prenom,email:user.email,password:user.password}
+}
+
+module.exports = { createUser, fetchUsers, fetchSpecificUser, deleteUser, checkpassword, UserAttributesFetch };
