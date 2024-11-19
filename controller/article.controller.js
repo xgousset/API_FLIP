@@ -1,9 +1,8 @@
 const articleService = require('../services/article.services');
 
 exports.saveArticle = async (req,res) => {
-    const titre = req.body.titre;
-    const contenu = req.body.contenu;
-    articleService.createArticle(titre,contenu,(error,data)=>{
+    const {nom_produit,description_produit,stocks,prix_produit,id} = req.body;
+    await articleService.createArticle(nom_produit,description_produit,stocks,prix_produit,id,(error,data)=>{
         if(error){
             return res.status(500).send("Erreur");
         }
@@ -13,8 +12,8 @@ exports.saveArticle = async (req,res) => {
 
 exports.deleteArticle = async (req,res) => {
     const id = req.params.id;
-    articleService.deleteArticle(id,(error,data)=>{
-        if(error){
+    await articleService.deleteArticle(id, (error, data) => {
+        if (error) {
             return res.status(500).send("Erreur");
         }
         return res.status(200).send(data);
@@ -38,9 +37,9 @@ exports.getArticles = async (req,res) => {
 
 
 exports.updateArticle = async (req,res) => {
-    const id = req.params.id;
-    const {titre,contenu} = req.body;
-    articleService.updateArticle(id,titre,contenu,(error,data)=>{
+    const id_produit = req.params.id;
+    const {nom_produit,description_produit,stocks,prix_produit,id} = req.body;
+    await articleService.updateArticle(id_produit,nom_produit,description_produit,stocks,prix_produit,id,(error,data)=>{
         if(error){
             return res.status(500).send("Erreur");
         }

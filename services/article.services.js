@@ -1,42 +1,29 @@
 const fs = require('fs')
-const path = require('path')
-const chemin = path.join(__dirname, '..', 'articles.json')
 const { v4: uuidv4 } = require('uuid')
+const pool = require('../database/db.js');
 
 //crée un nouvel article avec un nom, une description et un prix
-const createArticle = (nom, description, prix, callback) => {
-    let articles = []
-    try {
-        const data = fs.readFileSync(chemin)
-        const dataStr = data.toString()
-        articles = JSON.parse(dataStr)
-    } catch (error) {
-        console.log(error)
-        return callback(error)
-    }
+const createArticle = async (nom_produit,description_produit,stocks,prix_produit,id, callback) => {
 
-    const newArticle = { id: uuidv4(), nom: nom, description: description, prix: prix }
-    articles.push(newArticle)
+    const user = await pool.connect();
 
-    try {
-        fs.writeFileSync(chemin, JSON.stringify(articles))
-        return callback(null, "écriture réussie")
-    } catch (error) {
-        console.log(error)
-        return callback(error)
-    }
+    const SQL = "INSERT INTO produits (nom_produit,description_produit,stocks,prix_produit,id) VALUES ($1, $2, $3, $4, $5)"
+
+    const res = await user.query(SQL, [nom, description, 0, prix, id])
+
+    user.release();
+
+    console.log(res.rows)
 }
 
-const fetchArticles = () => {
-    let articles = [];
-    try {
-        const data = fs.readFileSync(chemin);
-        const dataStr = data.toString();
-        articles = JSON.parse(dataStr);
-    } catch (error) {
-        console.log(error);
-    }
-    return articles;
+const fetchArticles = async () => {
+
+    const user = await pool.connect();
+    const SQL = "SELECT * FROM produits"
+    const res = await user.query(SQL)
+    user.release();
+    console.log(res.rows)
+
 }
 
 //sélectionne un article spécifique par son id à partir de la liste d'articles
@@ -47,39 +34,24 @@ const fetchSpecificArticle = (id) => {
 }
 
 //supprime un article spécifique par son id à partir de la liste d'articles
-const deleteArticle = (id, callback) => {
-    let articles = fetchArticles()
-    let article = articles.find(article => article.id === id)
-    if (!article) {
-        return callback("Article non trouvé")
-    }
-    articles = articles.filter(article => article.id !== id)
-    try {
-        fs.writeFileSync(chemin, JSON.stringify(articles))
-        return callback(null, "suppression réussie")
-    } catch (error) {
-        console.log(error)
-        return callback(error)
-    }
+const deleteArticle = async (id, callback) => {
+
+    const user = await pool.connect();
+    const SQL = "DELETE FROM produits WHERE id = $1"
+    const res = await user.query(SQL, [id_produit])
+    user.release();
+    console.log(res.rows)
+
 }
 
 //met à jour un article spécifique par son id à partir de la liste d'articles
-const updateArticle = (id, nom, description, prix, callback) => {
-    let articles = fetchArticles()
-    let article = articles.find(article => article.id === id)
-    if (!article) {
-        return callback("Article non trouvé")
-    }
-    article.nom = nom
-    article.description = description
-    article.prix = prix
-    try {
-        fs.writeFileSync(chemin, JSON.stringify(articles))
-        return callback(null, "mise à jour réussie")
-    } catch (error) {
-        console.log(error)
-        return callback(error)
-    }
+const updateArticle = async (id_produit,nom_produit,description_produit,stocks,prix_produit,id, callback) => {
+
+    const user = await pool.connect();
+    const SQL = "UPDATE produits SET nom_produit = $1, description_produit = $2, stocks = $3, prix_produit = $4, id = $5 WHERE id = $6"
+    const res = await user.query(SQL, [nom_produit, description_produit, stocks, prix_produit, id, id_produit])
+    user.release();
+    console.log(res.rows)
 }
 
 module.exports = { createArticle, fetchArticles, fetchSpecificArticle, deleteArticle,updateArticle  }
