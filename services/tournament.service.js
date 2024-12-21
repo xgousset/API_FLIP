@@ -1,9 +1,9 @@
 const fs = require('fs');
 const path = require('path');
-const chemin = path.join(__dirname,"..","tournament.json");
+const chemin = path.join(__dirname,"../data","tournament.json");
 const uuid = require('uuid');
 
-const createTournament = (nom,description,capacitee,callback) => {
+const createTournament = (nom,min,max,entree,debut,objet,callback) => {
     let tournaments = [];
     try{
         const data = fs.readFileSync(chemin);
@@ -14,7 +14,7 @@ const createTournament = (nom,description,capacitee,callback) => {
         return callback(error);
     }
 
-    const newTournament = {id: uuid.v4(), nom:nom, description:description, capacitee:capacitee};
+    const newTournament = {id: uuid.v4(), nom:nom, min:min, max:max, entree:entree, debut:debut, objet:objet};
     tournaments.push(newTournament);
 
     try {

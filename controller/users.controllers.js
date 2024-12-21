@@ -3,7 +3,10 @@ const usersService = require('../services/users.services');
 exports.saveUser = async (req,res) => {
     const nom = req.body.nom;
     const prenom = req.body.prenom;
-    usersService.createUser(prenom,nom,(error,data)=>{
+    const email = req.body.email;
+    const password = req.body.password;
+    const autorisation = req.body.autorisation;
+    usersService.createUser(prenom,nom,email,password,autorisation,(error,data)=>{
         if(error){
             return res.status(500).send("Erreur");
         }

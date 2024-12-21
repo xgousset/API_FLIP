@@ -4,7 +4,7 @@ const chemin = path.join(__dirname, '..', 'articles.json')
 const { v4: uuidv4 } = require('uuid')
 
 //crée un nouvel article avec un nom, une description et un prix
-const createArticle = (nom, description, prix, callback) => {
+const createArticle = (nom, description,stocks, prix, callback) => {
     let articles = []
     try {
         const data = fs.readFileSync(chemin)
@@ -15,7 +15,7 @@ const createArticle = (nom, description, prix, callback) => {
         return callback(error)
     }
 
-    const newArticle = { id: uuidv4(), nom: nom, description: description, prix: prix }
+    const newArticle = { id: uuidv4(), nom: nom, description: description,stocks:stocks, prix: prix }
     articles.push(newArticle)
 
     try {

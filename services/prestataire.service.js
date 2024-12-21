@@ -1,10 +1,10 @@
 const fs = require('fs')
 const path = require('path')
-const chemin = path.join(__dirname, '..', 'prestataire.json')
+const chemin = path.join(__dirname, '../data', 'stand.json')
 const { v4: uuidv4 } = require('uuid')
 
 //crée un nouveau prestataire avec un nom, une description
-const createPrestataire = (nom, description, callback) => {
+const createPrestataire = (nom, type,emplacement, callback) => {
     let prestataires = []
     try {
         const data = fs.readFileSync(chemin)
@@ -15,7 +15,7 @@ const createPrestataire = (nom, description, callback) => {
         return callback(error)
     }
 
-    const newPrestataire = { id: uuidv4(), nom: nom, description: description }
+    const newPrestataire = { id: uuidv4(), nom: nom, type: type, emplacement:emplacement }
     prestataires.push(newPrestataire)
 
     try {

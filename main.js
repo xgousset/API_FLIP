@@ -4,12 +4,32 @@ const articleRouter = require('./routes/article.router');
 const shopRouter = require('./routes/shop.router');
 const PORT = 3000;
 const app = express();
+const swaggerJsdoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
 
 // Middleware traitement JSON
 app.use(express.json());
 app.use("/api/users", userRouter);
 app.use("/api/articles", articleRouter);
 app.use("/api/shops", shopRouter);
+
+
+const swaggerOption = {
+    swaggerDefinition: (swaggerJsdoc.Options = {
+        info: {
+            title: "api flip",
+            description: "API documentation",
+            contact: {
+                name: "XGOUSSET",
+            },
+            servers: ["http://localhost:3000/"],
+        },
+    }),
+    apis: ["index.js", "./routes/*.js"],
+};
+const swaggerDocs = swaggerJsdoc(swaggerOption);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+/** Swagger Initialization - END */
 
 // Middlewaires Gestion erreurs
 app.use("*", (req, res, next) => {
