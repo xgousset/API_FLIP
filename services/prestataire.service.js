@@ -1,82 +1,92 @@
-const fs = require('fs')
-const path = require('path')
-const chemin = path.join(__dirname, '../data', 'stand.json')
-const { v4: uuidv4 } = require('uuid')
+const pool = require('../database/db');
+const { v4: uuidv4 } = require('uuid');
 
-//crée un nouveau prestataire avec un nom, une description
-const createPrestataire = (nom, type,emplacement, callback) => {
-    let prestataires = []
+// Create a new prestataire with a name, type, and emplacement
+const createPrestataire = async (nom, type, emplacement, description) => {
+    const client = await pool.connect();
     try {
-        const data = fs.readFileSync(chemin)
-        const dataStr = data.toString()
-        prestataires = JSON.parse(dataStr)
-    } catch (error) {
-        console.log(error)
-        return callback(error)
-    }
-
-    const newPrestataire = { id: uuidv4(), nom: nom, type: type, emplacement:emplacement }
-    prestataires.push(newPrestataire)
-
-    try {
-        fs.writeFileSync(chemin, JSON.stringify(prestataires))
-        return callback(null, "écriture réussie")
-    } catch (error) {
-        console.log(error)
-        return callback(error)
-    }
-}
-
-const fetchPrestataires = () => {
-    let prestataires = [];
-    try {
-        const data = fs.readFileSync(chemin);
-        const dataStr = data.toString();
-        prestataires = JSON.parse(dataStr);
+        console.log(nom, type, emplacement,description);
+        const query = 'INSERT INTO stand (nom_stand, id_type, id_emplacement,description) VALUES ($1, $2, $3, $4) RETURNING *';
+        const values = [nom, type, emplacement,description];
+        const result = await client.query(query, values);
+        return result.rows[0];
     } catch (error) {
         console.log(error);
+        throw error;
+    } finally {
+        client.release();
     }
-    return prestataires;
-}
+};
 
-const fetchSpecificPrestataire = (id) => {
-    let prestataires = fetchPrestataires();
-    let prestataire = prestataires.find(prestataire => prestataire.id === id);
-    return prestataire;
-}
-
-const deletePrestataire = (id, callback) => {
-    let prestataires = fetchPrestataires()
-    let prestataire = prestataires.find(prestataire => prestataire.id === id)
-    if (!prestataire) {
-        return callback("Prestataire non trouvé")
-    }
-    prestataires = prestataires.filter(prestataire => prestataire.id !== id)
+// Fetch all prestataires
+const fetchPrestataires = async () => {
+    const client = await pool.connect();
     try {
-        fs.writeFileSync(chemin, JSON.stringify(prestataires))
-        return callback(null, "suppression réussie")
-    } catch (error) {
-        console.log(error)
-        return callback(error)
-    }
-}
-
-const updatePrestataire = (id, nom, description, callback) => {
-    let prestataires = fetchPrestataires();
-    let prestataire = prestataires.find(prestataire => prestataire.id === id);
-    if (!prestataire) {
-        return callback("Prestataire non trouvé");
-    }
-    prestataire.nom = nom;
-    prestataire.description = description;
-    try {
-        fs.writeFileSync(chemin, JSON.stringify(prestataires));
-        return callback(null, "modification réussie");
+        const query = 'SELECT * FROM stand';
+        const result = await client.query(query);
+        console.log(result.rows);
+        return result.rows;
     } catch (error) {
         console.log(error);
-        return callback(error);
+        throw error;
+    } finally {
+        client.release();
     }
-}
+};
+
+// Fetch a specific prestataire by its id
+const fetchSpecificPrestataire = async (id) => {
+    const client = await pool.connect();
+    try {
+        const query = 'SELECT * FROM stand WHERE id = $1';
+        const values = [id];
+        const result = await client.query(query, values);
+        return result.rows[0];
+    } catch (error) {
+        console.log(error);
+        throw error;
+    } finally {
+        client.release();
+    }
+};
+
+// Delete a specific prestataire by its id
+const deletePrestataire = async (id) => {
+    const client = await pool.connect();
+    try {
+        const query = 'DELETE FROM stand WHERE id = $1 RETURNING *';
+        const values = [id];
+        const result = await client.query(query, values);
+        if (result.rows === []) {
+            return "Prestataire non trouvé";
+        }
+        return "suppression réussie";
+    } catch (error) {
+        console.log(error);
+        throw error;
+    } finally {
+        client.release();
+    }
+};
+
+// Update a specific prestataire by its id
+const updatePrestataire = async (id, nom, type, emplacement,description) => {
+    const client = await pool.connect();
+    try {
+        const query = 'UPDATE stand SET nom_stand = $1, id_type = $2, id_emplacement = $3, description = $4 WHERE id = $5 RETURNING *';
+        const values = [nom, type, emplacement,description, id];
+        const result = await client.query(query, values);
+        if (result.rowCount === 0) {
+            return "Prestataire non trouvé";
+        }
+        return result.rows[0];
+    } catch (error) {
+        console.log(error);
+        throw error;
+    } finally {
+        client.release();
+    }
+};
 
 module.exports = {
     createPrestataire,
@@ -84,4 +94,4 @@ module.exports = {
     fetchSpecificPrestataire,
     deletePrestataire,
     updatePrestataire
-}
+};

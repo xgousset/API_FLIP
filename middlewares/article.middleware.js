@@ -1,8 +1,13 @@
-const Validator = require('validator');
 exports.validateArticle = (req, res, next) => {
-    const { titre, contenu } = req.body;
-    if (!titre || !contenu) {
-        return res.status(400).send("Titre et contenu sont obligatoires");
+    const { nom, description, stocks, prix } = req.body;
+    if (!nom || !description || stocks === undefined || prix === undefined) {
+        return res.status(400).send("Nom, description, stocks, et prix sont obligatoires");
+    }
+    if (typeof stocks !== 'number' || stocks < 0) {
+        return res.status(400).send("Stocks doit être un nombre positif");
+    }
+    if (typeof prix !== 'number' || prix < 0) {
+        return res.status(400).send("Prix doit être un nombre positif");
     }
     next();
-}
+};

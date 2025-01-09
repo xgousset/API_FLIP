@@ -3,7 +3,6 @@ const tournamentController = require('../controller/tournament.controller');
 const tournamentMiddleware = require('../middlewares/tournament.middleware');
 var router = expresss.Router();
 
-router.post("/", tournamentMiddleware.validateTournament, tournamentController.saveTournament);
 /**
  * @swagger
  * /api/tournaments:
@@ -21,6 +20,17 @@ router.post("/", tournamentMiddleware.validateTournament, tournamentController.s
  *             - name
  *             - date
  *             - location
+ *           properties:
+ *             name:
+ *               type: string
+ *               example: "Tournament 1"
+ *             date:
+ *               type: string
+ *               format: date
+ *               example: "2023-12-01"
+ *             location:
+ *               type: string
+ *               example: "123 Example Street, City, Country"
  *     responses:
  *       '200':
  *         description: Tournament created successfully
@@ -29,8 +39,8 @@ router.post("/", tournamentMiddleware.validateTournament, tournamentController.s
  *       '500':
  *         description: Internal server error
  */
+router.post("/", tournamentMiddleware.validateTournament, tournamentController.saveTournament);
 
-router.get("/", tournamentController.getTournaments);
 /**
  * @swagger
  * /api/tournaments:
@@ -44,8 +54,8 @@ router.get("/", tournamentController.getTournaments);
  *       '500':
  *         description: Internal server error
  */
+router.get("/", tournamentController.getTournaments);
 
-router.get("/:id", tournamentController.getTournamentById);
 /**
  * @swagger
  * /api/tournaments/{id}:
@@ -68,8 +78,8 @@ router.get("/:id", tournamentController.getTournamentById);
  *       '500':
  *         description: Internal server error
  */
+router.get("/:id", tournamentController.getTournamentById);
 
-router.put("/:id", tournamentMiddleware.validateTournament, tournamentController.updateTournament);
 /**
  * @swagger
  * /api/tournaments/{id}:
@@ -93,6 +103,17 @@ router.put("/:id", tournamentMiddleware.validateTournament, tournamentController
  *             - name
  *             - date
  *             - location
+ *           properties:
+ *             name:
+ *               type: string
+ *               example: "Updated Tournament 1"
+ *             date:
+ *               type: string
+ *               format: date
+ *               example: "2023-12-02"
+ *             location:
+ *               type: string
+ *               example: "456 Updated Street, City, Country"
  *     responses:
  *       '200':
  *         description: Tournament updated successfully
@@ -103,8 +124,8 @@ router.put("/:id", tournamentMiddleware.validateTournament, tournamentController
  *       '500':
  *         description: Internal server error
  */
+router.put("/:id", tournamentMiddleware.validateTournament, tournamentController.updateTournament);
 
-router.delete("/:id", tournamentController.deleteTournament);
 /**
  * @swagger
  * /api/tournaments/{id}:
@@ -127,4 +148,6 @@ router.delete("/:id", tournamentController.deleteTournament);
  *       '500':
  *         description: Internal server error
  */
+router.delete("/:id", tournamentController.deleteTournament);
+
 module.exports = router;

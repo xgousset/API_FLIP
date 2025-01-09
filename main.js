@@ -1,7 +1,11 @@
 const express = require('express');
 const userRouter = require('./routes/users.routes');
 const articleRouter = require('./routes/article.router');
-const shopRouter = require('./routes/shop.router');
+const prestataireRouter = require('./routes/prestataire.router');
+const emplacementRouter = require('./routes/emplacements.router');
+const gameRouter = require('./routes/games.router');
+const typeRouter = require('./routes/types.router');
+
 const PORT = 3000;
 const app = express();
 const swaggerJsdoc = require("swagger-jsdoc");
@@ -11,8 +15,10 @@ const swaggerUi = require("swagger-ui-express");
 app.use(express.json());
 app.use("/api/users", userRouter);
 app.use("/api/articles", articleRouter);
-app.use("/api/shops", shopRouter);
-
+app.use("/api/prestataires", prestataireRouter);
+app.use("/api/emplacements", emplacementRouter);
+app.use("/api/games", gameRouter);
+app.use("/api/types", typeRouter);
 
 const swaggerOption = {
     swaggerDefinition: (swaggerJsdoc.Options = {

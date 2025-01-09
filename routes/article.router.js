@@ -22,6 +22,20 @@ router.post("/", articleMiddleware.validateArticle, articleController.saveArticl
  *             - description
  *             - stocks
  *             - prix
+ *           properties:
+ *             nom:
+ *               type: string
+ *               example: "Article 1"
+ *             description:
+ *               type: string
+ *               example: "Description de l'article 1"
+ *             stocks:
+ *               type: integer
+ *               example: 100
+ *             prix:
+ *               type: number
+ *               format: float
+ *               example: 19.99
  *     responses:
  *       '200':
  *         description: Article created successfully
@@ -95,6 +109,20 @@ router.put("/:id", articleMiddleware.validateArticle, articleController.updateAr
  *             - description
  *             - stocks
  *             - prix
+ *           properties:
+ *             nom:
+ *               type: string
+ *               example: "Article 1"
+ *             description:
+ *               type: string
+ *               example: "Description mise à jour de l'article 1"
+ *             stocks:
+ *               type: integer
+ *               example: 150
+ *             prix:
+ *               type: number
+ *               format: float
+ *               example: 24.99
  *     responses:
  *       '200':
  *         description: Article updated successfully

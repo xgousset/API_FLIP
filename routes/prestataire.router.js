@@ -19,9 +19,22 @@ router.post("/", prestataireMiddleware.validatePrestataire, prestataireControlle
  *           type: object
  *           required:
  *             - nom
+ *             - type
+ *             - emplacement
  *             - description
- *             - adresse
- *             - telephone
+ *           properties:
+ *             nom:
+ *               type: string
+ *               example: "Prestataire 1"
+ *             type:
+ *               type: integer
+ *               example: 1
+ *             emplacement:
+ *               type: integer
+ *               example: 1
+ *             description:
+ *               type: string
+ *               example: "Description du stand 1"
  *     responses:
  *       '200':
  *         description: Prestataire created successfully
@@ -29,6 +42,14 @@ router.post("/", prestataireMiddleware.validatePrestataire, prestataireControlle
  *         description: Bad request
  *       '500':
  *         description: Internal server error
+ *     examples:
+ *       application/json:
+ *         {
+ *           "nom": "Prestataire 1",
+ *           "type": 1,
+ *           "emplacement": 1,
+ *           "description": "Description du stand 1"
+ *         }
  */
 
 router.get("/", prestataireController.getPrestataires);
@@ -42,6 +63,34 @@ router.get("/", prestataireController.getPrestataires);
  *     responses:
  *       '200':
  *         description: Successfully retrieved prestataires
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: integer
+ *                   nom_stand:
+ *                     type: string
+ *                   id_type:
+ *                     type: integer
+ *                   id_emplacement:
+ *                     type: integer
+ *                   description:
+ *                     type: string
+ *         examples:
+ *           application/json:
+ *             [
+ *               {
+ *                 "id": 1,
+ *                 "nom_stand": "Stand 1",
+ *                 "id_type": 1,
+ *                 "id_emplacement": 1,
+ *                 "description": "Description du stand 1"
+ *               }
+ *             ]
  *       '500':
  *         description: Internal server error
  */
@@ -60,10 +109,36 @@ router.get("/:id", prestataireController.getPrestataireById);
  *         required: true
  *         description: ID of the prestataire to retrieve
  *         schema:
- *           type: string
+ *           type: integer
  *     responses:
  *       '200':
  *         description: Successfully retrieved prestataire
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: integer
+ *                 nom_stand:
+ *                   type: string
+ *                 id_type:
+ *                   type: integer
+ *                 id_emplacement:
+ *                   type: integer
+ *                 description:
+ *                   type: string
+ *         examples:
+ *           application/json:
+ *             [
+ *               {
+ *                 "id": 1,
+ *                 "nom_stand": "Stand 1",
+ *                 "id_type": 1,
+ *                 "id_emplacement": 1,
+ *                 "description": "Description du stand 1"
+ *               }
+ *             ]
  *       '404':
  *         description: Prestataire not found
  *       '500':
@@ -75,7 +150,7 @@ router.put("/:id", prestataireMiddleware.validatePrestataire, prestataireControl
  * @swagger
  * /api/prestataires/{id}:
  *   put:
- *     description: Used to update a prestataire by ID
+ *     description: Updates a prestataire by ID
  *     tags:
  *       - prestataires
  *     parameters:
@@ -88,13 +163,22 @@ router.put("/:id", prestataireMiddleware.validatePrestataire, prestataireControl
  *       - in: body
  *         name: prestataire
  *         description: Prestataire data to update
- *         schema:
- *           type: object
- *           required:
- *             - nom
- *             - description
- *             - adresse
- *             - telephone
+ *         required: true
+ *         content:
+ *           application/json:
+ *             properties:
+ *             nom:
+ *               type: string
+ *               example: "Prestataire 1"
+ *             type:
+ *               type: integer
+ *               example: 1
+ *             emplacement:
+ *               type: integer
+ *               example: 1
+ *             description:
+ *               type: string
+ *               example: "Description du stand 1"
  *     responses:
  *       '200':
  *         description: Prestataire updated successfully
@@ -120,7 +204,7 @@ router.delete("/:id", prestataireController.deletePrestataire);
  *         required: true
  *         description: ID of the prestataire to delete
  *         schema:
- *           type: string
+ *           type: integer
  *     responses:
  *       '200':
  *         description: Prestataire deleted successfully
@@ -128,5 +212,11 @@ router.delete("/:id", prestataireController.deletePrestataire);
  *         description: Prestataire not found
  *       '500':
  *         description: Internal server error
+ *     examples:
+ *       application/json:
+ *         {
+ *           "id": 1
+ *         }
  */
+
 module.exports = router;

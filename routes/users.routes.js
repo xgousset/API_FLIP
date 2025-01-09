@@ -3,7 +3,6 @@ const userController = require('../controller/users.controllers');
 const userMiddleware = require('../middlewares/users.middleware');
 var router = express.Router();
 
-router.post("/", userMiddleware.validateUser, userController.saveUser);
 /**
  * @swagger
  * /api/users:
@@ -20,6 +19,25 @@ router.post("/", userMiddleware.validateUser, userController.saveUser);
  *           required:
  *             - nom
  *             - prenom
+ *             - email
+ *             - password
+ *             - autorisation
+ *           properties:
+ *             nom:
+ *               type: string
+ *               example: "Doe"
+ *             prenom:
+ *               type: string
+ *               example: "John"
+ *             email:
+ *               type: string
+ *               example: "JohnDoe@example.com"
+ *             password:
+ *               type: string
+ *               example: "password"
+ *             autorisation:
+ *               type: integer
+ *               example: 0
  *     responses:
  *       '200':
  *         description: User created successfully
@@ -28,8 +46,8 @@ router.post("/", userMiddleware.validateUser, userController.saveUser);
  *       '500':
  *         description: Internal server error
  */
+router.post("/", userMiddleware.validateUser, userController.saveUser);
 
-router.get("/", userController.getUsers);
 /**
  * @swagger
  * /api/users:
@@ -43,8 +61,8 @@ router.get("/", userController.getUsers);
  *       '500':
  *         description: Internal server error
  */
+router.get("/", userController.getUsers);
 
-router.get("/:id", userController.getUserById);
 /**
  * @swagger
  * /api/users/{id}:
@@ -67,8 +85,8 @@ router.get("/:id", userController.getUserById);
  *       '500':
  *         description: Internal server error
  */
+router.get("/:id", userController.getUserById);
 
-router.get("/:id", userController.checkPassword);
 /**
  * @swagger
  * /api/users/{id}/check-password:
@@ -91,8 +109,8 @@ router.get("/:id", userController.checkPassword);
  *       '500':
  *         description: Internal server error
  */
+router.get("/:id/check-password", userController.checkPassword);
 
-router.get("/:id", userController.getUsersAttributes);
 /**
  * @swagger
  * /api/users/{id}/attributes:
@@ -115,4 +133,6 @@ router.get("/:id", userController.getUsersAttributes);
  *       '500':
  *         description: Internal server error
  */
+router.get("/:id/attributes", userController.getUsersAttributes);
+
 module.exports = router;

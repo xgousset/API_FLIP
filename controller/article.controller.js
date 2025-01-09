@@ -1,49 +1,59 @@
 const articleService = require('../services/article.services');
 
-exports.saveArticle = async (req,res) => {
-    const titre = req.body.titre;
-    const contenu = req.body.contenu;
-    articleService.createArticle(titre,contenu,(error,data)=>{
-        if(error){
-            return res.status(500).send("Erreur");
-        }
+exports.saveArticle = async (req, res) => {
+    const { nom, description, stocks, prix } = req.body;
+    try {
+        const data = await articleService.createArticle(nom, description, stocks, prix);
         return res.status(200).send(data);
-    });
-}
-
-exports.deleteArticle = async (req,res) => {
-    const id = req.params.id;
-    articleService.deleteArticle(id,(error,data)=>{
-        if(error){
-            return res.status(500).send("Erreur");
-        }
-        return res.status(200).send(data);
-    });
-}
-
-
-exports.getArticleById = async (req,res) => {
-    const id = req.params.id;
-    const article = articleService.fetchSpecificArticle(id);
-    if(!article){
-        return res.status(404).send("Article non trouvé");
+    } catch (error) {
+        console.error("Error creating article:", error);
+        return res.status(500).send("Erreur");
     }
-    return res.status(200).send(article);
-}
+};
 
-exports.getArticles = async (req,res) => {
-    const articles = articleService.fetchArticles();
-    return res.status(200).send(articles);
-}
-
-
-exports.updateArticle = async (req,res) => {
+exports.deleteArticle = async (req, res) => {
     const id = req.params.id;
-    const {titre,contenu} = req.body;
-    articleService.updateArticle(id,titre,contenu,(error,data)=>{
-        if(error){
-            return res.status(500).send("Erreur");
-        }
+    try {
+        const data = await articleService.deleteArticle(id);
         return res.status(200).send(data);
-    });
-}
+    } catch (error) {
+        console.error("Error deleting article:", error);
+        return res.status(500).send("Erreur");
+    }
+};
+
+exports.getArticleById = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const article = await articleService.fetchSpecificArticle(id);
+        if (!article) {
+            return res.status(404).send("Article non trouvé");
+        }
+        return res.status(200).send(article);
+    } catch (error) {
+        console.error("Error fetching article by ID:", error);
+        return res.status(500).send("Erreur");
+    }
+};
+
+exports.getArticles = async (req, res) => {
+    try {
+        const articles = await articleService.fetchArticles();
+        return res.status(200).send(articles);
+    } catch (error) {
+        console.error("Error fetching articles:", error);
+        return res.status(500).send("Erreur");
+    }
+};
+
+exports.updateArticle = async (req, res) => {
+    const id = req.params.id;
+    const { nom, description, stocks, prix } = req.body;
+    try {
+        const data = await articleService.updateArticle(id, nom, description, stocks, prix);
+        return res.status(200).send(data);
+    } catch (error) {
+        console.error("Error updating article:", error);
+        return res.status(500).send("Erreur");
+    }
+};
