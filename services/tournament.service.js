@@ -1,85 +1,91 @@
-const fs = require('fs');
-const path = require('path');
-const chemin = path.join(__dirname,"../data","tournament.json");
-const uuid = require('uuid');
+const pool = require('../database/db');
 
-const createTournament = (nom,min,max,entree,debut,objet,callback) => {
-    let tournaments = [];
-    try{
-        const data = fs.readFileSync(chemin);
-        const dataStr = data.toString();
-        tournaments = JSON.parse(dataStr);
-    }catch(error){
-        console.log(error);
-        return callback(error);
-    }
 
-    const newTournament = {id: uuid.v4(), nom:nom, min:min, max:max, entree:entree, debut:debut, objet:objet};
-    tournaments.push(newTournament);
-
+const createTournament = async (nom, min, max, entree, debut, objet,nom_tournoi,description_tournoi, callback) => {
+    const client = await pool.connect();
+    const newTournament = {nom, min, max, entree, debut, objet };
     try {
-        fs.writeFileSync(chemin,JSON.stringify(tournaments));
-        return callback(null,"écriture réussie");
-    }catch (error){
+        const query = 'INSERT INTO tournoi (id_stand, participants_min, participants_max, prix_entree, heure_debut, objet_tournoi,nom_tournoi,description_tournoi) VALUES ($1, $2, $3, $4, $5, $6,$7,$8)';
+        const values = [newTournament.id, newTournament.nom, newTournament.min, newTournament.max, newTournament.entree, newTournament.debut, newTournament.objet,nom_tournoi,description_tournoi];
+        await client.query(query, values);
+        return callback(null, "écriture réussie");
+    } catch (error) {
         console.log(error);
         return callback(error);
+    } finally {
+        client.release();
     }
-}
+};
 
-
-const fetchTournaments = () => {
-    let tournaments = [];
-    try{
-        const data = fs.readFileSync(chemin);
-        const dataStr = data.toString();
-        tournaments = JSON.parse(dataStr);
-    }catch(error){
-        console.log(error);
-    }
-    return tournaments;
-}
-
-
-const fetchSpecificTournament = (id) => {
-    let tournaments = fetchTournaments();
-    let tournament = tournaments.find(tournament => tournament.id === id);
-    return tournament;
-}
-
-
-const deleteTournament = (id,callback) => {
-    let tournaments = fetchTournaments();
-    let tournament = tournaments.find(tournament => tournament.id === id);
-    if (!tournament) {
-        return callback("Tournoi non trouvé");
-    }
-    tournaments = tournaments.filter(tournament => tournament.id !== id);
+const fetchTournaments = async () => {
+    const client = await pool.connect();
     try {
-        fs.writeFileSync(chemin,JSON.stringify(tournaments));
-        return callback(null,"suppression réussie");
-    }catch (error){
+        const query = 'SELECT * FROM tournoi';
+        const result = await client.query(query);
+        return result.rows;
+    } catch (error) {
         console.log(error);
-        return callback(error);
+        return [];
+    } finally {
+        client.release();
     }
-}
+};
 
-
-const updateTournament = (id,nom,description,capacitee,callback) => {
-    let tournaments = fetchTournaments();
-    let tournament = tournaments.find(tournament => tournament.id === id);
-    if (!tournament) {
-        return callback("Tournoi non trouvé");
-    }
-    tournament.nom = nom;
-    tournament.description = description;
-    tournament.capacitee = capacitee;
+const fetchSpecificTournament = async (id) => {
+    const client = await pool.connect();
     try {
-        fs.writeFileSync(chemin,JSON.stringify(tournaments));
-        return callback(null,"mise à jour réussie");
-    }catch (error){
+        const query = 'SELECT * FROM tournoi WHERE id = $1';
+        const values = [id];
+        const result = await client.query(query, values);
+        return result.rows[0];
+    } catch (error) {
+        console.log(error);
+        return null;
+    } finally {
+        client.release();
+    }
+};
+
+const deleteTournament = async (id, callback) => {
+    const client = await pool.connect();
+    try {
+        const query = 'DELETE FROM tournoi WHERE id = $1 RETURNING *';
+        const values = [id];
+        const result = await client.query(query, values);
+        if (result.rowCount === 0) {
+            return callback("Tournoi non trouvé");
+        }
+        return callback(null, "suppression réussie");
+    } catch (error) {
         console.log(error);
         return callback(error);
+    } finally {
+        client.release();
     }
-}
+};
 
+const updateTournament = async (id, nom, description, heure_debut, callback) => {
+    const client = await pool.connect();
+    try {
+        const query = 'UPDATE tournoi SET nom_tournoi= $2, description_tournoi = $3, heure_debut = $4 WHERE id = $1 RETURNING *';
+        const values = [id, nom, description, heure_debut];
+        const result = await client.query(query, values);
+        if (result.rowCount === 0) {
+            return callback("Tournoi non trouvé");
+        }
+        return callback(null, "mise à jour réussie");
+    } catch (error) {
+        console.log(error);
+        return callback(error);
+    } finally {
+        client.release();
+    }
+};
 
+module.exports = {
+    createTournament,
+    fetchTournaments,
+    fetchSpecificTournament,
+    deleteTournament,
+    updateTournament
+};

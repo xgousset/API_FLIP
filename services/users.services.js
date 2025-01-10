@@ -1,7 +1,4 @@
-const fs = require('fs')
-const path = require('path')
-const chemin = path.join(__dirname, '../', 'data/users.json')
-const { v4: uuidv4 } = require('uuid')
+const pool = require('../database/db')
 const bcrypt = require('bcrypt')
 const saltRounds = 10;
 
@@ -9,83 +6,74 @@ const saltRounds = 10;
 //crypte un mot de passe avec bcrypt
 const createpassword = (password)=>{
     let passwordC = bcrypt.hash(password,saltRounds)
+    console.log(passwordC)
     return passwordC
 }
 
 
 
 //crée un nouvel utilisateur avec un nom, un prénom, un mot de passe et un email
-const createUser = (nom, prenom, email,password,autorisation, callback) => {
-    let users = []
+const createUser = async (nom, prenom, email, password, autorisation, callback) => {
+    const clients = await pool.connect()
     try {
-        const data = fs.readFileSync(chemin)
-        const dataStr = data.toString()
-        users = JSON.parse(dataStr)
+        const requete = 'INSERT INTO utilisateur (nom, prenom, mdp, email, niveau_autorisation, currentbasket) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *'
+        values = [nom, prenom, await bcrypt.hash(password,saltRounds), email, autorisation, null]
+        result = clients.query(requete, values)
+        return result.rows
     } catch (error) {
         console.log(error)
         return callback(error)
-    }
-
-    const newUser = { id: uuidv4(), nom: nom, prenom: prenom, email: email, autorisation:autorisation, password: createpassword(password) }
-    users.push(newUser)
-
-    try {
-        fs.writeFileSync(chemin, JSON.stringify(users))
-        return callback(null, "écriture réussie")
-    } catch (error) {
-        console.log(error)
-        return callback(error)
+    } finally {
+        clients.release()
     }
 }
 
-//prend une liste d'utilisateurs et renvoie tous les utilisateurs
-const fetchUsers = () => {
-    let users = [];
+//renvoie tous les utilisateurs
+const fetchUsers = async () =>  {
+    const clients = await pool.connect()
     try {
-        const data = fs.readFileSync(chemin);
-        const dataStr = data.toString();
-        users = JSON.parse(dataStr);
+        const result = await clients.query('SELECT * FROM utilisateur')
+        console.log(result.rows)
+        return result.rows
     } catch (error) {
-        console.log(error);
+        console.log(error)
+        return []
+    } finally {
+        clients.release()
     }
-    return users;
 }
 
 //sélectionne un utilisateur spécifique par son id à partir de la liste d'utilisateurs
-const fetchSpecificUser = (id) => {
-    let users = fetchUsers();
-    let user = users.find(user => user.id === id);
-    return user;
+const fetchSpecificUser = async (id) => {
+    const clients = await pool.connect()
+    try {
+        const result = clients.query('SELECT * FROM utilisateur WHERE id = $1', [id])
+        return result.rows[0]
+    } catch (error) {
+        console.log(error)
+        return null
+    } finally {
+        clients.release()
+    }
 }
 
 
 //supprime un utilisateur spécifique par son id à partir de la liste d'utilisateurs
-const deleteUser = (id, callback) => {
-    let users = fetchUsers();
-    let user = users.find(user => user.id === id);
-    if (!user) {
-        return callback("Utilisateur non trouvé");
-    }
-    users = users.filter(user => user.id !== id);
+const deleteUser = async (id) => {
+    const clients = await pool.connect()
     try {
-        fs.writeFileSync(chemin, JSON.stringify(users));
-        return callback(null, "Utilisateur supprimé");
+        const result = clients.query('DELETE FROM utilisateur WHERE id = $1 RETURNING *', [id])
+        if (result.rowCount === 0) {
+            return "Utilisateur non trouvé"
+        }
+        return "suppression réussie"
     } catch (error) {
-        console.log(error);
-        return callback(error);
+        console.log(error)
+        return (error)
+    } finally {
+        clients.release()
     }
 }
 
 
-const checkpassword = (password,uuid)=>{
-    let hash = fetchSpecificUser(uuid).password
-    return bcrypt.compare(password,hash)
-}
-
-
-const UserAttributesFetch = (uuid)=>{
-    let user = fetchSpecificUser(uuid)
-    return {nom:user.nom,prenom:user.prenom,email:user.email,password:user.password}
-}
-
-module.exports = { createUser, fetchUsers, fetchSpecificUser, deleteUser, checkpassword, UserAttributesFetch };
+module.exports = { createUser, fetchUsers, fetchSpecificUser, deleteUser};

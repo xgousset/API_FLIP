@@ -5,6 +5,8 @@ const prestataireRouter = require('./routes/prestataire.router');
 const emplacementRouter = require('./routes/emplacements.router');
 const gameRouter = require('./routes/games.router');
 const typeRouter = require('./routes/types.router');
+const basketOrderRouter = require('./routes/basketOrder.router');
+const tournamentRouter = require('./routes/tournament.router');
 
 const PORT = 3000;
 const app = express();
@@ -19,6 +21,8 @@ app.use("/api/prestataires", prestataireRouter);
 app.use("/api/emplacements", emplacementRouter);
 app.use("/api/games", gameRouter);
 app.use("/api/types", typeRouter);
+app.use("/api/basket", basketOrderRouter);
+app.use("/api/tournaments", tournamentRouter);
 
 const swaggerOption = {
     swaggerDefinition: (swaggerJsdoc.Options = {

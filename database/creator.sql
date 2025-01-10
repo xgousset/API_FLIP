@@ -40,7 +40,9 @@ CREATE TABLE IF NOT EXISTS tournoi (
     participants_max INTEGER,
     prix_entree NUMERIC,
     heure_debut TIMESTAMP,
-    objet_tournoi TEXT
+    objet_tournoi TEXT,
+    nom_tournoi VARCHAR(100),
+    description_tournoi TEXT
 );
 
 CREATE TABLE IF NOT EXISTS produit (
@@ -61,9 +63,10 @@ CREATE TABLE IF NOT EXISTS jeu (
 );
 
 CREATE TABLE IF NOT EXISTS panier (
-    id SERIAL PRIMARY KEY,
-    valeur_panier NUMERIC,
-    recuperation_panier TIMESTAMP
+      id SERIAL PRIMARY KEY,
+      valeur_panier NUMERIC DEFAULT 0,
+      recuperation_panier TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      paid BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE IF NOT EXISTS utilisateur (
@@ -71,12 +74,16 @@ CREATE TABLE IF NOT EXISTS utilisateur (
     nom VARCHAR(50) NOT NULL,
     prenom VARCHAR(50) NOT NULL,
     mdp VARCHAR(255) NOT NULL, -- Considérer un hachage pour la sécurité
-    email VARCHAR(100) UNIQUE,
-    niveau_autorisation INTEGER
+    email VARCHAR(100),
+    niveau_autorisation  INTEGER DEFAULT 0,
+    currentBasket INTEGER REFERENCES panier(id)
 );
 
+
 CREATE TABLE IF NOT EXISTS historique_commandes (
-    id SERIAL PRIMARY KEY
+    id SERIAL PRIMARY KEY,
+    id_panier INTEGER REFERENCES panier(id),
+    id_utilisateur INTEGER REFERENCES utilisateur(id)
 );
 
 -- Table pour gérer la relation entre produits et paniers (exemple de table intermédiaire)

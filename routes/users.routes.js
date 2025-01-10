@@ -3,11 +3,12 @@ const userController = require('../controller/users.controllers');
 const userMiddleware = require('../middlewares/users.middleware');
 var router = express.Router();
 
+router.post("/", userMiddleware.validateUser, userController.saveUser);
 /**
  * @swagger
  * /api/users:
  *   post:
- *     description: Used to create a new user
+ *     description: Create a new user
  *     tags:
  *       - users
  *     parameters:
@@ -41,18 +42,16 @@ var router = express.Router();
  *     responses:
  *       '200':
  *         description: User created successfully
- *       '400':
- *         description: Bad request
  *       '500':
  *         description: Internal server error
  */
-router.post("/", userMiddleware.validateUser, userController.saveUser);
 
+router.get("/", userController.getUsers);
 /**
  * @swagger
  * /api/users:
  *   get:
- *     description: Used to get all users
+ *     description: Retrieve all users
  *     tags:
  *       - users
  *     responses:
@@ -61,13 +60,13 @@ router.post("/", userMiddleware.validateUser, userController.saveUser);
  *       '500':
  *         description: Internal server error
  */
-router.get("/", userController.getUsers);
 
+router.get("/:id", userController.getUserById);
 /**
  * @swagger
  * /api/users/{id}:
  *   get:
- *     description: Used to get a user by ID
+ *     description: Retrieve a user by ID
  *     tags:
  *       - users
  *     parameters:
@@ -85,13 +84,13 @@ router.get("/", userController.getUsers);
  *       '500':
  *         description: Internal server error
  */
-router.get("/:id", userController.getUserById);
 
+router.get("/:id/check-password", userController.checkPassword);
 /**
  * @swagger
  * /api/users/{id}/check-password:
  *   get:
- *     description: Used to check the password of a user by ID
+ *     description: Check the password of a user by ID
  *     tags:
  *       - users
  *     parameters:
@@ -101,38 +100,91 @@ router.get("/:id", userController.getUserById);
  *         description: ID of the user to check password
  *         schema:
  *           type: string
+ *       - in: body
+ *         name: password
+ *         required: true
+ *         schema:
+ *           type: object
+ *           properties:
+ *             password:
+ *               type: string
+ *               example: "password"
  *     responses:
  *       '200':
  *         description: Password checked successfully
+ *       '401':
+ *         description: Incorrect password
  *       '404':
  *         description: User not found
  *       '500':
  *         description: Internal server error
  */
-router.get("/:id/check-password", userController.checkPassword);
 
+router.put("/updateUser/:id", userController.updateUser);
 /**
  * @swagger
- * /api/users/{id}/attributes:
- *   get:
- *     description: Used to get attributes of a user by ID
+ * /api/users/{id}:
+ *   put:
+ *     description: Update a user by ID
  *     tags:
  *       - users
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
- *         description: ID of the user to get attributes
+ *         description: ID of the user to update
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - nom
+ *               - prenom
+ *               - email
+ *               - password
+ *               - autorisation
+ *             properties:
+ *               nom:
+ *                 type: string
+ *               prenom:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *               autorisation:
+ *                 type: integer
+ *     responses:
+ *       '200':
+ *         description: User updated successfully
+ *       '500':
+ *         description: Internal server error
+ */
+
+router.delete("/:id", userController.deleteUser);
+/**
+ * @swagger
+ * /api/users/{id}:
+ *   delete:
+ *     description: Delete a user by ID
+ *     tags:
+ *       - users
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: ID of the user to delete
  *         schema:
  *           type: string
  *     responses:
  *       '200':
- *         description: Successfully retrieved user attributes
- *       '404':
- *         description: User not found
+ *         description: User deleted successfully
  *       '500':
  *         description: Internal server error
  */
-router.get("/:id/attributes", userController.getUsersAttributes);
 
 module.exports = router;
