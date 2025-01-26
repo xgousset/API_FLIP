@@ -7,12 +7,23 @@ const gameRouter = require('./routes/games.router');
 const typeRouter = require('./routes/types.router');
 const basketOrderRouter = require('./routes/basketOrder.router');
 const tournamentRouter = require('./routes/tournament.router');
+const sessionRouter = require('./routes/session.routes');
 
 const PORT = 3000;
 const app = express();
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 
+
+// systeme de gestion de session
+
+const session = require('express-session');
+app.use(session({
+    secret : 'secret',
+    resave : false,
+    saveUninitialized : true,
+    cookie : {secure : false}
+}));
 // Middleware traitement JSON
 app.use(express.json());
 app.use("/api/users", userRouter);
@@ -23,6 +34,7 @@ app.use("/api/games", gameRouter);
 app.use("/api/types", typeRouter);
 app.use("/api/basket", basketOrderRouter);
 app.use("/api/tournaments", tournamentRouter);
+app.use("/api/session", sessionRouter);
 
 const swaggerOption = {
     swaggerDefinition: (swaggerJsdoc.Options = {
