@@ -35,6 +35,7 @@ app.use("/api/types", typeRouter);
 app.use("/api/basket", basketOrderRouter);
 app.use("/api/tournaments", tournamentRouter);
 app.use("/api/session", sessionRouter);
+app.use("/api/inscription", require('./routes/inscription.router'));
 
 const swaggerOption = {
     swaggerDefinition: (swaggerJsdoc.Options = {

@@ -8,6 +8,8 @@ DROP TABLE IF EXISTS panier CASCADE;
 DROP TABLE IF EXISTS utilisateur CASCADE;
 DROP TABLE IF EXISTS historique_commandes CASCADE;
 DROP TABLE IF EXISTS panier_produit CASCADE;
+DROP TABLE IF EXISTS edition_tournoi CASCADE;
+DROP TABLE IF EXISTS inscription CASCADE;
 
 
 CREATE TABLE IF NOT EXISTS emplacement (
@@ -94,6 +96,19 @@ CREATE TABLE IF NOT EXISTS panier_produit (
     quantite INTEGER
 );
 
+CREATE TABLE IF NOT EXISTS edition_tournoi (
+    id SERIAL PRIMARY KEY,
+    id_tournoi INTEGER REFERENCES tournoi(id),
+    capacitee INTEGER,
+    date_edition TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS inscription (
+     id SERIAL PRIMARY KEY,
+    id_utilisateur INTEGER REFERENCES utilisateur(id),
+    id_edition_tournoi INTEGER REFERENCES edition_tournoi(id),
+    date_inscription TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
 -- Insert emplacements
 INSERT INTO emplacement (coordonnees_x, coordonnees_y, reserve) VALUES (10.5, 20.3, FALSE);
