@@ -121,5 +121,10 @@ INSERT INTO types_stand (intitule, peutReserver,peutVendre,peutAnimer) VALUES ('
 INSERT INTO types_stand (intitule, peutReserver,peutVendre,peutAnimer) VALUES ('Merchandise Stand', true, true, false);
 
 
+
 -- Insert stands
 INSERT INTO stand (nom_stand, id_type, id_emplacement, description) VALUES ('Food Stand 1', 1, 1, 'Sells various food items');
+INSERT INTO stand (nom_stand, id_type, id_emplacement, description) VALUES ('Tournoi Stand 1', 2, 3, 'Sells various game items');
+-- Insert tournoi
+INSERT INTO tournoi(id_stand, participants_min, participants_max, prix_entree, heure_debut, objet_tournoi, nom_tournoi, description_tournoi)
+VALUES (2, 1, 3, 12.00, '2025-03-14 10:30:00', 'un tournoi', 'tournoi 1', 'un tournoi');

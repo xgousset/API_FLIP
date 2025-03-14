@@ -12,11 +12,10 @@ router.post("/", tournamentMiddleware.validateTournament, tournamentController.s
  *     tags:
  *       - tournaments
  *     parameters:
- *     - in: body
- *       required: true
- *       content:
- *         application/json:
- *           schema:
+ *       - in: body
+ *         name: tournament
+ *         description: Tournament data to create a new tournament
+ *         schema:
  *             type: object
  *             required:
  *               - id_stand
@@ -44,13 +43,13 @@ router.post("/", tournamentMiddleware.validateTournament, tournamentController.s
  *               heure_debut:
  *                 type: string
  *                 format: time
- *                 example: "14:00:00"
+ *                 example: "2025-01-14 14:00:00"
  *               objet_tournoi:
  *                 type: string
  *                 example: "Jeu de cartes"
  *               nom_tournoi:
  *                 type: string
- *                 example: "Tournoi d'été"
+ *                 example: "Tournoi de carte"
  *               description_tournoi:
  *                 type: string
  *                 example: "Tournoi annuel pour les amateurs de cartes."

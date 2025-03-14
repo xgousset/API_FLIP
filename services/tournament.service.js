@@ -1,12 +1,12 @@
 const pool = require('../database/db');
 
 
-const createTournament = async (nom, min, max, entree, debut, objet,nom_tournoi,description_tournoi, callback) => {
+const createTournament = async (nom_stand, min, max, entree, debut, objet,nom,description, callback) => {
     const client = await pool.connect();
-    const newTournament = {nom, min, max, entree, debut, objet };
+    const newTournament = {nom_stand, min, max, entree, debut, objet, nom, description };
     try {
         const query = 'INSERT INTO tournoi (id_stand, participants_min, participants_max, prix_entree, heure_debut, objet_tournoi,nom_tournoi,description_tournoi) VALUES ($1, $2, $3, $4, $5, $6,$7,$8)';
-        const values = [newTournament.id, newTournament.nom, newTournament.min, newTournament.max, newTournament.entree, newTournament.debut, newTournament.objet,nom_tournoi,description_tournoi];
+        const values = [newTournament.nom_stand, newTournament.min, newTournament.max, newTournament.entree, newTournament.debut, newTournament.objet,newTournament.nom,newTournament.description];
         await client.query(query, values);
         return callback(null, "écriture réussie");
     } catch (error) {

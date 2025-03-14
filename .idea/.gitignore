@@ -3,3 +3,7 @@
 /workspace.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+/nodes_modules/
+
+.env.local
+.env.*.local

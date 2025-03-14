@@ -1,9 +1,9 @@
 const pool = require('../database/db');
 
 exports.validateTournament = async (req, res, next) => {
-    const { nom, description, capacitee } = req.body;
+    const { nom_tournoi, description_tournoi, capacitee } = req.body;
 
-    if (!nom || !description) {
+    if (!nom_tournoi || !description_tournoi) {
         return res.status(400).send("Nom et description sont obligatoires");
     }
 
@@ -14,7 +14,7 @@ exports.validateTournament = async (req, res, next) => {
     try {
         const client = await pool.connect();
         const query = 'SELECT COUNT(*) FROM tournoi WHERE nom_tournoi = $1';
-        const values = [nom];
+        const values = [nom_tournoi];
         const result = await client.query(query, values);
 
         if (parseInt(result.rows[0].count) > 0) {
