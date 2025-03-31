@@ -1,9 +1,10 @@
 const express = require('express');
 const prestataireController = require('../controller/prestataire.controller');
 const prestataireMiddleware = require('../middlewares/prestataire.middleware');
+const { uploadStand } = require('../middlewares/upload');
 var router = express.Router();
 
-router.post("/", prestataireMiddleware.validatePrestataire, prestataireController.savePrestataire);
+router.post("/", uploadStand.single('image') , prestataireMiddleware.validatePrestataire, prestataireController.savePrestataire);
 /**
  * @swagger
  * /api/prestataires:
@@ -145,7 +146,7 @@ router.get("/:id", prestataireController.getPrestataireById);
  *         description: Internal server error
  */
 
-router.put("/:id", prestataireMiddleware.validatePrestataire, prestataireController.updatePrestataire);
+router.put("/:id",uploadStand.single('image') , prestataireMiddleware.validatePrestataire, prestataireController.updatePrestataire);
 /**
  * @swagger
  * /api/prestataires/{id}:

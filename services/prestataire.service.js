@@ -2,12 +2,12 @@ const pool = require('../database/db');
 const { v4: uuidv4 } = require('uuid');
 
 // Create a new prestataire with a name, type, and emplacement
-const createPrestataire = async (nom, type, emplacement, description) => {
+const createPrestataire = async (nom, type, emplacement, description, image_path) => {
     const client = await pool.connect();
     try {
         console.log(nom, type, emplacement,description);
-        const query = 'INSERT INTO stand (nom_stand, id_type, id_emplacement,description) VALUES ($1, $2, $3, $4) RETURNING *';
-        const values = [nom, type, emplacement,description];
+        const query = 'INSERT INTO stand (nom_stand, id_type, id_emplacement,description, image_path) VALUES ($1, $2, $3, $4, $5) RETURNING *';
+        const values = [nom, type, emplacement,description, image_path];
         const result = await client.query(query, values);
         return result.rows[0];
     } catch (error) {
@@ -70,11 +70,11 @@ const deletePrestataire = async (id) => {
 };
 
 // Update a specific prestataire by its id
-const updatePrestataire = async (id, nom, type, emplacement,description) => {
+const updatePrestataire = async (id, nom, type, emplacement,description, image_path) => {
     const client = await pool.connect();
     try {
-        const query = 'UPDATE stand SET nom_stand = $1, id_type = $2, id_emplacement = $3, description = $4 WHERE id = $5 RETURNING *';
-        const values = [nom, type, emplacement,description, id];
+        const query = 'UPDATE stand SET nom_stand = $1, id_type = $2, id_emplacement = $3, description = $4, image_path = $5 WHERE id = $6 RETURNING *';
+        const values = [nom, type, emplacement,description, image_path, id];
         const result = await client.query(query, values);
         if (result.rowCount === 0) {
             return "Prestataire non trouvé";

@@ -3,17 +3,9 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>dmy</DateStyle>
-      <Grants>1||-9223372036854775808|c|G
-1||10|c|G
-1||10|C|G
-1||10|T|G
-4||-9223372036854775808|c|G
-4||10|c|G
-4||10|C|G
-4||10|T|G</Grants>
-      <IntrospectionStateNumber>1268</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1399</IntrospectionStateNumber>
       <ServerVersion>17.2</ServerVersion>
-      <StartupTime>1739265423</StartupTime>
+      <StartupTime>1743005137</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -55,14 +47,14 @@ false Africa/Blantyre
 false Africa/Brazzaville
 false Africa/Bujumbura
 false Africa/Cairo
-false Africa/Casablanca
-false Africa/Ceuta
+true Africa/Casablanca
+true Africa/Ceuta
 false Africa/Conakry
 false Africa/Dakar
 false Africa/Dar_es_Salaam
 false Africa/Djibouti
 false Africa/Douala
-false Africa/El_Aaiun
+true Africa/El_Aaiun
 false Africa/Freetown
 false Africa/Gaborone
 false Africa/Harare
@@ -95,8 +87,8 @@ false Africa/Timbuktu
 false Africa/Tripoli
 false Africa/Tunis
 false Africa/Windhoek
-false America/Adak
-false America/Anchorage
+true America/Adak
+true America/Anchorage
 false America/Anguilla
 false America/Antigua
 false America/Araguaina
@@ -114,9 +106,9 @@ false America/Argentina/San_Luis
 false America/Argentina/Tucuman
 false America/Argentina/Ushuaia
 false America/Aruba
-true America/Asuncion
+false America/Asuncion
 false America/Atikokan
-false America/Atka
+true America/Atka
 false America/Bahia
 false America/Bahia_Banderas
 false America/Barbados
@@ -125,18 +117,18 @@ false America/Belize
 false America/Blanc-Sablon
 false America/Boa_Vista
 false America/Bogota
-false America/Boise
+true America/Boise
 false America/Buenos_Aires
-false America/Cambridge_Bay
+true America/Cambridge_Bay
 false America/Campo_Grande
 false America/Cancun
 false America/Caracas
 false America/Catamarca
 false America/Cayenne
 false America/Cayman
-false America/Chicago
+true America/Chicago
 false America/Chihuahua
-false America/Ciudad_Juarez
+true America/Ciudad_Juarez
 false America/Coral_Harbour
 false America/Cordoba
 false America/Costa_Rica
@@ -146,123 +138,123 @@ false America/Curacao
 false America/Danmarkshavn
 false America/Dawson
 false America/Dawson_Creek
-false America/Denver
-false America/Detroit
+true America/Denver
+true America/Detroit
 false America/Dominica
-false America/Edmonton
+true America/Edmonton
 false America/Eirunepe
 false America/El_Salvador
-false America/Ensenada
+true America/Ensenada
 false America/Fort_Nelson
-false America/Fort_Wayne
+true America/Fort_Wayne
 false America/Fortaleza
-false America/Glace_Bay
-false America/Godthab
-false America/Goose_Bay
-false America/Grand_Turk
+true America/Glace_Bay
+true America/Godthab
+true America/Goose_Bay
+true America/Grand_Turk
 false America/Grenada
 false America/Guadeloupe
 false America/Guatemala
 false America/Guayaquil
 false America/Guyana
-false America/Halifax
-false America/Havana
+true America/Halifax
+true America/Havana
 false America/Hermosillo
-false America/Indiana/Indianapolis
-false America/Indiana/Knox
-false America/Indiana/Marengo
-false America/Indiana/Petersburg
-false America/Indiana/Tell_City
-false America/Indiana/Vevay
-false America/Indiana/Vincennes
-false America/Indiana/Winamac
-false America/Indianapolis
-false America/Inuvik
-false America/Iqaluit
+true America/Indiana/Indianapolis
+true America/Indiana/Knox
+true America/Indiana/Marengo
+true America/Indiana/Petersburg
+true America/Indiana/Tell_City
+true America/Indiana/Vevay
+true America/Indiana/Vincennes
+true America/Indiana/Winamac
+true America/Indianapolis
+true America/Inuvik
+true America/Iqaluit
 false America/Jamaica
 false America/Jujuy
-false America/Juneau
-false America/Kentucky/Louisville
-false America/Kentucky/Monticello
-false America/Knox_IN
+true America/Juneau
+true America/Kentucky/Louisville
+true America/Kentucky/Monticello
+true America/Knox_IN
 false America/Kralendijk
 false America/La_Paz
 false America/Lima
-false America/Los_Angeles
-false America/Louisville
+true America/Los_Angeles
+true America/Louisville
 false America/Lower_Princes
 false America/Maceio
 false America/Managua
 false America/Manaus
 false America/Marigot
 false America/Martinique
-false America/Matamoros
+true America/Matamoros
 false America/Mazatlan
 false America/Mendoza
-false America/Menominee
+true America/Menominee
 false America/Merida
-false America/Metlakatla
+true America/Metlakatla
 false America/Mexico_City
-false America/Miquelon
-false America/Moncton
+true America/Miquelon
+true America/Moncton
 false America/Monterrey
 false America/Montevideo
-false America/Montreal
+true America/Montreal
 false America/Montserrat
-false America/Nassau
-false America/New_York
-false America/Nipigon
-false America/Nome
+true America/Nassau
+true America/New_York
+true America/Nipigon
+true America/Nome
 false America/Noronha
-false America/North_Dakota/Beulah
-false America/North_Dakota/Center
-false America/North_Dakota/New_Salem
-false America/Nuuk
-false America/Ojinaga
+true America/North_Dakota/Beulah
+true America/North_Dakota/Center
+true America/North_Dakota/New_Salem
+true America/Nuuk
+true America/Ojinaga
 false America/Panama
-false America/Pangnirtung
+true America/Pangnirtung
 false America/Paramaribo
 false America/Phoenix
-false America/Port-au-Prince
+true America/Port-au-Prince
 false America/Port_of_Spain
 false America/Porto_Acre
 false America/Porto_Velho
 false America/Puerto_Rico
 false America/Punta_Arenas
-false America/Rainy_River
-false America/Rankin_Inlet
+true America/Rainy_River
+true America/Rankin_Inlet
 false America/Recife
 false America/Regina
-false America/Resolute
+true America/Resolute
 false America/Rio_Branco
 false America/Rosario
-false America/Santa_Isabel
+true America/Santa_Isabel
 false America/Santarem
 true America/Santiago
 false America/Santo_Domingo
 false America/Sao_Paulo
-false America/Scoresbysund
-false America/Shiprock
-false America/Sitka
+true America/Scoresbysund
+true America/Shiprock
+true America/Sitka
 false America/St_Barthelemy
-false America/St_Johns
+true America/St_Johns
 false America/St_Kitts
 false America/St_Lucia
 false America/St_Thomas
 false America/St_Vincent
 false America/Swift_Current
 false America/Tegucigalpa
-false America/Thule
-false America/Thunder_Bay
-false America/Tijuana
-false America/Toronto
+true America/Thule
+true America/Thunder_Bay
+true America/Tijuana
+true America/Toronto
 false America/Tortola
-false America/Vancouver
+true America/Vancouver
 false America/Virgin
 false America/Whitehorse
-false America/Winnipeg
-false America/Yakutat
-false America/Yellowknife
+true America/Winnipeg
+true America/Yakutat
+true America/Yellowknife
 false Antarctica/Casey
 false Antarctica/Davis
 false Antarctica/DumontDUrville
@@ -273,9 +265,9 @@ false Antarctica/Palmer
 false Antarctica/Rothera
 true Antarctica/South_Pole
 false Antarctica/Syowa
-false Antarctica/Troll
+true Antarctica/Troll
 false Antarctica/Vostok
-false Arctic/Longyearbyen
+true Arctic/Longyearbyen
 false Asia/Aden
 false Asia/Almaty
 false Asia/Amman
@@ -290,7 +282,7 @@ false Asia/Bahrain
 false Asia/Baku
 false Asia/Bangkok
 false Asia/Barnaul
-false Asia/Beirut
+true Asia/Beirut
 false Asia/Bishkek
 false Asia/Brunei
 false Asia/Calcutta
@@ -305,7 +297,7 @@ false Asia/Dhaka
 false Asia/Dili
 false Asia/Dubai
 false Asia/Dushanbe
-false Asia/Famagusta
+true Asia/Famagusta
 false Asia/Gaza
 false Asia/Harbin
 false Asia/Hebron
@@ -316,7 +308,7 @@ false Asia/Irkutsk
 false Asia/Istanbul
 false Asia/Jakarta
 false Asia/Jayapura
-false Asia/Jerusalem
+true Asia/Jerusalem
 false Asia/Kabul
 false Asia/Kamchatka
 false Asia/Karachi
@@ -335,7 +327,7 @@ false Asia/Magadan
 false Asia/Makassar
 false Asia/Manila
 false Asia/Muscat
-false Asia/Nicosia
+true Asia/Nicosia
 false Asia/Novokuznetsk
 false Asia/Novosibirsk
 false Asia/Omsk
@@ -359,7 +351,7 @@ false Asia/Taipei
 false Asia/Tashkent
 false Asia/Tbilisi
 false Asia/Tehran
-false Asia/Tel_Aviv
+true Asia/Tel_Aviv
 false Asia/Thimbu
 false Asia/Thimphu
 false Asia/Tokyo
@@ -375,14 +367,14 @@ false Asia/Yakutsk
 false Asia/Yangon
 false Asia/Yekaterinburg
 false Asia/Yerevan
-false Atlantic/Azores
-false Atlantic/Bermuda
-false Atlantic/Canary
+true Atlantic/Azores
+true Atlantic/Bermuda
+true Atlantic/Canary
 false Atlantic/Cape_Verde
-false Atlantic/Faeroe
-false Atlantic/Faroe
-false Atlantic/Jan_Mayen
-false Atlantic/Madeira
+true Atlantic/Faeroe
+true Atlantic/Faroe
+true Atlantic/Jan_Mayen
+true Atlantic/Madeira
 false Atlantic/Reykjavik
 false Atlantic/South_Georgia
 false Atlantic/St_Helena
@@ -439,19 +431,19 @@ true CLST
 true CLT
 false COT
 false CST
-false CST6CDT
+true CST6CDT
 false CXT
-false Canada/Atlantic
-false Canada/Central
-false Canada/Eastern
-false Canada/Mountain
-false Canada/Newfoundland
-false Canada/Pacific
+true Canada/Atlantic
+true Canada/Central
+true Canada/Eastern
+true Canada/Mountain
+true Canada/Newfoundland
+true Canada/Pacific
 false Canada/Saskatchewan
 false Canada/Yukon
 true Chile/Continental
 true Chile/EasterIsland
-false Cuba
+true Cuba
 false DAVT
 false DDUT
 true EASST
@@ -464,9 +456,9 @@ true EETDST
 true EGST
 false EGT
 false EST
-false EST5EDT
+true EST5EDT
 false Egypt
-true Eire
+false Eire
 false Etc/GMT
 false Etc/GMT+0
 false Etc/GMT+1
@@ -502,70 +494,70 @@ false Etc/UCT
 false Etc/UTC
 false Etc/Universal
 false Etc/Zulu
-false Europe/Amsterdam
-false Europe/Andorra
+true Europe/Amsterdam
+true Europe/Andorra
 false Europe/Astrakhan
-false Europe/Athens
-false Europe/Belfast
-false Europe/Belgrade
-false Europe/Berlin
-false Europe/Bratislava
-false Europe/Brussels
-false Europe/Bucharest
-false Europe/Budapest
-false Europe/Busingen
-false Europe/Chisinau
-false Europe/Copenhagen
-true Europe/Dublin
-false Europe/Gibraltar
-false Europe/Guernsey
-false Europe/Helsinki
-false Europe/Isle_of_Man
+true Europe/Athens
+true Europe/Belfast
+true Europe/Belgrade
+true Europe/Berlin
+true Europe/Bratislava
+true Europe/Brussels
+true Europe/Bucharest
+true Europe/Budapest
+true Europe/Busingen
+true Europe/Chisinau
+true Europe/Copenhagen
+false Europe/Dublin
+true Europe/Gibraltar
+true Europe/Guernsey
+true Europe/Helsinki
+true Europe/Isle_of_Man
 false Europe/Istanbul
-false Europe/Jersey
+true Europe/Jersey
 false Europe/Kaliningrad
-false Europe/Kiev
+true Europe/Kiev
 false Europe/Kirov
-false Europe/Kyiv
-false Europe/Lisbon
-false Europe/Ljubljana
-false Europe/London
-false Europe/Luxembourg
-false Europe/Madrid
-false Europe/Malta
-false Europe/Mariehamn
+true Europe/Kyiv
+true Europe/Lisbon
+true Europe/Ljubljana
+true Europe/London
+true Europe/Luxembourg
+true Europe/Madrid
+true Europe/Malta
+true Europe/Mariehamn
 false Europe/Minsk
-false Europe/Monaco
+true Europe/Monaco
 false Europe/Moscow
-false Europe/Nicosia
-false Europe/Oslo
-false Europe/Paris
-false Europe/Podgorica
-false Europe/Prague
-false Europe/Riga
-false Europe/Rome
+true Europe/Nicosia
+true Europe/Oslo
+true Europe/Paris
+true Europe/Podgorica
+true Europe/Prague
+true Europe/Riga
+true Europe/Rome
 false Europe/Samara
-false Europe/San_Marino
-false Europe/Sarajevo
+true Europe/San_Marino
+true Europe/Sarajevo
 false Europe/Saratov
 false Europe/Simferopol
-false Europe/Skopje
-false Europe/Sofia
-false Europe/Stockholm
-false Europe/Tallinn
-false Europe/Tirane
-false Europe/Tiraspol
+true Europe/Skopje
+true Europe/Sofia
+true Europe/Stockholm
+true Europe/Tallinn
+true Europe/Tirane
+true Europe/Tiraspol
 false Europe/Ulyanovsk
-false Europe/Uzhgorod
-false Europe/Vaduz
-false Europe/Vatican
-false Europe/Vienna
-false Europe/Vilnius
+true Europe/Uzhgorod
+true Europe/Vaduz
+true Europe/Vatican
+true Europe/Vienna
+true Europe/Vilnius
 false Europe/Volgograd
-false Europe/Warsaw
-false Europe/Zagreb
-false Europe/Zaporozhye
-false Europe/Zurich
+true Europe/Warsaw
+true Europe/Zagreb
+true Europe/Zaporozhye
+true Europe/Zurich
 false FET
 true FJST
 false FJT
@@ -576,8 +568,8 @@ false FNT
 false Factory
 false GALT
 false GAMT
-false GB
-false GB-Eire
+true GB
+true GB-Eire
 false GEST
 false GET
 false GFT
@@ -611,7 +603,7 @@ false Indian/Mauritius
 false Indian/Mayotte
 false Indian/Reunion
 false Iran
-false Israel
+true Israel
 false JAYT
 false JST
 false Jamaica
@@ -637,7 +629,7 @@ false MAWT
 true MDT
 true MEST
 true MESZ
-false MET
+true MET
 true METDST
 false MEZ
 false MHT
@@ -646,12 +638,12 @@ false MPT
 true MSD
 false MSK
 false MST
-false MST7MDT
+true MST7MDT
 true MUST
 false MUT
 false MVT
 false MYT
-false Mexico/BajaNorte
+true Mexico/BajaNorte
 false Mexico/BajaSur
 false Mexico/General
 true NDT
@@ -666,7 +658,7 @@ true NZ-CHAT
 true NZDT
 false NZST
 false NZT
-false Navajo
+true Navajo
 false OMSST
 false OMST
 true PDT
@@ -682,10 +674,10 @@ false PMST
 false PONT
 false PRC
 false PST
-false PST8PDT
+true PST8PDT
 false PWT
 true PYST
-true PYT
+false PYT
 false Pacific/Apia
 true Pacific/Auckland
 false Pacific/Bougainville
@@ -730,8 +722,8 @@ false Pacific/Truk
 false Pacific/Wake
 false Pacific/Wallis
 false Pacific/Yap
-false Poland
-false Portugal
+true Poland
+true Portugal
 false RET
 false ROC
 false ROK
@@ -752,17 +744,17 @@ false Turkey
 false UCT
 true ULAST
 false ULAT
-false US/Alaska
-false US/Aleutian
+true US/Alaska
+true US/Aleutian
 false US/Arizona
-false US/Central
-false US/East-Indiana
-false US/Eastern
+true US/Central
+true US/East-Indiana
+true US/Eastern
 false US/Hawaii
-false US/Indiana-Starke
-false US/Michigan
-false US/Mountain
-false US/Pacific
+true US/Indiana-Starke
+true US/Michigan
+true US/Mountain
+true US/Pacific
 false US/Samoa
 false UT
 false UTC
@@ -782,7 +774,7 @@ false WAKT
 false WAST
 false WAT
 true WDT
-false WET
+true WET
 true WETDST
 false WFT
 true WGST
@@ -812,7 +804,7 @@ false Zulu
 14704||10|C|G
 14704||-9223372036854775808|U|G
 14704||10|U|G</Grants>
-      <IntrospectionStateNumber>1268</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1399</IntrospectionStateNumber>
       <ObjectId>16389</ObjectId>
       <OwnerName>flipper</OwnerName>
     </database>
@@ -4247,177 +4239,177 @@ false Zulu
     <schema id="268" parent="3" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>1268</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2025-02-13.14:23:03</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>1399</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2025-03-31.19:30:03</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>532</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
     <sequence id="269" parent="268" name="edition_tournoi_id_seq">
-      <ObjectId>18032</ObjectId>
+      <ObjectId>18524</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1259</StateNumber>
+      <StateNumber>1388</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="270" parent="268" name="emplacement_id_seq">
-      <ObjectId>17899</ObjectId>
+      <ObjectId>18391</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1249</StateNumber>
+      <StateNumber>1378</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="271" parent="268" name="historique_commandes_id_seq">
-      <ObjectId>17998</ObjectId>
+      <ObjectId>18490</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1257</StateNumber>
+      <StateNumber>1386</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="272" parent="268" name="inscription_id_seq">
-      <ObjectId>18044</ObjectId>
+      <ObjectId>18536</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1260</StateNumber>
+      <StateNumber>1389</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="273" parent="268" name="jeu_id_seq">
-      <ObjectId>17961</ObjectId>
+      <ObjectId>18453</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1254</StateNumber>
+      <StateNumber>1383</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="274" parent="268" name="panier_id_seq">
-      <ObjectId>17973</ObjectId>
+      <ObjectId>18465</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1255</StateNumber>
+      <StateNumber>1384</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="275" parent="268" name="panier_produit_id_seq">
-      <ObjectId>18015</ObjectId>
+      <ObjectId>18507</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1258</StateNumber>
+      <StateNumber>1387</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="276" parent="268" name="produit_id_seq">
-      <ObjectId>17952</ObjectId>
+      <ObjectId>18444</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1253</StateNumber>
+      <StateNumber>1382</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="277" parent="268" name="stand_id_seq">
-      <ObjectId>17919</ObjectId>
+      <ObjectId>18411</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1251</StateNumber>
+      <StateNumber>1380</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="278" parent="268" name="tournoi_id_seq">
-      <ObjectId>17938</ObjectId>
+      <ObjectId>18430</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1252</StateNumber>
+      <StateNumber>1381</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="279" parent="268" name="types_stand_id_seq">
-      <ObjectId>17909</ObjectId>
+      <ObjectId>18401</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1250</StateNumber>
+      <StateNumber>1379</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="280" parent="268" name="utilisateur_id_seq">
-      <ObjectId>17985</ObjectId>
+      <ObjectId>18477</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1256</StateNumber>
+      <StateNumber>1385</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <table id="281" parent="268" name="edition_tournoi">
-      <ObjectId>18033</ObjectId>
-      <StateNumber>1259</StateNumber>
+      <ObjectId>18525</ObjectId>
+      <StateNumber>1388</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="282" parent="268" name="emplacement">
-      <ObjectId>17900</ObjectId>
-      <StateNumber>1251</StateNumber>
+      <ObjectId>18392</ObjectId>
+      <StateNumber>1380</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="283" parent="268" name="historique_commandes">
-      <ObjectId>17999</ObjectId>
-      <StateNumber>1257</StateNumber>
+      <ObjectId>18491</ObjectId>
+      <StateNumber>1386</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="284" parent="268" name="inscription">
-      <ObjectId>18045</ObjectId>
-      <StateNumber>1260</StateNumber>
+      <ObjectId>18537</ObjectId>
+      <StateNumber>1389</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="285" parent="268" name="jeu">
-      <ObjectId>17962</ObjectId>
-      <StateNumber>1254</StateNumber>
+      <ObjectId>18454</ObjectId>
+      <StateNumber>1383</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="286" parent="268" name="panier">
-      <ObjectId>17974</ObjectId>
-      <StateNumber>1256</StateNumber>
+      <ObjectId>18466</ObjectId>
+      <StateNumber>1385</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="287" parent="268" name="panier_produit">
-      <ObjectId>18016</ObjectId>
-      <StateNumber>1258</StateNumber>
+      <ObjectId>18508</ObjectId>
+      <StateNumber>1387</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="288" parent="268" name="produit">
-      <ObjectId>17953</ObjectId>
-      <StateNumber>1254</StateNumber>
+      <ObjectId>18445</ObjectId>
+      <StateNumber>1383</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="289" parent="268" name="stand">
-      <ObjectId>17920</ObjectId>
-      <StateNumber>1251</StateNumber>
+      <ObjectId>18412</ObjectId>
+      <StateNumber>1380</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="290" parent="268" name="tournoi">
-      <ObjectId>17939</ObjectId>
-      <StateNumber>1252</StateNumber>
+      <ObjectId>18431</ObjectId>
+      <StateNumber>1381</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="291" parent="268" name="types_stand">
-      <ObjectId>17910</ObjectId>
-      <StateNumber>1251</StateNumber>
+      <ObjectId>18402</ObjectId>
+      <StateNumber>1380</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="292" parent="268" name="utilisateur">
-      <ObjectId>17986</ObjectId>
-      <StateNumber>1256</StateNumber>
+      <ObjectId>18478</ObjectId>
+      <StateNumber>1385</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
@@ -4425,695 +4417,719 @@ false Zulu
       <DefaultExpression>nextval(&apos;edition_tournoi_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1259</StateNumber>
+      <StateNumber>1388</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>18032</SequenceId>
+      <SequenceId>18524</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="294" parent="281" name="id_tournoi">
       <Position>2</Position>
-      <StateNumber>1259</StateNumber>
+      <StateNumber>1388</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="295" parent="281" name="capacitee">
       <Position>3</Position>
-      <StateNumber>1259</StateNumber>
+      <StateNumber>1388</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="296" parent="281" name="date_edition">
       <Position>4</Position>
-      <StateNumber>1259</StateNumber>
+      <StateNumber>1388</StateNumber>
       <StoredType>timestamp|0s</StoredType>
       <TypeId>1114</TypeId>
     </column>
     <foreign-key id="297" parent="281" name="edition_tournoi_id_tournoi_fkey">
       <ColNames>id_tournoi</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>18039</ObjectId>
-      <StateNumber>1259</StateNumber>
+      <ObjectId>18531</ObjectId>
+      <StateNumber>1388</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>17939</RefTableId>
+      <RefTableId>18431</RefTableId>
     </foreign-key>
     <index id="298" parent="281" name="edition_tournoi_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>18037</ObjectId>
+      <ObjectId>18529</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1259</StateNumber>
+      <StateNumber>1388</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="299" parent="281" name="edition_tournoi_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>18038</ObjectId>
+      <ObjectId>18530</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1259</StateNumber>
-      <UnderlyingIndexId>18037</UnderlyingIndexId>
+      <StateNumber>1388</StateNumber>
+      <UnderlyingIndexId>18529</UnderlyingIndexId>
     </key>
     <column id="300" parent="282" name="id">
       <DefaultExpression>nextval(&apos;emplacement_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1249</StateNumber>
+      <StateNumber>1378</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>17899</SequenceId>
+      <SequenceId>18391</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="301" parent="282" name="coordonnees_x">
       <Position>2</Position>
-      <StateNumber>1249</StateNumber>
+      <StateNumber>1378</StateNumber>
       <StoredType>numeric|0s</StoredType>
       <TypeId>1700</TypeId>
     </column>
     <column id="302" parent="282" name="coordonnees_y">
       <Position>3</Position>
-      <StateNumber>1249</StateNumber>
+      <StateNumber>1378</StateNumber>
       <StoredType>numeric|0s</StoredType>
       <TypeId>1700</TypeId>
     </column>
     <column id="303" parent="282" name="reserve">
       <DefaultExpression>false</DefaultExpression>
       <Position>4</Position>
-      <StateNumber>1249</StateNumber>
+      <StateNumber>1378</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
     <index id="304" parent="282" name="emplacement_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17907</ObjectId>
+      <ObjectId>18399</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1249</StateNumber>
+      <StateNumber>1378</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="305" parent="282" name="emplacement_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17908</ObjectId>
+      <ObjectId>18400</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1249</StateNumber>
-      <UnderlyingIndexId>17907</UnderlyingIndexId>
+      <StateNumber>1378</StateNumber>
+      <UnderlyingIndexId>18399</UnderlyingIndexId>
     </key>
     <column id="306" parent="283" name="id">
       <DefaultExpression>nextval(&apos;historique_commandes_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1257</StateNumber>
+      <StateNumber>1386</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>17998</SequenceId>
+      <SequenceId>18490</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="307" parent="283" name="id_panier">
       <Position>2</Position>
-      <StateNumber>1257</StateNumber>
+      <StateNumber>1386</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="308" parent="283" name="id_utilisateur">
       <Position>3</Position>
-      <StateNumber>1257</StateNumber>
+      <StateNumber>1386</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <foreign-key id="309" parent="283" name="historique_commandes_id_panier_fkey">
       <ColNames>id_panier</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>18005</ObjectId>
-      <StateNumber>1257</StateNumber>
+      <ObjectId>18497</ObjectId>
+      <StateNumber>1386</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>17974</RefTableId>
+      <RefTableId>18466</RefTableId>
     </foreign-key>
     <foreign-key id="310" parent="283" name="historique_commandes_id_utilisateur_fkey">
       <ColNames>id_utilisateur</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>18010</ObjectId>
-      <StateNumber>1257</StateNumber>
+      <ObjectId>18502</ObjectId>
+      <StateNumber>1386</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>17986</RefTableId>
+      <RefTableId>18478</RefTableId>
     </foreign-key>
     <index id="311" parent="283" name="historique_commandes_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>18003</ObjectId>
+      <ObjectId>18495</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1257</StateNumber>
+      <StateNumber>1386</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="312" parent="283" name="historique_commandes_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>18004</ObjectId>
+      <ObjectId>18496</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1257</StateNumber>
-      <UnderlyingIndexId>18003</UnderlyingIndexId>
+      <StateNumber>1386</StateNumber>
+      <UnderlyingIndexId>18495</UnderlyingIndexId>
     </key>
     <column id="313" parent="284" name="id">
       <DefaultExpression>nextval(&apos;inscription_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1260</StateNumber>
+      <StateNumber>1389</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>18044</SequenceId>
+      <SequenceId>18536</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="314" parent="284" name="id_utilisateur">
       <Position>2</Position>
-      <StateNumber>1260</StateNumber>
+      <StateNumber>1389</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="315" parent="284" name="id_edition_tournoi">
       <Position>3</Position>
-      <StateNumber>1260</StateNumber>
+      <StateNumber>1389</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="316" parent="284" name="date_inscription">
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <Position>4</Position>
-      <StateNumber>1260</StateNumber>
+      <StateNumber>1389</StateNumber>
       <StoredType>timestamp|0s</StoredType>
       <TypeId>1114</TypeId>
     </column>
     <foreign-key id="317" parent="284" name="inscription_id_utilisateur_fkey">
       <ColNames>id_utilisateur</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>18052</ObjectId>
-      <StateNumber>1260</StateNumber>
+      <ObjectId>18544</ObjectId>
+      <StateNumber>1389</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>17986</RefTableId>
+      <RefTableId>18478</RefTableId>
     </foreign-key>
     <foreign-key id="318" parent="284" name="inscription_id_edition_tournoi_fkey">
       <ColNames>id_edition_tournoi</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>18057</ObjectId>
-      <StateNumber>1260</StateNumber>
+      <ObjectId>18549</ObjectId>
+      <StateNumber>1389</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>18033</RefTableId>
+      <RefTableId>18525</RefTableId>
     </foreign-key>
     <index id="319" parent="284" name="inscription_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>18050</ObjectId>
+      <ObjectId>18542</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1260</StateNumber>
+      <StateNumber>1389</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="320" parent="284" name="inscription_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>18051</ObjectId>
+      <ObjectId>18543</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1260</StateNumber>
-      <UnderlyingIndexId>18050</UnderlyingIndexId>
+      <StateNumber>1389</StateNumber>
+      <UnderlyingIndexId>18542</UnderlyingIndexId>
     </key>
     <column id="321" parent="285" name="id">
       <DefaultExpression>nextval(&apos;jeu_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1254</StateNumber>
+      <StateNumber>1383</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>17961</SequenceId>
+      <SequenceId>18453</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="322" parent="285" name="nombre_joueurs_min">
       <Position>2</Position>
-      <StateNumber>1254</StateNumber>
+      <StateNumber>1383</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="323" parent="285" name="nombre_joueurs_max">
       <Position>3</Position>
-      <StateNumber>1254</StateNumber>
+      <StateNumber>1383</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="324" parent="285" name="age_limite">
       <Position>4</Position>
-      <StateNumber>1254</StateNumber>
+      <StateNumber>1383</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="325" parent="285" name="produit_id">
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <StateNumber>1254</StateNumber>
+      <StateNumber>1383</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <foreign-key id="326" parent="285" name="jeu_produit_id_fkey">
       <ColNames>produit_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17968</ObjectId>
-      <StateNumber>1254</StateNumber>
+      <ObjectId>18460</ObjectId>
+      <StateNumber>1383</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>17953</RefTableId>
+      <RefTableId>18445</RefTableId>
     </foreign-key>
     <index id="327" parent="285" name="jeu_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17966</ObjectId>
+      <ObjectId>18458</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1254</StateNumber>
+      <StateNumber>1383</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="328" parent="285" name="jeu_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17967</ObjectId>
+      <ObjectId>18459</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1254</StateNumber>
-      <UnderlyingIndexId>17966</UnderlyingIndexId>
+      <StateNumber>1383</StateNumber>
+      <UnderlyingIndexId>18458</UnderlyingIndexId>
     </key>
     <column id="329" parent="286" name="id">
       <DefaultExpression>nextval(&apos;panier_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1255</StateNumber>
+      <StateNumber>1384</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>17973</SequenceId>
+      <SequenceId>18465</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="330" parent="286" name="valeur_panier">
       <DefaultExpression>0</DefaultExpression>
       <Position>2</Position>
-      <StateNumber>1255</StateNumber>
+      <StateNumber>1384</StateNumber>
       <StoredType>numeric|0s</StoredType>
       <TypeId>1700</TypeId>
     </column>
     <column id="331" parent="286" name="recuperation_panier">
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <Position>3</Position>
-      <StateNumber>1255</StateNumber>
+      <StateNumber>1384</StateNumber>
       <StoredType>timestamp|0s</StoredType>
       <TypeId>1114</TypeId>
     </column>
     <column id="332" parent="286" name="paid">
       <DefaultExpression>false</DefaultExpression>
       <Position>4</Position>
-      <StateNumber>1255</StateNumber>
+      <StateNumber>1384</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
     <index id="333" parent="286" name="panier_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17983</ObjectId>
+      <ObjectId>18475</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1255</StateNumber>
+      <StateNumber>1384</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="334" parent="286" name="panier_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17984</ObjectId>
+      <ObjectId>18476</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1255</StateNumber>
-      <UnderlyingIndexId>17983</UnderlyingIndexId>
+      <StateNumber>1384</StateNumber>
+      <UnderlyingIndexId>18475</UnderlyingIndexId>
     </key>
     <column id="335" parent="287" name="id">
       <DefaultExpression>nextval(&apos;panier_produit_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1258</StateNumber>
+      <StateNumber>1387</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>18015</SequenceId>
+      <SequenceId>18507</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="336" parent="287" name="id_panier">
       <Position>2</Position>
-      <StateNumber>1258</StateNumber>
+      <StateNumber>1387</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="337" parent="287" name="id_produit">
       <Position>3</Position>
-      <StateNumber>1258</StateNumber>
+      <StateNumber>1387</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="338" parent="287" name="quantite">
       <Position>4</Position>
-      <StateNumber>1258</StateNumber>
+      <StateNumber>1387</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <foreign-key id="339" parent="287" name="panier_produit_id_panier_fkey">
       <ColNames>id_panier</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>18022</ObjectId>
-      <StateNumber>1258</StateNumber>
+      <ObjectId>18514</ObjectId>
+      <StateNumber>1387</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>17974</RefTableId>
+      <RefTableId>18466</RefTableId>
     </foreign-key>
     <foreign-key id="340" parent="287" name="panier_produit_id_produit_fkey">
       <ColNames>id_produit</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>18027</ObjectId>
-      <StateNumber>1258</StateNumber>
+      <ObjectId>18519</ObjectId>
+      <StateNumber>1387</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>17953</RefTableId>
+      <RefTableId>18445</RefTableId>
     </foreign-key>
     <index id="341" parent="287" name="panier_produit_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>18020</ObjectId>
+      <ObjectId>18512</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1258</StateNumber>
+      <StateNumber>1387</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="342" parent="287" name="panier_produit_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>18021</ObjectId>
+      <ObjectId>18513</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1258</StateNumber>
-      <UnderlyingIndexId>18020</UnderlyingIndexId>
+      <StateNumber>1387</StateNumber>
+      <UnderlyingIndexId>18512</UnderlyingIndexId>
     </key>
     <column id="343" parent="288" name="id">
       <DefaultExpression>nextval(&apos;produit_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1253</StateNumber>
+      <StateNumber>1382</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>17952</SequenceId>
+      <SequenceId>18444</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="344" parent="288" name="nom_produit">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1253</StateNumber>
+      <StateNumber>1382</StateNumber>
       <StoredType>varchar(100)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
     <column id="345" parent="288" name="description_produit">
       <Position>3</Position>
-      <StateNumber>1253</StateNumber>
+      <StateNumber>1382</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
     <column id="346" parent="288" name="prix_produit">
       <Position>4</Position>
-      <StateNumber>1253</StateNumber>
+      <StateNumber>1382</StateNumber>
       <StoredType>numeric|0s</StoredType>
       <TypeId>1700</TypeId>
     </column>
     <column id="347" parent="288" name="stocks">
       <Position>5</Position>
-      <StateNumber>1253</StateNumber>
+      <StateNumber>1382</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <index id="348" parent="288" name="produit_pkey">
+    <column id="348" parent="288" name="type_article">
+      <Position>6</Position>
+      <StateNumber>1382</StateNumber>
+      <StoredType>varchar(100)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="349" parent="288" name="image_path">
+      <Position>7</Position>
+      <StateNumber>1382</StateNumber>
+      <StoredType>varchar(10000)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="350" parent="288" name="produit_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17959</ObjectId>
+      <ObjectId>18451</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1253</StateNumber>
+      <StateNumber>1382</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="349" parent="288" name="produit_pkey">
+    <key id="351" parent="288" name="produit_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17960</ObjectId>
+      <ObjectId>18452</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1253</StateNumber>
-      <UnderlyingIndexId>17959</UnderlyingIndexId>
+      <StateNumber>1382</StateNumber>
+      <UnderlyingIndexId>18451</UnderlyingIndexId>
     </key>
-    <column id="350" parent="289" name="id">
+    <column id="352" parent="289" name="id">
       <DefaultExpression>nextval(&apos;stand_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1251</StateNumber>
+      <StateNumber>1380</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>17919</SequenceId>
+      <SequenceId>18411</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="351" parent="289" name="nom_stand">
+    <column id="353" parent="289" name="nom_stand">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1251</StateNumber>
+      <StateNumber>1380</StateNumber>
       <StoredType>varchar(50)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="352" parent="289" name="id_type">
+    <column id="354" parent="289" name="id_type">
       <Position>3</Position>
-      <StateNumber>1251</StateNumber>
+      <StateNumber>1380</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="353" parent="289" name="id_emplacement">
+    <column id="355" parent="289" name="id_emplacement">
       <Position>4</Position>
-      <StateNumber>1251</StateNumber>
+      <StateNumber>1380</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="354" parent="289" name="description">
+    <column id="356" parent="289" name="description">
       <Position>5</Position>
-      <StateNumber>1251</StateNumber>
+      <StateNumber>1380</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <foreign-key id="355" parent="289" name="stand_id_type_fkey">
+    <column id="357" parent="289" name="image_path">
+      <Position>6</Position>
+      <StateNumber>1380</StateNumber>
+      <StoredType>varchar(10000)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <foreign-key id="358" parent="289" name="stand_id_type_fkey">
       <ColNames>id_type</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17928</ObjectId>
-      <StateNumber>1251</StateNumber>
+      <ObjectId>18420</ObjectId>
+      <StateNumber>1380</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>17910</RefTableId>
+      <RefTableId>18402</RefTableId>
     </foreign-key>
-    <foreign-key id="356" parent="289" name="stand_id_emplacement_fkey">
+    <foreign-key id="359" parent="289" name="stand_id_emplacement_fkey">
       <ColNames>id_emplacement</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17933</ObjectId>
-      <StateNumber>1251</StateNumber>
+      <ObjectId>18425</ObjectId>
+      <StateNumber>1380</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>17900</RefTableId>
+      <RefTableId>18392</RefTableId>
     </foreign-key>
-    <index id="357" parent="289" name="stand_pkey">
+    <index id="360" parent="289" name="stand_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17926</ObjectId>
+      <ObjectId>18418</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1251</StateNumber>
+      <StateNumber>1380</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="358" parent="289" name="stand_pkey">
+    <key id="361" parent="289" name="stand_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17927</ObjectId>
+      <ObjectId>18419</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1251</StateNumber>
-      <UnderlyingIndexId>17926</UnderlyingIndexId>
+      <StateNumber>1380</StateNumber>
+      <UnderlyingIndexId>18418</UnderlyingIndexId>
     </key>
-    <column id="359" parent="290" name="id">
+    <column id="362" parent="290" name="id">
       <DefaultExpression>nextval(&apos;tournoi_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1252</StateNumber>
+      <StateNumber>1381</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>17938</SequenceId>
+      <SequenceId>18430</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="360" parent="290" name="id_stand">
+    <column id="363" parent="290" name="id_stand">
       <Position>2</Position>
-      <StateNumber>1252</StateNumber>
+      <StateNumber>1381</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="361" parent="290" name="participants_min">
+    <column id="364" parent="290" name="participants_min">
       <Position>3</Position>
-      <StateNumber>1252</StateNumber>
+      <StateNumber>1381</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="362" parent="290" name="participants_max">
+    <column id="365" parent="290" name="participants_max">
       <Position>4</Position>
-      <StateNumber>1252</StateNumber>
+      <StateNumber>1381</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="363" parent="290" name="prix_entree">
+    <column id="366" parent="290" name="prix_entree">
       <Position>5</Position>
-      <StateNumber>1252</StateNumber>
+      <StateNumber>1381</StateNumber>
       <StoredType>numeric|0s</StoredType>
       <TypeId>1700</TypeId>
     </column>
-    <column id="364" parent="290" name="heure_debut">
+    <column id="367" parent="290" name="heure_debut">
       <Position>6</Position>
-      <StateNumber>1252</StateNumber>
+      <StateNumber>1381</StateNumber>
       <StoredType>timestamp|0s</StoredType>
       <TypeId>1114</TypeId>
     </column>
-    <column id="365" parent="290" name="objet_tournoi">
+    <column id="368" parent="290" name="objet_tournoi">
       <Position>7</Position>
-      <StateNumber>1252</StateNumber>
+      <StateNumber>1381</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <column id="366" parent="290" name="nom_tournoi">
+    <column id="369" parent="290" name="nom_tournoi">
       <Position>8</Position>
-      <StateNumber>1252</StateNumber>
+      <StateNumber>1381</StateNumber>
       <StoredType>varchar(100)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="367" parent="290" name="description_tournoi">
+    <column id="370" parent="290" name="description_tournoi">
       <Position>9</Position>
-      <StateNumber>1252</StateNumber>
+      <StateNumber>1381</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
-    <foreign-key id="368" parent="290" name="tournoi_id_stand_fkey">
+    <column id="371" parent="290" name="image_path">
+      <Position>10</Position>
+      <StateNumber>1381</StateNumber>
+      <StoredType>varchar(10000)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <foreign-key id="372" parent="290" name="tournoi_id_stand_fkey">
       <ColNames>id_stand</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17947</ObjectId>
-      <StateNumber>1252</StateNumber>
+      <ObjectId>18439</ObjectId>
+      <StateNumber>1381</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>17920</RefTableId>
+      <RefTableId>18412</RefTableId>
     </foreign-key>
-    <index id="369" parent="290" name="tournoi_pkey">
+    <index id="373" parent="290" name="tournoi_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17945</ObjectId>
+      <ObjectId>18437</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1252</StateNumber>
+      <StateNumber>1381</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="370" parent="290" name="tournoi_pkey">
+    <key id="374" parent="290" name="tournoi_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17946</ObjectId>
+      <ObjectId>18438</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1252</StateNumber>
-      <UnderlyingIndexId>17945</UnderlyingIndexId>
+      <StateNumber>1381</StateNumber>
+      <UnderlyingIndexId>18437</UnderlyingIndexId>
     </key>
-    <column id="371" parent="291" name="id">
+    <column id="375" parent="291" name="id">
       <DefaultExpression>nextval(&apos;types_stand_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1250</StateNumber>
+      <StateNumber>1379</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>17909</SequenceId>
+      <SequenceId>18401</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="372" parent="291" name="intitule">
+    <column id="376" parent="291" name="intitule">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1250</StateNumber>
+      <StateNumber>1379</StateNumber>
       <StoredType>varchar(50)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="373" parent="291" name="peutreserver">
+    <column id="377" parent="291" name="peutreserver">
       <DefaultExpression>true</DefaultExpression>
       <Position>3</Position>
-      <StateNumber>1250</StateNumber>
+      <StateNumber>1379</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
-    <column id="374" parent="291" name="peutvendre">
+    <column id="378" parent="291" name="peutvendre">
       <DefaultExpression>true</DefaultExpression>
       <Position>4</Position>
-      <StateNumber>1250</StateNumber>
+      <StateNumber>1379</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
-    <column id="375" parent="291" name="peutanimer">
+    <column id="379" parent="291" name="peutanimer">
       <DefaultExpression>false</DefaultExpression>
       <Position>5</Position>
-      <StateNumber>1250</StateNumber>
+      <StateNumber>1379</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
-    <index id="376" parent="291" name="types_stand_pkey">
+    <index id="380" parent="291" name="types_stand_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17917</ObjectId>
+      <ObjectId>18409</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1250</StateNumber>
+      <StateNumber>1379</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="377" parent="291" name="types_stand_pkey">
+    <key id="381" parent="291" name="types_stand_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17918</ObjectId>
+      <ObjectId>18410</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1250</StateNumber>
-      <UnderlyingIndexId>17917</UnderlyingIndexId>
+      <StateNumber>1379</StateNumber>
+      <UnderlyingIndexId>18409</UnderlyingIndexId>
     </key>
-    <column id="378" parent="292" name="id">
+    <column id="382" parent="292" name="id">
       <DefaultExpression>nextval(&apos;utilisateur_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1256</StateNumber>
+      <StateNumber>1385</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>17985</SequenceId>
+      <SequenceId>18477</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="379" parent="292" name="nom">
+    <column id="383" parent="292" name="nom">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1256</StateNumber>
+      <StateNumber>1385</StateNumber>
       <StoredType>varchar(50)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="380" parent="292" name="prenom">
+    <column id="384" parent="292" name="prenom">
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>1256</StateNumber>
+      <StateNumber>1385</StateNumber>
       <StoredType>varchar(50)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="381" parent="292" name="mdp">
+    <column id="385" parent="292" name="mdp">
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>1256</StateNumber>
+      <StateNumber>1385</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="382" parent="292" name="email">
+    <column id="386" parent="292" name="email">
       <Position>5</Position>
-      <StateNumber>1256</StateNumber>
+      <StateNumber>1385</StateNumber>
       <StoredType>varchar(100)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="383" parent="292" name="niveau_autorisation">
+    <column id="387" parent="292" name="niveau_autorisation">
       <DefaultExpression>0</DefaultExpression>
       <Position>6</Position>
-      <StateNumber>1256</StateNumber>
+      <StateNumber>1385</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="384" parent="292" name="currentbasket">
+    <column id="388" parent="292" name="currentbasket">
       <Position>7</Position>
-      <StateNumber>1256</StateNumber>
+      <StateNumber>1385</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="385" parent="292" name="utilisateur_currentbasket_fkey">
+    <foreign-key id="389" parent="292" name="utilisateur_currentbasket_fkey">
       <ColNames>currentbasket</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17993</ObjectId>
-      <StateNumber>1256</StateNumber>
+      <ObjectId>18485</ObjectId>
+      <StateNumber>1385</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>17974</RefTableId>
+      <RefTableId>18466</RefTableId>
     </foreign-key>
-    <index id="386" parent="292" name="utilisateur_pkey">
+    <index id="390" parent="292" name="utilisateur_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17991</ObjectId>
+      <ObjectId>18483</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1256</StateNumber>
+      <StateNumber>1385</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="387" parent="292" name="utilisateur_pkey">
+    <key id="391" parent="292" name="utilisateur_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17992</ObjectId>
+      <ObjectId>18484</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1256</StateNumber>
-      <UnderlyingIndexId>17991</UnderlyingIndexId>
+      <StateNumber>1385</StateNumber>
+      <UnderlyingIndexId>18483</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

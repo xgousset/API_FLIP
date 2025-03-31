@@ -1,9 +1,10 @@
 const express = require('express');
 const articleController = require('../controller/article.controller');
 const articleMiddleware = require('../middlewares/article.middleware');
+const { uploadArt } = require('../middlewares/upload');
 var router = express.Router();
 
-router.post("/", articleMiddleware.validateArticle, articleController.saveArticle);
+router.post("/", uploadArt.single('image'), articleMiddleware.validateArticle, articleController.saveArticle);
 /**
  * @swagger
  * /api/articles:
@@ -22,6 +23,7 @@ router.post("/", articleMiddleware.validateArticle, articleController.saveArticl
  *             - description
  *             - stocks
  *             - prix
+ *             - type
  *           properties:
  *             nom:
  *               type: string
@@ -36,6 +38,12 @@ router.post("/", articleMiddleware.validateArticle, articleController.saveArticl
  *               type: number
  *               format: float
  *               example: 19.99
+ *             type:
+ *               type: string
+ *               example: "Nourriture"
+ *             image:
+ *               type: string
+ *               format: binary
  *     responses:
  *       '200':
  *         description: Article created successfully
@@ -84,7 +92,7 @@ router.get("/:id", articleController.getArticleById);
  *         description: Internal server error
  */
 
-router.put("/:id", articleMiddleware.validateArticle, articleController.updateArticle);
+router.put("/:id", uploadArt.single('image'), articleMiddleware.validateArticle, articleController.updateArticle);
 /**
  * @swagger
  * /api/articles/{id}:
@@ -109,6 +117,7 @@ router.put("/:id", articleMiddleware.validateArticle, articleController.updateAr
  *             - description
  *             - stocks
  *             - prix
+ *             - type
  *           properties:
  *             nom:
  *               type: string
@@ -123,6 +132,12 @@ router.put("/:id", articleMiddleware.validateArticle, articleController.updateAr
  *               type: number
  *               format: float
  *               example: 24.99
+ *             type:
+ *               type: string
+ *               example: "Nourriture"
+ *             image:
+ *               type: string
+ *               format: binary
  *     responses:
  *       '200':
  *         description: Article updated successfully

@@ -1,9 +1,10 @@
 const express = require('express');
 const tournamentController = require('../controller/tournament.controller');
 const tournamentMiddleware = require('../middlewares/tournament.middleware');
+const { uploadTour} = require('../middlewares/upload');
 var router = express.Router();
 
-router.post("/", tournamentMiddleware.validateTournament, tournamentController.saveTournament);
+router.post("/", uploadTour.single('image') ,  tournamentMiddleware.validateTournament, tournamentController.saveTournament);
 /**
  * @swagger
  * /api/tournaments:
@@ -101,7 +102,7 @@ router.get("/:id", tournamentController.getTournamentById);
  *         description: Erreur interne du serveur
  */
 
-router.put("/:id", tournamentMiddleware.validateTournament, tournamentController.updateTournament);
+router.put("/:id",uploadTour.single('image'), tournamentMiddleware.validateTournament, tournamentController.updateTournament);
 /**
  * @swagger
  * /api/tournaments/{id}:

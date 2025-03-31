@@ -32,7 +32,8 @@ CREATE TABLE IF NOT EXISTS stand (
     nom_stand VARCHAR(50) NOT NULL,
     id_type INTEGER REFERENCES types_stand(id),
     id_emplacement INTEGER REFERENCES emplacement(id),
-    description TEXT
+    description TEXT,
+    image_path VARCHAR(10000)
 );
 
 CREATE TABLE IF NOT EXISTS tournoi (
@@ -44,24 +45,27 @@ CREATE TABLE IF NOT EXISTS tournoi (
     heure_debut TIMESTAMP,
     objet_tournoi TEXT,
     nom_tournoi VARCHAR(100),
-    description_tournoi TEXT
+    description_tournoi TEXT,
+    image_path VARCHAR(10000)
 );
 
 CREATE TABLE IF NOT EXISTS produit (
-       id SERIAL PRIMARY KEY,
-       nom_produit VARCHAR(100) NOT NULL,
-       description_produit TEXT,
-       prix_produit NUMERIC,
-       stocks INTEGER
+    id SERIAL PRIMARY KEY,
+    nom_produit VARCHAR(100) NOT NULL,
+    description_produit TEXT,
+    prix_produit NUMERIC,
+    stocks INTEGER,
+    type_article VARCHAR(100),
+    image_path VARCHAR(10000)
 );
 
 CREATE TABLE IF NOT EXISTS jeu (
-        id SERIAL PRIMARY KEY,
-        nombre_joueurs_min INTEGER,
-        nombre_joueurs_max INTEGER,
-        age_limite INTEGER,
-        produit_id INTEGER NOT NULL,
-        FOREIGN KEY (produit_id) REFERENCES produit(id)
+    id SERIAL PRIMARY KEY,
+    nombre_joueurs_min INTEGER,
+    nombre_joueurs_max INTEGER,
+    age_limite INTEGER,
+    produit_id INTEGER NOT NULL,
+    FOREIGN KEY (produit_id) REFERENCES produit(id)
 );
 
 CREATE TABLE IF NOT EXISTS panier (
