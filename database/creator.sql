@@ -6,6 +6,8 @@ DROP TABLE IF EXISTS produit CASCADE;
 DROP TABLE IF EXISTS jeu CASCADE;
 DROP TABLE IF EXISTS panier CASCADE;
 DROP TABLE IF EXISTS utilisateur CASCADE;
+DROP TABLE IF EXISTS commentaires CASCADE;
+DROP TABLE IF EXISTS note CASCADE;
 DROP TABLE IF EXISTS historique_commandes CASCADE;
 DROP TABLE IF EXISTS panier_produit CASCADE;
 DROP TABLE IF EXISTS edition_tournoi CASCADE;
@@ -75,6 +77,8 @@ CREATE TABLE IF NOT EXISTS panier (
       paid BOOLEAN DEFAULT FALSE
 );
 
+
+
 CREATE TABLE IF NOT EXISTS utilisateur (
     id SERIAL PRIMARY KEY,
     nom VARCHAR(50) NOT NULL,
@@ -83,6 +87,20 @@ CREATE TABLE IF NOT EXISTS utilisateur (
     email VARCHAR(100),
     niveau_autorisation  INTEGER DEFAULT 0,
     currentBasket INTEGER REFERENCES panier(id)
+);
+
+CREATE TABLE IF NOT EXISTS commentaires (
+    id SERIAL PRIMARY KEY,
+    id_stand INTEGER REFERENCES stand(id),
+    id_utilisateur INTEGER REFERENCES utilisateur(id),
+    commentaire TEXT
+);
+
+CREATE TABLE IF NOT EXISTS note (
+    id SERIAL PRIMARY KEY,
+    id_stand INTEGER REFERENCES stand(id),
+    id_utilisateur INTEGER REFERENCES utilisateur(id),
+    note INTEGER CHECK (note >= 0 AND note <= 5)
 );
 
 

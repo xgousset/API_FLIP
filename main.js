@@ -8,12 +8,26 @@ const typeRouter = require('./routes/types.router');
 const basketOrderRouter = require('./routes/basketOrder.router');
 const tournamentRouter = require('./routes/tournament.router');
 const sessionRouter = require('./routes/session.routes');
+const cors = require('cors');
 
 const PORT = 3000;
 const app = express();
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 
+
+// Configuration CORS simplifiée
+const corsOptions = {
+    origin: 'http://localhost:8080', // Autorise uniquement le frontend en développement
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+    optionsSuccessStatus: 200
+};
+
+// Middlewares essentiels
+app.use(cors(corsOptions));
+app.use(express.json());
 
 // systeme de gestion de session
 
@@ -36,6 +50,8 @@ app.use("/api/basket", basketOrderRouter);
 app.use("/api/tournaments", tournamentRouter);
 app.use("/api/session", sessionRouter);
 app.use("/api/inscription", require('./routes/inscription.router'));
+app.use("/api/commentaires", require('./routes/commentaires.router'));
+app.use("/api/notes", require('./routes/notes.touter'));
 
 const swaggerOption = {
     swaggerDefinition: (swaggerJsdoc.Options = {
