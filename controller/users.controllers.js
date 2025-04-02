@@ -1,13 +1,9 @@
 const usersService = require('../services/users.services');
 
 exports.saveUser = async (req,res) => {
-    const nom = req.body.nom;
-    const prenom = req.body.prenom;
-    const email = req.body.email;
-    const password = req.body.password;
-    const autorisation = req.body.autorisation;
+    const {nom,prenom,email,motDePasse,role, identifant} = req.body;
     try{
-        const data = usersService.createUser(nom,prenom,email,password,autorisation);
+        const data = usersService.createUser(nom,prenom,email,motDePasse,role, identifant);
         return res.status(200).send(data);
     } catch (error) {
         console.error("Erreur de création d'utilisateur:", error);
@@ -25,7 +21,7 @@ exports.checkPassword = async (req,res) => {
     if(!user){
         return res.status(404).send("Utilisateur non trouvé");
     }
-    if(usersService.checkpassword(password,id)){
+    if(await usersService.checkPassword(password, id)){
         return res.status(200).send("Mot de passe correct");
     }else{
         return res.status(401).send("Mot de passe incorrect");
@@ -58,13 +54,9 @@ exports.getUserById = async (req,res) => {
 
 exports.updateUser = async (req,res) => {
     const id = req.params.id;
-    const nom = req.body.nom;
-    const prenom = req.body.prenom;
-    const email = req.body.email;
-    const password = req.body.password;
-    const autorisation = req.body.autorisation;
+    const {nom,prenom,email,motDePasse,role, identifant} = req.body;
     try {
-        const data = await usersService.updateUser(id,nom,prenom,email,password,autorisation);
+        const data = await usersService.updateUser(id,nom,prenom,email,motDePasse,role, identifant);
         return res.status(200).send(data);
     } catch (error) {
         console.error("Erreur de mise à jour de l'utilisateur:", error);

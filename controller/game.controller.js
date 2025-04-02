@@ -26,9 +26,10 @@ exports.getGameById = async (req, res) => {
 }
 
 exports.createGame = async (req, res) => {
-    const { nom_produit, description_produit, prix_produit, stocks, nbJoueursMin, nbJoueursMax, ageLimite } = req.body;
+    const { name, type, prix, nbJoueursMin, nbJoueursMax, age_minimum, duree } = req.body;
+    const image_path = req.file ? `/images/articles/${req.file.filename}` : null;
     try {
-        const game = await gameService.createGame(nom_produit, description_produit, prix_produit, stocks, nbJoueursMin, nbJoueursMax, ageLimite);
+        const game = await gameService.createGame(name, type, prix, -1, nbJoueursMin, nbJoueursMax, age_minimum, image_path, duree);
         if (!game) {
             return res.status(400).send("Erreur lors de la création du jeu");
         }
@@ -41,9 +42,10 @@ exports.createGame = async (req, res) => {
 
 exports.updateGame = async (req, res) => {
     const id = req.params.id;
-    const { nom_produit, description_produit, prix_produit, stocks, nbJoueursMin, nbJoueursMax, ageLimite } = req.body;
+    const { name, type, prix, nbJoueursMin, nbJoueursMax, age_minimum, duree } = req.body;
+    const image_path = req.file ? `/images/articles/${req.file.filename}` : null;
     try {
-        const game = await gameService.updateGame(id, nom_produit, description_produit, prix_produit, stocks, nbJoueursMin, nbJoueursMax, ageLimite);
+        const game = await gameService.updateGame(id, name, type, prix, -1, nbJoueursMin, nbJoueursMax, age_minimum, image_path, duree);
         if (!game) {
             return res.status(400).send("Erreur lors de la mise à jour du jeu");
         }

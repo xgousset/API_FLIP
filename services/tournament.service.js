@@ -1,12 +1,11 @@
 const pool = require('../database/db');
 
 
-const createTournament = async (nom_stand, min, max, entree, debut, objet,nom,description,image_path, callback) => {
+const createTournament = async (id_stand,lieu,prix,nom,description,image_path, callback) => {
     const client = await pool.connect();
-    const newTournament = {nom_stand, min, max, entree, debut, objet, nom, description, image_path };
     try {
-        const query = 'INSERT INTO tournoi (id_stand, participants_min, participants_max, prix_entree, heure_debut, objet_tournoi,nom_tournoi,description_tournoi, image_path) VALUES ($1, $2, $3, $4, $5, $6,$7,$8, $9)';
-        const values = [newTournament.nom_stand, newTournament.min, newTournament.max, newTournament.entree, newTournament.debut, newTournament.objet,newTournament.nom,newTournament.description, newTournament.image_path];
+        const query = 'INSERT INTO tournoi (id_stand, lieu, prix_entree, nom_tournoi, description_tournoi, image_path) VALUES ($1, $2, $3, $4, $5, $6)';
+        const values = [id_stand, lieu, prix, nom, description, image_path];
         await client.query(query, values);
         return callback(null, "écriture réussie");
     } catch (error) {
@@ -16,6 +15,24 @@ const createTournament = async (nom_stand, min, max, entree, debut, objet,nom,de
         client.release();
     }
 };
+
+const addEdition = async (id_tournoi, capacite, date_edition, callback) => {
+    const client = await pool.connect();
+    try {
+        const query = 'INSERT INTO edition_tournoi (id_tournoi, capacitee, date_edition) VALUES ($1, $2, $3)';
+        const values = [id_tournoi, capacite, date_edition];
+        await client.query(query, values);
+        return callback(null, "écriture réussie");
+    }
+    catch (error) {
+        console.log(error);
+        return callback(error);
+    } finally {
+        client.release();
+    }
+}
+
+
 
 const fetchTournaments = async () => {
     const client = await pool.connect();

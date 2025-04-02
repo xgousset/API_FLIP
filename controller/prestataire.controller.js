@@ -1,11 +1,10 @@
 const prestataireService = require('../services/prestataire.service');
 
 exports.savePrestataire = (req, res) => {
-    const {nom, type,emplacement,description} = req.body;
+    const {nom, type,id_point,compte} = req.body;
     const image_path = req.file ? `/images/prestataires/${req.file.filename}` : null;
-    console.log(nom, type,emplacement,description);
     try {
-        const data = prestataireService.createPrestataire(nom, type,emplacement,description, image_path);
+        const data = prestataireService.createPrestataire(nom, type,id_point, compte, image_path);
         return res.status(200).send(data);
     } catch (error) {
         console.error("Error creating prestataire:", error);
@@ -54,10 +53,10 @@ exports.getPrestataires = async (req, res) => {
 
 exports.updatePrestataire = (req, res) => {
     const id = req.params.id;
-    const {nom,type,emplacement, description} = req.body;
+    const {nom,type,emplacement, comptes} = req.body;
     const image_path = req.file ? `/images/prestataires/${req.file.filename}` : null;
     try{
-        const data = prestataireService.updatePrestataire(id, nom, type, emplacement, description, image_path);
+        const data = prestataireService.updatePrestataire(id, nom, type, emplacement, comptes, image_path);
         return res.status(200).send(data);
     } catch (error) {
         console.error("Error updating prestataire:", error);

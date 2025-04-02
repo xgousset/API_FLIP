@@ -31,14 +31,14 @@ const fetchSpecificGame = async (id) => {
 };
 
 
-const createGame = async (nom_produit,description_produit,prix_produit,stocks,nbJoueursMin,nbJoueursMax,ageLimite) => {
+const createGame = async (name, type, prix, stocks, nbJoueursMin, nbJoueursMax,ageLimite,image, duree) => {
     const client = await pool.connect();
     try {
-        const productquery = 'INSERT INTO produit (nom_produit,description_produit,prix_produit,stocks) VALUES ($1,$2,$3,$4) RETURNING *';
-        const productvalues = [nom_produit,description_produit,prix_produit,stocks];
+        const productquery = 'INSERT INTO produit (nom_produit, prix_produit, stocks, type_article, aVendre, venduPar, image_path) VALUES ($1,$2,$3,"jeu", false, $4, $5) RETURNING *';
+        const productvalues = [name, type, prix, stocks, image];
         const productresult = await client.query(productquery, productvalues);
         console.log(productresult.rows[0].id);
-        const gamequery = 'INSERT INTO jeu (nombre_joueurs_min,nombre_joueurs_max,age_limite,produit_id) VALUES ($1,$2,$3,$4) RETURNING *';
+        const gamequery = 'INSERT INTO jeu (nombre_joueurs_min,nombre_joueurs_max,age_limite,duree,produit_id) VALUES ($1,$2,$3,$4,$5) RETURNING *';
         const gamevalues = [nbJoueursMin,nbJoueursMax,ageLimite,productresult.rows[0].id];
         const gameresult = await client.query(gamequery, gamevalues);
         console.log(gameresult.rows[0]);

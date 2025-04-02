@@ -3,12 +3,7 @@ const bcrypt = require('bcrypt')
 const saltRounds = 10;
 
 
-//crypte un mot de passe avec bcrypt
-const createpassword = (password)=>{
-    let passwordC = bcrypt.hash(password,saltRounds)
-    console.log(passwordC)
-    return passwordC
-}
+
 
 
 
@@ -28,6 +23,22 @@ const createUser = async (nom, prenom, email, password, autorisation, callback) 
     }
 }
 
+const checkPassword = async (email, password) => {
+    const clients = await pool.connect()
+    try {
+        const result = await clients.query('SELECT * FROM utilisateur WHERE email = $1', [email])
+        if (result.rows.length === 0) {
+            return false
+        }
+        return await bcrypt.compare(password, result.rows[0].mdp)
+    } catch (error) {
+        console.log(error)
+        return false
+    } finally {
+        clients.release()
+    }
+}
+
 //renvoie tous les utilisateurs
 const fetchUsers = async () =>  {
     const clients = await pool.connect()
@@ -38,6 +49,21 @@ const fetchUsers = async () =>  {
     } catch (error) {
         console.log(error)
         return []
+    } finally {
+        clients.release()
+    }
+}
+
+const updateUser = async (id, nom, prenom, email, password, autorisation, callback) => {
+    const clients = await pool.connect()
+    try {
+        const requete = 'UPDATE utilisateur SET nom = $1, prenom = $2, mdp = $3, email = $4, niveau_autorisation = $5 WHERE id = $6 RETURNING *'
+        values = [nom, prenom, password, email, autorisation, id]
+        result = clients.query(requete, values)
+        return result.rows
+    } catch (error) {
+        console.log(error)
+        return callback(error)
     } finally {
         clients.release()
     }
@@ -76,4 +102,4 @@ const deleteUser = async (id) => {
 }
 
 
-module.exports = { createUser, fetchUsers, fetchSpecificUser, deleteUser};
+module.exports = { createUser, fetchUsers, fetchSpecificUser, deleteUser, checkPassword, updateUser };

@@ -1,11 +1,11 @@
 const pool = require('../database/db');
 
 // Create a new article with a name, description, stocks, price, and image path
-const createArticle = async (nom, description, stocks, prix, type_article, image_path) => {
+const createArticle = async (nom, prix , type_article, image_path) => {
     const client = await pool.connect();
     try {
-        const query = 'INSERT INTO produit (nom_produit, description_produit, stocks, prix_produit, type_article, image_path) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *';
-        const values = [nom, description, stocks, prix, type_article, image_path];
+        const query = 'INSERT INTO produit (nom_produit, prix_produit, type_article, image_path) VALUES ($1, $2, $3, $4) RETURNING *';
+        const values = [nom, prix, type_article, image_path];
         const result = await client.query(query, values);
         return result.rows[0];
     } catch (error) {
@@ -67,11 +67,11 @@ const deleteArticle = async (id) => {
 };
 
 // Update a specific article by its id
-const updateArticle = async (id, nom, description, stocks, prix, type_article, image_path) => {
+const updateArticle = async (id, nom, prix, type_article, image_path) => {
     const client = await pool.connect();
     try {
-        const query = 'UPDATE produit SET nom_produit = $1, description_produit = $2, stocks = $3, prix_produit = $4, type_article = $5, image_path = $6 WHERE id = $7 RETURNING *';
-        const values = [nom, description, stocks, prix, type_article, image_path, id];
+        const query = 'UPDATE produit SET nom_produit = $1, prix_produit = $2, type_article = $3, image_path = $4 WHERE id = $5 RETURNING *';
+        const values = [nom, prix, type_article, image_path, id];
         const result = await client.query(query, values);
         if (result.rowCount === 0) {
             return "Article non trouvé";

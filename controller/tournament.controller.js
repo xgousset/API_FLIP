@@ -1,9 +1,9 @@
 const tournamentService = require('../services/tournament.service');
 
 exports.saveTournament = async (req,res) => {
-    const {id_stand,participants_min,participants_max,prix_entree,heure_debut,objet_tournoi,nom_tournoi,description_tournoi} = req.body;
+    const {id_stand,lieu,prix,nom,description} = req.body;
     const image_path = req.file ? `/images/tournaments/${req.file.filename}` : null;
-    await tournamentService.createTournament(id_stand,participants_min,participants_max,prix_entree,heure_debut,objet_tournoi,nom_tournoi,description_tournoi,image_path, (error, data) => {
+    await tournamentService.createTournament(id_stand,lieu,prix,nom,description,image_path, (error, data) => {
         if (error) {
             return res.status(500).send("Erreur");
         }
@@ -38,8 +38,8 @@ exports.getTournaments = async (req,res) => {
 exports.updateTournament = async (req,res) => {
     const id = req.params.id;
     const image_path = req.file ? `/images/tournaments/${req.file.filename}` : null;
-    const {id_stand,participants_min,participants_max,prix_entree,heure_debut,objet_tournoi,nom_tournoi,description_tournoi} = req.body;
-    await tournamentService.updateTournament(id,id_stand,participants_min,participants_max,prix_entree,heure_debut,objet_tournoi,nom_tournoi,description_tournoi,image_path,(error,data)=>{
+    const {id_stand,lieu,prix,nom,description} = req.body;
+    await tournamentService.updateTournament(id,id_stand,lieu,prix,nom,description,image_path,(error,data)=>{
         if(error){
             return res.status(500).send("Erreur");
         }
