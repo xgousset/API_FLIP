@@ -4,7 +4,7 @@ const prestataireMiddleware = require('../middlewares/prestataire.middleware');
 const { uploadStand } = require('../middlewares/upload');
 var router = express.Router();
 
-router.post("/", uploadStand.single('image') , prestataireMiddleware.validatePrestataire, prestataireController.savePrestataire);
+router.post("/", uploadStand.single('image'), prestataireMiddleware.validatePrestataire, prestataireController.savePrestataire);
 /**
  * @swagger
  * /api/prestataires:
@@ -23,6 +23,7 @@ router.post("/", uploadStand.single('image') , prestataireMiddleware.validatePre
  *             - type
  *             - emplacement
  *             - description
+ *             - compte
  *           properties:
  *             nom:
  *               type: string
@@ -36,6 +37,11 @@ router.post("/", uploadStand.single('image') , prestataireMiddleware.validatePre
  *             description:
  *               type: string
  *               example: "Updated description of the stand"
+ *             compte:
+ *               type: array
+ *               items:
+ *                 type: integer
+ *               example: [1]
  *             image:
  *               type: string
  *               format: binary
@@ -52,7 +58,8 @@ router.post("/", uploadStand.single('image') , prestataireMiddleware.validatePre
  *           "nom": "Prestataire 1",
  *           "type": 1,
  *           "emplacement": 2,
- *           "description": "Updated description of the stand"
+ *           "description": "Updated description of the stand",
+ *           "compte": [1]
  *         }
  */
 
@@ -76,11 +83,11 @@ router.get("/", prestataireController.getPrestataires);
  *                 properties:
  *                   id:
  *                     type: integer
- *                   nom_stand:
+ *                   nom:
  *                     type: string
- *                   id_type:
+ *                   type:
  *                     type: integer
- *                   id_emplacement:
+ *                   emplacement:
  *                     type: integer
  *                   description:
  *                     type: string
@@ -89,9 +96,9 @@ router.get("/", prestataireController.getPrestataires);
  *             [
  *               {
  *                 "id": 1,
- *                 "nom_stand": "Stand 1",
- *                 "id_type": 1,
- *                 "id_emplacement": 2,
+ *                 "nom": "Stand 1",
+ *                 "type": 1,
+ *                 "emplacement": 2,
  *                 "description": "Updated description of the stand"
  *               }
  *             ]
@@ -124,11 +131,11 @@ router.get("/:id", prestataireController.getPrestataireById);
  *               properties:
  *                 id:
  *                   type: integer
- *                 nom_stand:
+ *                 nom:
  *                   type: string
- *                 id_type:
+ *                 type:
  *                   type: integer
- *                 id_emplacement:
+ *                 emplacement:
  *                   type: integer
  *                 description:
  *                   type: string
@@ -137,9 +144,9 @@ router.get("/:id", prestataireController.getPrestataireById);
  *             [
  *               {
  *                 "id": 1,
- *                 "nom_stand": "Stand 1",
- *                 "id_type": 1,
- *                 "id_emplacement": 2,
+ *                 "nom": "Stand 1",
+ *                 "type": 1,
+ *                 "emplacement": 2,
  *                 "description": "Updated description of the stand"
  *               }
  *             ]
@@ -149,12 +156,12 @@ router.get("/:id", prestataireController.getPrestataireById);
  *         description: Internal server error
  */
 
-router.put("/:id",uploadStand.single('image') , prestataireMiddleware.validatePrestataire, prestataireController.updatePrestataire);
+router.put("/:id", uploadStand.single('image'), prestataireMiddleware.validatePrestataire, prestataireController.updatePrestataire);
 /**
  * @swagger
  * /api/prestataires/{id}:
  *   put:
- *     description: Updates a prestataire by ID
+ *     description: Update a prestataire by ID
  *     tags:
  *       - prestataires
  *     parameters:
@@ -163,14 +170,19 @@ router.put("/:id",uploadStand.single('image') , prestataireMiddleware.validatePr
  *         required: true
  *         description: ID of the prestataire to update
  *         schema:
- *           type: string
+ *           type: integer
  *       - in: body
  *         name: prestataire
  *         description: Prestataire data to update
- *         required: true
- *         content:
- *           application/json:
- *             properties:
+ *         schema:
+ *           type: object
+ *           required:
+ *             - nom
+ *             - type
+ *             - emplacement
+ *             - description
+ *             - compte
+ *           properties:
  *             nom:
  *               type: string
  *               example: "Prestataire 1"
@@ -183,6 +195,14 @@ router.put("/:id",uploadStand.single('image') , prestataireMiddleware.validatePr
  *             description:
  *               type: string
  *               example: "Updated description of the stand"
+ *             compte:
+ *               type: array
+ *               items:
+ *                 type: integer
+ *               example: [1]
+ *             image:
+ *               type: string
+ *               format: binary
  *     responses:
  *       '200':
  *         description: Prestataire updated successfully
@@ -194,7 +214,7 @@ router.put("/:id",uploadStand.single('image') , prestataireMiddleware.validatePr
  *         description: Internal server error
  */
 
-router.delete("/:id", prestataireController.deletePrestataire);
+router.delete("/:id", prestataireMiddleware.validatePrestataire, prestataireController.deletePrestataire);
 /**
  * @swagger
  * /api/prestataires/{id}:

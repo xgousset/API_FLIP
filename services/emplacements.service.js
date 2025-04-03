@@ -6,6 +6,7 @@ const fetchEmplacements = async () => {
     try {
         const query = 'SELECT * FROM emplacement';
         const result = await client.query(query);
+        console.log(result);
         return result.rows;
     } catch (error) {
         console.log(error);

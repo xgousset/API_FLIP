@@ -1,7 +1,42 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../database/db');
+const bcrypt = require('bcrypt');
+const {hash} = require("bcrypt");
 
+/**
+ * @swagger
+ * /api/session/login:
+ *   post:
+ *     summary: Authentifie un utilisateur
+ *     tags:
+ *       - Authentification
+ *     parameters:
+ *       - in: body
+ *         name: user
+ *         description: Les informations d'authentification de l'utilisateur
+ *         schema:
+ *           type: object
+ *           required:
+ *             - identifiant
+ *             - password
+ *           properties:
+ *             identifiant:
+ *               type: string
+ *               example: "johndoe"
+ *               description: Le nom d'utilisateur de l'utilisateur
+ *             password:
+ *               type: string
+ *               example: "password123"
+ *               description: Le mot de passe de l'utilisateur
+ *     responses:
+ *       200:
+ *         description: Connexion réussie
+ *       401:
+ *         description: Identifiants invalides
+ *       500:
+ *         description: Erreur serveur interne
+ */
 router.post('/login', async (req, res) => {
     const { identifiant, password } = req.body;
     const client = await pool.connect();
@@ -11,11 +46,12 @@ router.post('/login', async (req, res) => {
         if (result.rows.length === 0) {
             return res.status(401).send('Utilisateur non trouvé');
         }
-        if (result.rows[0].mdp === bcrypt.hashSync(password, 10)) {
+        console.log(result.rows[0]);
+        console.log(password);
+        if (bcrypt.compare(password, result.rows[0].mdp)) {
             req.session.user = { username: identifiant };
             return res.status(200).send('Connecté');
-        }
-        else {
+        } else {
             return res.status(401).send('Mot de passe incorrect');
         }
     } catch (error) {
@@ -25,46 +61,10 @@ router.post('/login', async (req, res) => {
         client.release();
     }
 });
-/**
- * @swagger
- * /login:
- *   post:
- *     summary: Authentifie un utilisateur
- *     tags:
- *       - Authentification
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               username:
- *                 type: string
- *                 description: Le nom d'utilisateur de l'utilisateur
- *               password:
- *                 type: string
- *                 description: Le mot de passe de l'utilisateur
- *     responses:
- *       200:
- *         description: Connexion réussie
- *       401:
- *         description: Identifiants invalides
- *       500:
- *         description: Erreur serveur interne
- */
 
-router.post('/logout', (req, res) => {
-    req.session.destroy(err => {
-        if (err) {
-            return res.status(500).send('Could not log out');
-        }
-        res.status(200).send('Logged out');
-    });
-});
 /**
  * @swagger
- * /logout:
+ * /api/session/logout:
  *   post:
  *     summary: Déconnecte un utilisateur
  *     tags:
@@ -75,17 +75,18 @@ router.post('/logout', (req, res) => {
  *       500:
  *         description: Impossible de se déconnecter
  */
-
-router.get('/status', (req, res) => {
-    if (req.session.user) {
-        res.status(200).send(`Logged in as ${req.session.user.username}`);
-    } else {
-        res.status(401).send('Not logged in');
-    }
+router.post('/logout', (req, res) => {
+    req.session.destroy(err => {
+        if (err) {
+            return res.status(500).send('Could not log out');
+        }
+        res.status(200).send('Logged out');
+    });
 });
+
 /**
  * @swagger
- * /status:
+ * /api/session/status:
  *   get:
  *     summary: Vérifie si un utilisateur est connecté
  *     tags:
@@ -100,5 +101,12 @@ router.get('/status', (req, res) => {
  *       401:
  *         description: Utilisateur non connecté
  */
+router.get('/status', (req, res) => {
+    if (req.session.user) {
+        res.status(200).send(`Logged in as ${req.session.user.username}`);
+    } else {
+        res.status(401).send('Not logged in');
+    }
+});
 
 module.exports = router;

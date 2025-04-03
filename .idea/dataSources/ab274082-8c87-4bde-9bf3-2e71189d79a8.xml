@@ -3,17 +3,9 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>dmy</DateStyle>
-      <Grants>1||-9223372036854775808|c|G
-1||10|c|G
-1||10|C|G
-1||10|T|G
-4||-9223372036854775808|c|G
-4||10|c|G
-4||10|C|G
-4||10|T|G</Grants>
-      <IntrospectionStateNumber>1623</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1774</IntrospectionStateNumber>
       <ServerVersion>17.2</ServerVersion>
-      <StartupTime>1743611987</StartupTime>
+      <StartupTime>1743698614</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -812,7 +804,7 @@ false Zulu
 14704||10|C|G
 14704||-9223372036854775808|U|G
 14704||10|U|G</Grants>
-      <IntrospectionStateNumber>1623</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1774</IntrospectionStateNumber>
       <ObjectId>16389</ObjectId>
       <OwnerName>flipper</OwnerName>
     </database>
@@ -4247,205 +4239,205 @@ false Zulu
     <schema id="268" parent="3" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>1623</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2025-04-02.19:20:56</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>1774</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2025-04-03.18:34:16</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>532</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
     <sequence id="269" parent="268" name="commentaires_id_seq">
-      <ObjectId>19581</ObjectId>
+      <ObjectId>20227</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1617</StateNumber>
+      <StateNumber>1754</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="270" parent="268" name="edition_tournoi_id_seq">
-      <ObjectId>19652</ObjectId>
+      <ObjectId>20298</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1621</StateNumber>
+      <StateNumber>1758</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="271" parent="268" name="emplacement_id_seq">
-      <ObjectId>19475</ObjectId>
+      <ObjectId>20121</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1609</StateNumber>
+      <StateNumber>1746</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="272" parent="268" name="historique_commandes_id_seq">
-      <ObjectId>19618</ObjectId>
+      <ObjectId>20264</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1619</StateNumber>
+      <StateNumber>1756</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="273" parent="268" name="inscription_id_seq">
-      <ObjectId>19665</ObjectId>
+      <ObjectId>20311</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1622</StateNumber>
+      <StateNumber>1759</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="274" parent="268" name="jeu_id_seq">
-      <ObjectId>19543</ObjectId>
+      <ObjectId>20215</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1614</StateNumber>
+      <StateNumber>1753</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="275" parent="268" name="note_id_seq">
-      <ObjectId>19600</ObjectId>
+      <ObjectId>20246</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1618</StateNumber>
+      <StateNumber>1755</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="276" parent="268" name="panier_id_seq">
-      <ObjectId>19555</ObjectId>
+      <ObjectId>20141</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1615</StateNumber>
+      <StateNumber>1748</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="277" parent="268" name="panier_produit_id_seq">
-      <ObjectId>19635</ObjectId>
+      <ObjectId>20281</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1620</StateNumber>
+      <StateNumber>1757</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="278" parent="268" name="produit_id_seq">
-      <ObjectId>19528</ObjectId>
+      <ObjectId>20200</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1613</StateNumber>
+      <StateNumber>1752</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="279" parent="268" name="stand_id_seq">
-      <ObjectId>19495</ObjectId>
+      <ObjectId>20167</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1611</StateNumber>
+      <StateNumber>1750</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="280" parent="268" name="tournoi_id_seq">
-      <ObjectId>19514</ObjectId>
+      <ObjectId>20186</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1612</StateNumber>
+      <StateNumber>1751</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="281" parent="268" name="types_stand_id_seq">
-      <ObjectId>19485</ObjectId>
+      <ObjectId>20131</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1610</StateNumber>
+      <StateNumber>1747</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <sequence id="282" parent="268" name="utilisateur_id_seq">
-      <ObjectId>19567</ObjectId>
+      <ObjectId>20153</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1616</StateNumber>
+      <StateNumber>1749</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>flipper</OwnerName>
     </sequence>
     <table id="283" parent="268" name="commentaires">
-      <ObjectId>19582</ObjectId>
-      <StateNumber>1617</StateNumber>
+      <ObjectId>20228</ObjectId>
+      <StateNumber>1754</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="284" parent="268" name="edition_tournoi">
-      <ObjectId>19653</ObjectId>
-      <StateNumber>1621</StateNumber>
+      <ObjectId>20299</ObjectId>
+      <StateNumber>1758</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="285" parent="268" name="emplacement">
-      <ObjectId>19476</ObjectId>
-      <StateNumber>1611</StateNumber>
+      <ObjectId>20122</ObjectId>
+      <StateNumber>1750</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="286" parent="268" name="historique_commandes">
-      <ObjectId>19619</ObjectId>
-      <StateNumber>1619</StateNumber>
+      <ObjectId>20265</ObjectId>
+      <StateNumber>1756</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="287" parent="268" name="inscription">
-      <ObjectId>19666</ObjectId>
-      <StateNumber>1622</StateNumber>
+      <ObjectId>20312</ObjectId>
+      <StateNumber>1759</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="288" parent="268" name="jeu">
-      <ObjectId>19544</ObjectId>
-      <StateNumber>1614</StateNumber>
+      <ObjectId>20216</ObjectId>
+      <StateNumber>1753</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="289" parent="268" name="note">
-      <ObjectId>19601</ObjectId>
-      <StateNumber>1618</StateNumber>
+      <ObjectId>20247</ObjectId>
+      <StateNumber>1755</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="290" parent="268" name="panier">
-      <ObjectId>19556</ObjectId>
-      <StateNumber>1616</StateNumber>
+      <ObjectId>20142</ObjectId>
+      <StateNumber>1749</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="291" parent="268" name="panier_produit">
-      <ObjectId>19636</ObjectId>
-      <StateNumber>1620</StateNumber>
+      <ObjectId>20282</ObjectId>
+      <StateNumber>1757</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="292" parent="268" name="produit">
-      <ObjectId>19529</ObjectId>
-      <StateNumber>1613</StateNumber>
+      <ObjectId>20201</ObjectId>
+      <StateNumber>1752</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="293" parent="268" name="stand">
-      <ObjectId>19496</ObjectId>
-      <StateNumber>1611</StateNumber>
+      <ObjectId>20168</ObjectId>
+      <StateNumber>1750</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="294" parent="268" name="tournoi">
-      <ObjectId>19515</ObjectId>
-      <StateNumber>1612</StateNumber>
+      <ObjectId>20187</ObjectId>
+      <StateNumber>1751</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="295" parent="268" name="types_stand">
-      <ObjectId>19486</ObjectId>
-      <StateNumber>1611</StateNumber>
+      <ObjectId>20132</ObjectId>
+      <StateNumber>1750</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
     <table id="296" parent="268" name="utilisateur">
-      <ObjectId>19568</ObjectId>
-      <StateNumber>1616</StateNumber>
+      <ObjectId>20154</ObjectId>
+      <StateNumber>1749</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>flipper</OwnerName>
     </table>
@@ -4453,883 +4445,901 @@ false Zulu
       <DefaultExpression>nextval(&apos;commentaires_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1617</StateNumber>
+      <StateNumber>1754</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>19581</SequenceId>
+      <SequenceId>20227</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="298" parent="283" name="id_stand">
       <Position>2</Position>
-      <StateNumber>1617</StateNumber>
+      <StateNumber>1754</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="299" parent="283" name="id_utilisateur">
       <Position>3</Position>
-      <StateNumber>1617</StateNumber>
+      <StateNumber>1754</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="300" parent="283" name="commentaire">
       <Position>4</Position>
-      <StateNumber>1617</StateNumber>
+      <StateNumber>1754</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
     <foreign-key id="301" parent="283" name="commentaires_id_stand_fkey">
       <ColNames>id_stand</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19590</ObjectId>
-      <StateNumber>1617</StateNumber>
+      <ObjectId>20236</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1754</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>19496</RefTableId>
+      <RefTableId>20168</RefTableId>
     </foreign-key>
     <foreign-key id="302" parent="283" name="commentaires_id_utilisateur_fkey">
       <ColNames>id_utilisateur</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19595</ObjectId>
-      <StateNumber>1617</StateNumber>
+      <ObjectId>20241</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1754</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>19568</RefTableId>
+      <RefTableId>20154</RefTableId>
     </foreign-key>
     <index id="303" parent="283" name="commentaires_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19588</ObjectId>
+      <ObjectId>20234</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1617</StateNumber>
+      <StateNumber>1754</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="304" parent="283" name="commentaires_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19589</ObjectId>
+      <ObjectId>20235</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1617</StateNumber>
-      <UnderlyingIndexId>19588</UnderlyingIndexId>
+      <StateNumber>1754</StateNumber>
+      <UnderlyingIndexId>20234</UnderlyingIndexId>
     </key>
     <column id="305" parent="284" name="id">
       <DefaultExpression>nextval(&apos;edition_tournoi_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1621</StateNumber>
+      <StateNumber>1758</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>19652</SequenceId>
+      <SequenceId>20298</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="306" parent="284" name="id_tournoi">
       <Position>2</Position>
-      <StateNumber>1621</StateNumber>
+      <StateNumber>1758</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="307" parent="284" name="capacitee">
       <Position>3</Position>
-      <StateNumber>1621</StateNumber>
+      <StateNumber>1758</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="308" parent="284" name="current_participants">
       <DefaultExpression>0</DefaultExpression>
       <Position>4</Position>
-      <StateNumber>1621</StateNumber>
+      <StateNumber>1758</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="309" parent="284" name="date_edition">
       <Position>5</Position>
-      <StateNumber>1621</StateNumber>
+      <StateNumber>1758</StateNumber>
       <StoredType>timestamp|0s</StoredType>
       <TypeId>1114</TypeId>
     </column>
     <foreign-key id="310" parent="284" name="edition_tournoi_id_tournoi_fkey">
       <ColNames>id_tournoi</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19660</ObjectId>
-      <StateNumber>1621</StateNumber>
+      <ObjectId>20306</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1758</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>19515</RefTableId>
+      <RefTableId>20187</RefTableId>
     </foreign-key>
     <index id="311" parent="284" name="edition_tournoi_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19658</ObjectId>
+      <ObjectId>20304</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1621</StateNumber>
+      <StateNumber>1758</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="312" parent="284" name="edition_tournoi_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19659</ObjectId>
+      <ObjectId>20305</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1621</StateNumber>
-      <UnderlyingIndexId>19658</UnderlyingIndexId>
+      <StateNumber>1758</StateNumber>
+      <UnderlyingIndexId>20304</UnderlyingIndexId>
     </key>
     <column id="313" parent="285" name="id">
       <DefaultExpression>nextval(&apos;emplacement_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1609</StateNumber>
+      <StateNumber>1746</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>19475</SequenceId>
+      <SequenceId>20121</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="314" parent="285" name="coordonnees_x">
       <Position>2</Position>
-      <StateNumber>1609</StateNumber>
+      <StateNumber>1746</StateNumber>
       <StoredType>numeric|0s</StoredType>
       <TypeId>1700</TypeId>
     </column>
     <column id="315" parent="285" name="coordonnees_y">
       <Position>3</Position>
-      <StateNumber>1609</StateNumber>
+      <StateNumber>1746</StateNumber>
       <StoredType>numeric|0s</StoredType>
       <TypeId>1700</TypeId>
     </column>
     <column id="316" parent="285" name="categorie">
       <Position>4</Position>
-      <StateNumber>1609</StateNumber>
+      <StateNumber>1746</StateNumber>
       <StoredType>varchar(50)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
     <column id="317" parent="285" name="nom">
       <Position>5</Position>
-      <StateNumber>1609</StateNumber>
+      <StateNumber>1746</StateNumber>
       <StoredType>varchar(50)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
     <column id="318" parent="285" name="reserve">
       <DefaultExpression>false</DefaultExpression>
       <Position>6</Position>
-      <StateNumber>1609</StateNumber>
+      <StateNumber>1746</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
     <index id="319" parent="285" name="emplacement_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19483</ObjectId>
+      <ObjectId>20129</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1609</StateNumber>
+      <StateNumber>1746</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="320" parent="285" name="emplacement_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19484</ObjectId>
+      <ObjectId>20130</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1609</StateNumber>
-      <UnderlyingIndexId>19483</UnderlyingIndexId>
+      <StateNumber>1746</StateNumber>
+      <UnderlyingIndexId>20129</UnderlyingIndexId>
     </key>
     <column id="321" parent="286" name="id">
       <DefaultExpression>nextval(&apos;historique_commandes_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1619</StateNumber>
+      <StateNumber>1756</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>19618</SequenceId>
+      <SequenceId>20264</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="322" parent="286" name="id_panier">
       <Position>2</Position>
-      <StateNumber>1619</StateNumber>
+      <StateNumber>1756</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="323" parent="286" name="id_utilisateur">
       <Position>3</Position>
-      <StateNumber>1619</StateNumber>
+      <StateNumber>1756</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <foreign-key id="324" parent="286" name="historique_commandes_id_panier_fkey">
       <ColNames>id_panier</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19625</ObjectId>
-      <StateNumber>1619</StateNumber>
+      <ObjectId>20271</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1756</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>19556</RefTableId>
+      <RefTableId>20142</RefTableId>
     </foreign-key>
     <foreign-key id="325" parent="286" name="historique_commandes_id_utilisateur_fkey">
       <ColNames>id_utilisateur</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19630</ObjectId>
-      <StateNumber>1619</StateNumber>
+      <ObjectId>20276</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1756</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>19568</RefTableId>
+      <RefTableId>20154</RefTableId>
     </foreign-key>
     <index id="326" parent="286" name="historique_commandes_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19623</ObjectId>
+      <ObjectId>20269</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1619</StateNumber>
+      <StateNumber>1756</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="327" parent="286" name="historique_commandes_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19624</ObjectId>
+      <ObjectId>20270</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1619</StateNumber>
-      <UnderlyingIndexId>19623</UnderlyingIndexId>
+      <StateNumber>1756</StateNumber>
+      <UnderlyingIndexId>20269</UnderlyingIndexId>
     </key>
     <column id="328" parent="287" name="id">
       <DefaultExpression>nextval(&apos;inscription_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1622</StateNumber>
+      <StateNumber>1759</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>19665</SequenceId>
+      <SequenceId>20311</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="329" parent="287" name="id_utilisateur">
       <Position>2</Position>
-      <StateNumber>1622</StateNumber>
+      <StateNumber>1759</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="330" parent="287" name="id_edition_tournoi">
       <Position>3</Position>
-      <StateNumber>1622</StateNumber>
+      <StateNumber>1759</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="331" parent="287" name="date_inscription">
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <Position>4</Position>
-      <StateNumber>1622</StateNumber>
+      <StateNumber>1759</StateNumber>
       <StoredType>timestamp|0s</StoredType>
       <TypeId>1114</TypeId>
     </column>
     <foreign-key id="332" parent="287" name="inscription_id_utilisateur_fkey">
       <ColNames>id_utilisateur</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19673</ObjectId>
-      <StateNumber>1622</StateNumber>
+      <ObjectId>20319</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1759</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>19568</RefTableId>
+      <RefTableId>20154</RefTableId>
     </foreign-key>
     <foreign-key id="333" parent="287" name="inscription_id_edition_tournoi_fkey">
       <ColNames>id_edition_tournoi</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19678</ObjectId>
-      <StateNumber>1622</StateNumber>
+      <ObjectId>20324</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1759</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>19653</RefTableId>
+      <RefTableId>20299</RefTableId>
     </foreign-key>
     <index id="334" parent="287" name="inscription_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19671</ObjectId>
+      <ObjectId>20317</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1622</StateNumber>
+      <StateNumber>1759</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="335" parent="287" name="inscription_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19672</ObjectId>
+      <ObjectId>20318</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1622</StateNumber>
-      <UnderlyingIndexId>19671</UnderlyingIndexId>
+      <StateNumber>1759</StateNumber>
+      <UnderlyingIndexId>20317</UnderlyingIndexId>
     </key>
     <column id="336" parent="288" name="id">
       <DefaultExpression>nextval(&apos;jeu_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1614</StateNumber>
+      <StateNumber>1753</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>19543</SequenceId>
+      <SequenceId>20215</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="337" parent="288" name="type">
       <Position>2</Position>
-      <StateNumber>1614</StateNumber>
+      <StateNumber>1753</StateNumber>
       <StoredType>varchar(100)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
     <column id="338" parent="288" name="nombre_joueurs_min">
       <Position>3</Position>
-      <StateNumber>1614</StateNumber>
+      <StateNumber>1753</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="339" parent="288" name="nombre_joueurs_max">
       <Position>4</Position>
-      <StateNumber>1614</StateNumber>
+      <StateNumber>1753</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="340" parent="288" name="age_limite">
       <Position>5</Position>
-      <StateNumber>1614</StateNumber>
+      <StateNumber>1753</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="341" parent="288" name="duree">
       <Position>6</Position>
-      <StateNumber>1614</StateNumber>
+      <StateNumber>1753</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="342" parent="288" name="produit_id">
       <NotNull>1</NotNull>
       <Position>7</Position>
-      <StateNumber>1614</StateNumber>
+      <StateNumber>1753</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <foreign-key id="343" parent="288" name="jeu_produit_id_fkey">
       <ColNames>produit_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19550</ObjectId>
-      <StateNumber>1614</StateNumber>
+      <ObjectId>20222</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1753</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>19529</RefTableId>
+      <RefTableId>20201</RefTableId>
     </foreign-key>
     <index id="344" parent="288" name="jeu_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19548</ObjectId>
+      <ObjectId>20220</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1614</StateNumber>
+      <StateNumber>1753</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="345" parent="288" name="jeu_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19549</ObjectId>
+      <ObjectId>20221</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1614</StateNumber>
-      <UnderlyingIndexId>19548</UnderlyingIndexId>
+      <StateNumber>1753</StateNumber>
+      <UnderlyingIndexId>20220</UnderlyingIndexId>
     </key>
     <check id="346" parent="289" name="note_note_check">
       <ColNames>note</ColNames>
-      <ObjectId>19605</ObjectId>
+      <ObjectId>20251</ObjectId>
       <Predicate>(note &gt;= 0) AND (note &lt;= 5)</Predicate>
-      <StateNumber>1618</StateNumber>
+      <StateNumber>1755</StateNumber>
     </check>
     <column id="347" parent="289" name="id">
       <DefaultExpression>nextval(&apos;note_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1618</StateNumber>
+      <StateNumber>1755</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>19600</SequenceId>
+      <SequenceId>20246</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="348" parent="289" name="id_stand">
       <Position>2</Position>
-      <StateNumber>1618</StateNumber>
+      <StateNumber>1755</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="349" parent="289" name="id_utilisateur">
       <Position>3</Position>
-      <StateNumber>1618</StateNumber>
+      <StateNumber>1755</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="350" parent="289" name="note">
       <Position>4</Position>
-      <StateNumber>1618</StateNumber>
+      <StateNumber>1755</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <foreign-key id="351" parent="289" name="note_id_stand_fkey">
       <ColNames>id_stand</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19608</ObjectId>
-      <StateNumber>1618</StateNumber>
+      <ObjectId>20254</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1755</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>19496</RefTableId>
+      <RefTableId>20168</RefTableId>
     </foreign-key>
     <foreign-key id="352" parent="289" name="note_id_utilisateur_fkey">
       <ColNames>id_utilisateur</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19613</ObjectId>
-      <StateNumber>1618</StateNumber>
+      <ObjectId>20259</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1755</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>19568</RefTableId>
+      <RefTableId>20154</RefTableId>
     </foreign-key>
     <index id="353" parent="289" name="note_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19606</ObjectId>
+      <ObjectId>20252</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1618</StateNumber>
+      <StateNumber>1755</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="354" parent="289" name="note_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19607</ObjectId>
+      <ObjectId>20253</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1618</StateNumber>
-      <UnderlyingIndexId>19606</UnderlyingIndexId>
+      <StateNumber>1755</StateNumber>
+      <UnderlyingIndexId>20252</UnderlyingIndexId>
     </key>
     <column id="355" parent="290" name="id">
       <DefaultExpression>nextval(&apos;panier_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1615</StateNumber>
+      <StateNumber>1748</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>19555</SequenceId>
+      <SequenceId>20141</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="356" parent="290" name="valeur_panier">
       <DefaultExpression>0</DefaultExpression>
       <Position>2</Position>
-      <StateNumber>1615</StateNumber>
+      <StateNumber>1748</StateNumber>
       <StoredType>numeric|0s</StoredType>
       <TypeId>1700</TypeId>
     </column>
     <column id="357" parent="290" name="recuperation_panier">
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <Position>3</Position>
-      <StateNumber>1615</StateNumber>
+      <StateNumber>1748</StateNumber>
       <StoredType>timestamp|0s</StoredType>
       <TypeId>1114</TypeId>
     </column>
     <column id="358" parent="290" name="paid">
       <DefaultExpression>false</DefaultExpression>
       <Position>4</Position>
-      <StateNumber>1615</StateNumber>
+      <StateNumber>1748</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
     <index id="359" parent="290" name="panier_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19565</ObjectId>
+      <ObjectId>20151</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1615</StateNumber>
+      <StateNumber>1748</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="360" parent="290" name="panier_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19566</ObjectId>
+      <ObjectId>20152</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1615</StateNumber>
-      <UnderlyingIndexId>19565</UnderlyingIndexId>
+      <StateNumber>1748</StateNumber>
+      <UnderlyingIndexId>20151</UnderlyingIndexId>
     </key>
     <column id="361" parent="291" name="id">
       <DefaultExpression>nextval(&apos;panier_produit_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1620</StateNumber>
+      <StateNumber>1757</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>19635</SequenceId>
+      <SequenceId>20281</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="362" parent="291" name="id_panier">
       <Position>2</Position>
-      <StateNumber>1620</StateNumber>
+      <StateNumber>1757</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="363" parent="291" name="id_produit">
       <Position>3</Position>
-      <StateNumber>1620</StateNumber>
+      <StateNumber>1757</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="364" parent="291" name="quantite">
       <Position>4</Position>
-      <StateNumber>1620</StateNumber>
+      <StateNumber>1757</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <foreign-key id="365" parent="291" name="panier_produit_id_panier_fkey">
       <ColNames>id_panier</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19642</ObjectId>
-      <StateNumber>1620</StateNumber>
+      <ObjectId>20288</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1757</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>19556</RefTableId>
+      <RefTableId>20142</RefTableId>
     </foreign-key>
     <foreign-key id="366" parent="291" name="panier_produit_id_produit_fkey">
       <ColNames>id_produit</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19647</ObjectId>
-      <StateNumber>1620</StateNumber>
+      <ObjectId>20293</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1757</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>19529</RefTableId>
+      <RefTableId>20201</RefTableId>
     </foreign-key>
     <index id="367" parent="291" name="panier_produit_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19640</ObjectId>
+      <ObjectId>20286</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1620</StateNumber>
+      <StateNumber>1757</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="368" parent="291" name="panier_produit_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19641</ObjectId>
+      <ObjectId>20287</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1620</StateNumber>
-      <UnderlyingIndexId>19640</UnderlyingIndexId>
+      <StateNumber>1757</StateNumber>
+      <UnderlyingIndexId>20286</UnderlyingIndexId>
     </key>
     <column id="369" parent="292" name="id">
       <DefaultExpression>nextval(&apos;produit_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1613</StateNumber>
+      <StateNumber>1752</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>19528</SequenceId>
+      <SequenceId>20200</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="370" parent="292" name="nom_produit">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1613</StateNumber>
+      <StateNumber>1752</StateNumber>
       <StoredType>varchar(100)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
     <column id="371" parent="292" name="prix_produit">
       <Position>3</Position>
-      <StateNumber>1613</StateNumber>
+      <StateNumber>1752</StateNumber>
       <StoredType>numeric|0s</StoredType>
       <TypeId>1700</TypeId>
     </column>
     <column id="372" parent="292" name="stocks">
       <Position>4</Position>
-      <StateNumber>1613</StateNumber>
+      <StateNumber>1752</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="373" parent="292" name="type_article">
       <Position>5</Position>
-      <StateNumber>1613</StateNumber>
+      <StateNumber>1752</StateNumber>
       <StoredType>varchar(100)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
     <column id="374" parent="292" name="avendre">
       <DefaultExpression>true</DefaultExpression>
       <Position>6</Position>
-      <StateNumber>1613</StateNumber>
+      <StateNumber>1752</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
     <column id="375" parent="292" name="vendupar">
+      <NotNull>1</NotNull>
       <Position>7</Position>
-      <StateNumber>1613</StateNumber>
+      <StateNumber>1752</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="376" parent="292" name="image_path">
       <Position>8</Position>
-      <StateNumber>1613</StateNumber>
+      <StateNumber>1752</StateNumber>
       <StoredType>varchar(10000)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
     <foreign-key id="377" parent="292" name="produit_vendupar_fkey">
       <ColNames>vendupar</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19538</ObjectId>
-      <StateNumber>1613</StateNumber>
+      <ObjectId>20210</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1752</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>19496</RefTableId>
+      <RefTableId>20168</RefTableId>
     </foreign-key>
     <index id="378" parent="292" name="produit_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19536</ObjectId>
+      <ObjectId>20208</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1613</StateNumber>
+      <StateNumber>1752</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="379" parent="292" name="produit_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19537</ObjectId>
+      <ObjectId>20209</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1613</StateNumber>
-      <UnderlyingIndexId>19536</UnderlyingIndexId>
+      <StateNumber>1752</StateNumber>
+      <UnderlyingIndexId>20208</UnderlyingIndexId>
     </key>
     <column id="380" parent="293" name="id">
       <DefaultExpression>nextval(&apos;stand_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1611</StateNumber>
+      <StateNumber>1750</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>19495</SequenceId>
+      <SequenceId>20167</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="381" parent="293" name="nom_stand">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1611</StateNumber>
+      <StateNumber>1750</StateNumber>
       <StoredType>varchar(50)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
     <column id="382" parent="293" name="id_type">
       <Position>3</Position>
-      <StateNumber>1611</StateNumber>
+      <StateNumber>1750</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="383" parent="293" name="id_emplacement">
       <Position>4</Position>
-      <StateNumber>1611</StateNumber>
+      <StateNumber>1750</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="384" parent="293" name="comptes">
       <Position>5</Position>
-      <StateNumber>1611</StateNumber>
+      <StateNumber>1750</StateNumber>
       <StoredType>integer[]|0s</StoredType>
       <TypeId>1007</TypeId>
     </column>
     <column id="385" parent="293" name="image_path">
       <Position>6</Position>
-      <StateNumber>1611</StateNumber>
+      <StateNumber>1750</StateNumber>
       <StoredType>varchar(10000)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
     <foreign-key id="386" parent="293" name="stand_id_type_fkey">
       <ColNames>id_type</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19504</ObjectId>
-      <StateNumber>1611</StateNumber>
+      <ObjectId>20176</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1750</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>19486</RefTableId>
+      <RefTableId>20132</RefTableId>
     </foreign-key>
     <foreign-key id="387" parent="293" name="stand_id_emplacement_fkey">
       <ColNames>id_emplacement</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19509</ObjectId>
-      <StateNumber>1611</StateNumber>
+      <ObjectId>20181</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1750</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>19476</RefTableId>
+      <RefTableId>20122</RefTableId>
     </foreign-key>
     <index id="388" parent="293" name="stand_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19502</ObjectId>
+      <ObjectId>20174</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1611</StateNumber>
+      <StateNumber>1750</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="389" parent="293" name="stand_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19503</ObjectId>
+      <ObjectId>20175</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1611</StateNumber>
-      <UnderlyingIndexId>19502</UnderlyingIndexId>
+      <StateNumber>1750</StateNumber>
+      <UnderlyingIndexId>20174</UnderlyingIndexId>
     </key>
     <column id="390" parent="294" name="id">
       <DefaultExpression>nextval(&apos;tournoi_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1612</StateNumber>
+      <StateNumber>1751</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>19514</SequenceId>
+      <SequenceId>20186</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="391" parent="294" name="id_stand">
       <Position>2</Position>
-      <StateNumber>1612</StateNumber>
+      <StateNumber>1751</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="392" parent="294" name="lieu">
       <Position>3</Position>
-      <StateNumber>1612</StateNumber>
+      <StateNumber>1751</StateNumber>
       <StoredType>varchar(100)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
     <column id="393" parent="294" name="participants_max">
       <Position>4</Position>
-      <StateNumber>1612</StateNumber>
+      <StateNumber>1751</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <column id="394" parent="294" name="prix_entree">
       <Position>5</Position>
-      <StateNumber>1612</StateNumber>
+      <StateNumber>1751</StateNumber>
       <StoredType>numeric|0s</StoredType>
       <TypeId>1700</TypeId>
     </column>
     <column id="395" parent="294" name="nom_tournoi">
       <Position>6</Position>
-      <StateNumber>1612</StateNumber>
+      <StateNumber>1751</StateNumber>
       <StoredType>varchar(100)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
     <column id="396" parent="294" name="description_tournoi">
       <Position>7</Position>
-      <StateNumber>1612</StateNumber>
+      <StateNumber>1751</StateNumber>
       <StoredType>text|0s</StoredType>
       <TypeId>25</TypeId>
     </column>
     <column id="397" parent="294" name="image_path">
       <Position>8</Position>
-      <StateNumber>1612</StateNumber>
+      <StateNumber>1751</StateNumber>
       <StoredType>varchar(10000)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
     <foreign-key id="398" parent="294" name="tournoi_id_stand_fkey">
       <ColNames>id_stand</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19523</ObjectId>
-      <StateNumber>1612</StateNumber>
+      <ObjectId>20195</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1751</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>19496</RefTableId>
+      <RefTableId>20168</RefTableId>
     </foreign-key>
     <index id="399" parent="294" name="tournoi_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19521</ObjectId>
+      <ObjectId>20193</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1612</StateNumber>
+      <StateNumber>1751</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="400" parent="294" name="tournoi_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19522</ObjectId>
+      <ObjectId>20194</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1612</StateNumber>
-      <UnderlyingIndexId>19521</UnderlyingIndexId>
+      <StateNumber>1751</StateNumber>
+      <UnderlyingIndexId>20193</UnderlyingIndexId>
     </key>
     <column id="401" parent="295" name="id">
       <DefaultExpression>nextval(&apos;types_stand_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1610</StateNumber>
+      <StateNumber>1747</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>19485</SequenceId>
+      <SequenceId>20131</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="402" parent="295" name="intitule">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1610</StateNumber>
+      <StateNumber>1747</StateNumber>
       <StoredType>varchar(50)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
     <column id="403" parent="295" name="peutreserver">
       <DefaultExpression>true</DefaultExpression>
       <Position>3</Position>
-      <StateNumber>1610</StateNumber>
+      <StateNumber>1747</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
     <column id="404" parent="295" name="peutvendre">
       <DefaultExpression>true</DefaultExpression>
       <Position>4</Position>
-      <StateNumber>1610</StateNumber>
+      <StateNumber>1747</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
     <column id="405" parent="295" name="peutanimer">
       <DefaultExpression>false</DefaultExpression>
       <Position>5</Position>
-      <StateNumber>1610</StateNumber>
+      <StateNumber>1747</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
     <index id="406" parent="295" name="types_stand_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19493</ObjectId>
+      <ObjectId>20139</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1610</StateNumber>
+      <StateNumber>1747</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="407" parent="295" name="types_stand_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19494</ObjectId>
+      <ObjectId>20140</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1610</StateNumber>
-      <UnderlyingIndexId>19493</UnderlyingIndexId>
+      <StateNumber>1747</StateNumber>
+      <UnderlyingIndexId>20139</UnderlyingIndexId>
     </key>
     <column id="408" parent="296" name="id">
       <DefaultExpression>nextval(&apos;utilisateur_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1616</StateNumber>
+      <StateNumber>1749</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>19567</SequenceId>
+      <SequenceId>20153</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="409" parent="296" name="identifiant">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1616</StateNumber>
+      <StateNumber>1749</StateNumber>
       <StoredType>varchar(100)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
     <column id="410" parent="296" name="nom">
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>1616</StateNumber>
+      <StateNumber>1749</StateNumber>
       <StoredType>varchar(50)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
     <column id="411" parent="296" name="prenom">
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>1616</StateNumber>
+      <StateNumber>1749</StateNumber>
       <StoredType>varchar(50)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
     <column id="412" parent="296" name="mdp">
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <StateNumber>1616</StateNumber>
+      <StateNumber>1749</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
     <column id="413" parent="296" name="email">
       <Position>6</Position>
-      <StateNumber>1616</StateNumber>
+      <StateNumber>1749</StateNumber>
       <StoredType>varchar(100)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
     <column id="414" parent="296" name="type">
       <Position>7</Position>
-      <StateNumber>1616</StateNumber>
+      <StateNumber>1749</StateNumber>
       <StoredType>varchar(100)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
     <column id="415" parent="296" name="currentbasket">
       <Position>8</Position>
-      <StateNumber>1616</StateNumber>
+      <StateNumber>1749</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
     <foreign-key id="416" parent="296" name="utilisateur_currentbasket_fkey">
       <ColNames>currentbasket</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19576</ObjectId>
-      <StateNumber>1616</StateNumber>
+      <ObjectId>20162</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1749</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>19556</RefTableId>
+      <RefTableId>20142</RefTableId>
     </foreign-key>
     <index id="417" parent="296" name="utilisateur_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19574</ObjectId>
+      <ObjectId>20160</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1616</StateNumber>
+      <StateNumber>1749</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="418" parent="296" name="utilisateur_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>19575</ObjectId>
+      <ObjectId>20161</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1616</StateNumber>
-      <UnderlyingIndexId>19574</UnderlyingIndexId>
+      <StateNumber>1749</StateNumber>
+      <UnderlyingIndexId>20160</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

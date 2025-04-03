@@ -1,11 +1,11 @@
 const pool = require('../database/db');
 
 // Create a new article with a name, description, stocks, price, and image path
-const createArticle = async (nom, prix , type_article, image_path) => {
+const createArticle = async (nom, prix , type_article,venduPar, image_path) => {
     const client = await pool.connect();
     try {
-        const query = 'INSERT INTO produit (nom_produit, prix_produit, type_article, image_path) VALUES ($1, $2, $3, $4) RETURNING *';
-        const values = [nom, prix, type_article, image_path];
+        const query = 'INSERT INTO produit (nom_produit, prix_produit, type_article,vendupar, image_path) VALUES ($1, $2, $3, $5,$4) RETURNING *';
+        const values = [nom, prix, type_article, image_path,venduPar];
         const result = await client.query(query, values);
         return result.rows[0];
     } catch (error) {
