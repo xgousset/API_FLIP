@@ -3,7 +3,13 @@ const userController = require('../controller/users.controllers');
 const userMiddleware = require('../middlewares/users.middleware');
 var router = express.Router();
 
-router.post("/", userMiddleware.validateUser, userController.saveUser);
+/**
+ * @swagger
+ * tags:
+ *   name: users
+ *   description: API for managing users
+ */
+
 /**
  * @swagger
  * /api/users:
@@ -21,32 +27,31 @@ router.post("/", userMiddleware.validateUser, userController.saveUser);
  *             - nom
  *             - prenom
  *             - email
- *             - password
- *             - autorisation
+ *             - motDePasse
+ *             - type
+ *             - identifant
  *           properties:
  *             nom:
  *               type: string
- *               example: "Doe"
+ *               example: "John"
  *             prenom:
  *               type: string
- *               example: "John"
+ *               example: "Doe"
  *             email:
  *               type: string
- *               example: "JohnDoe@example.com"
- *             password:
+ *               example: "u.u@u.u"
+ *             motDePasse:
  *               type: string
- *               example: "password"
- *             autorisation:
- *               type: integer
- *               example: 0
- *     responses:
- *       '200':
- *         description: User created successfully
- *       '500':
- *         description: Internal server error
+ *               example: "password123"
+ *             type:
+ *               type: string
+ *               example: "admin"
+ *             identifant:
+ *               type: string
+ *               example: "johndoe"
  */
+router.post("/", userMiddleware.validateUser, userController.saveUser);
 
-router.get("/", userController.getUsers);
 /**
  * @swagger
  * /api/users:
@@ -60,8 +65,8 @@ router.get("/", userController.getUsers);
  *       '500':
  *         description: Internal server error
  */
+router.get("/", userController.getUsers);
 
-router.get("/:id", userController.getUserById);
 /**
  * @swagger
  * /api/users/{id}:
@@ -84,46 +89,11 @@ router.get("/:id", userController.getUserById);
  *       '500':
  *         description: Internal server error
  */
+router.get("/:id", userController.getUserById);
 
-router.get("/:id/check-password", userController.checkPassword);
 /**
  * @swagger
- * /api/users/{id}/check-password:
- *   get:
- *     description: Check the password of a user by ID
- *     tags:
- *       - users
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         description: ID of the user to check password
- *         schema:
- *           type: string
- *       - in: body
- *         name: password
- *         required: true
- *         schema:
- *           type: object
- *           properties:
- *             password:
- *               type: string
- *               example: "password"
- *     responses:
- *       '200':
- *         description: Password checked successfully
- *       '401':
- *         description: Incorrect password
- *       '404':
- *         description: User not found
- *       '500':
- *         description: Internal server error
- */
-
-router.put("/updateUser/:id", userController.updateUser);
-/**
- * @swagger
- * /api/users/{id}:
+ * /api/users/updateUser/{id}:
  *   put:
  *     description: Update a user by ID
  *     tags:
@@ -135,37 +105,47 @@ router.put("/updateUser/:id", userController.updateUser);
  *         description: ID of the user to update
  *         schema:
  *           type: string
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             required:
- *               - nom
- *               - prenom
- *               - email
- *               - password
- *               - autorisation
- *             properties:
- *               nom:
- *                 type: string
- *               prenom:
- *                 type: string
- *               email:
- *                 type: string
- *               password:
- *                 type: string
- *               autorisation:
- *                 type: integer
+ *       - in: body
+ *         name: user
+ *         description: User data to update
+ *         schema:
+ *           type: object
+ *           required:
+ *             - nom
+ *             - prenom
+ *             - email
+ *             - motDePasse
+ *             - type
+ *             - identifiant
+ *           properties:
+ *             nom:
+ *               type: string
+ *               example: "John"
+ *             prenom:
+ *               type: string
+ *               example: "Doe"
+ *             email:
+ *               type: string
+ *               example: "u.u@u.u"
+ *             motDePasse:
+ *               type: string
+ *               example: "password123"
+ *             type:
+ *               type: string
+ *               example: "admin"
+ *             identifiant:
+ *               type: string
+ *               example: "johndoe"
  *     responses:
  *       '200':
  *         description: User updated successfully
+ *       '400':
+ *         description: Bad request
  *       '500':
  *         description: Internal server error
  */
+router.put("/updateUser/:id", userController.updateUser);
 
-router.delete("/:id", userController.deleteUser);
 /**
  * @swagger
  * /api/users/{id}:
@@ -183,8 +163,11 @@ router.delete("/:id", userController.deleteUser);
  *     responses:
  *       '200':
  *         description: User deleted successfully
+ *       '404':
+ *         description: User not found
  *       '500':
  *         description: Internal server error
  */
+router.delete("/:id", userController.deleteUser);
 
 module.exports = router;

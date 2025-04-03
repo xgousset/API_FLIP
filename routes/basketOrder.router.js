@@ -61,6 +61,7 @@ router.post("/", basketOrderMiddleware.validateBasketOrder, basketOrderControlle
  *               type: integer
  *             quantite:
  *               type: integer
+ *               example: 3
  *     responses:
  *       '201':
  *         description: Successfully created basket

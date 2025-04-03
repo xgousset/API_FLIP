@@ -60,45 +60,6 @@ router.delete("/:id", commentairesController.deleteComment);
  */
 
 
-router.get("/:id", commentairesController.getCommentById);
-/**
- * @swagger
- * /api/commentaires/{id}:
- *   get:
- *     description: Utilisé pour obtenir un commentaire par ID
- *     tags:
- *       - commentaires
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         description: ID du commentaire à récupérer
- *         schema:
- *           type: string
- *     responses:
- *       '200':
- *         description: Commentaire récupéré avec succès
- *       '404':
- *         description: Commentaire non trouvé
- *       '500':
- *         description: Erreur interne du serveur
- */
-
-
-router.get("/", commentairesController.getComments);
-/**
- * @swagger
- * /api/commentaires:
- *   get:
- *     description: Utilisé pour obtenir tous les commentaires
- *     tags:
- *       - commentaires
- *     responses:
- *       '200':
- *         description: Commentaires récupérés avec succès
- *       '500':
- *         description: Erreur interne du serveur
- */
 
 
 router.put("/:id", commentairesController.updateComment);
@@ -166,26 +127,5 @@ router.get("/comm/stand/:id", commentairesController.getCommentsByStand)
  *         description: Erreur interne du serveur
  */
 
-router.get("/comm/user/:id", commentairesController.getCommentsByUser)
-/**
- * @swagger
- * /api/commentaires/comm/user/{id}:
- *   get:
- *     description: Utilisé pour obtenir les commentaires par utilisateur
- *     tags:
- *       - commentaires
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         description: ID de l'utilisateur
- *         schema:
- *           type: string
- *     responses:
- *       '200':
- *         description: Commentaires récupérés avec succès
- *       '500':
- *         description: Erreur interne du serveur
- */
 
 module.exports = router;

@@ -28,13 +28,13 @@ router.post("/", typesMiddleware.validateType, typesController.createType);
  *               example: "Type 1"
  *             reserve:
  *               type: boolean
- *               example: true
+ *               example: false
  *             vente:
  *               type: boolean
  *               example: true
  *             anim:
  *               type: boolean
- *               example: false
+ *               example: true
  *     responses:
  *       '201':
  *         description: Type created successfully
@@ -87,7 +87,7 @@ router.put("/:id", typesMiddleware.validateType, typesController.updateType);
  * @swagger
  * /api/types/{id}:
  *   put:
- *     description: Used to update a specific type
+ *     description: Update a specific type
  *     tags:
  *       - types
  *     parameters:
@@ -95,35 +95,37 @@ router.put("/:id", typesMiddleware.validateType, typesController.updateType);
  *         name: id
  *         description: Type ID
  *         required: true
- *         type: integer
- *       - in: body
- *         name: type
- *         description: Type data to update a type
  *         schema:
- *           type: object
- *           required:
- *             - intitule
- *             - reserve
- *             - vente
- *             - anim
- *           properties:
- *             intitule:
- *               type: string
- *               example: "Type 1"
- *             reserve:
- *               type: boolean
- *               example: true
- *             vente:
- *               type: boolean
- *               example: true
- *             anim:
- *               type: boolean
- *               example: false
+ *           type: integer
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - intitule
+ *               - reserve
+ *               - vente
+ *               - anim
+ *             properties:
+ *               intitule:
+ *                 type: string
+ *                 example: "Type 1"
+ *               reserve:
+ *                 type: boolean
+ *                 example: false
+ *               vente:
+ *                 type: boolean
+ *                 example: true
+ *               anim:
+ *                 type: boolean
+ *                 example: true
  *     responses:
  *       '200':
  *         description: Type updated successfully
- *       '400':
- *         description: Bad request
+ *       '404':
+ *         description: Type not found
  *       '500':
  *         description: Internal server error
  */

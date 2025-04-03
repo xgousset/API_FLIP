@@ -41,10 +41,10 @@ router.post("/", gameMiddleware.validateGame, gameController.createGame);
  *               example: 100
  *             nbJoueursMin:
  *               type: integer
- *               example: 1
+ *               example: 2
  *             nbJoueursMax:
  *               type: integer
- *               example: 4
+ *               example: 6
  *             ageLimite:
  *               type: integer
  *               example: 12
@@ -138,10 +138,10 @@ router.put("/:id", gameMiddleware.validateGame, gameController.updateGame);
  *               example: 100
  *             nbJoueursMin:
  *               type: integer
- *               example: 1
+ *               example: 2
  *             nbJoueursMax:
  *               type: integer
- *               example: 4
+ *               example: 6
  *             ageLimite:
  *               type: integer
  *               example: 12

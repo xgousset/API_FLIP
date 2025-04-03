@@ -12,11 +12,11 @@ router.post("/", uploadTour.single('image') ,  tournamentMiddleware.validateTour
  *     description: Utilisé pour créer un nouveau tournoi
  *     tags:
  *       - tournaments
- *     parameters:
- *       - in: body
- *         name: tournament
- *         description: Tournament data to create a new tournament
- *         schema:
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
  *             type: object
  *             required:
  *               - id_stand
@@ -30,30 +30,25 @@ router.post("/", uploadTour.single('image') ,  tournamentMiddleware.validateTour
  *             properties:
  *               id_stand:
  *                 type: integer
- *                 example: 1
  *               participants_min:
  *                 type: integer
- *                 example: 4
  *               participants_max:
  *                 type: integer
- *                 example: 16
  *               prix_entree:
  *                 type: number
  *                 format: float
- *                 example: 10.50
  *               heure_debut:
  *                 type: string
- *                 format: time
- *                 example: "2025-01-14 14:00:00"
+ *                 format: date-time
  *               objet_tournoi:
  *                 type: string
- *                 example: "Jeu de cartes"
  *               nom_tournoi:
  *                 type: string
- *                 example: "Tournoi de carte"
  *               description_tournoi:
  *                 type: string
- *                 example: "Tournoi annuel pour les amateurs de cartes."
+ *               image:
+ *                 type: string
+ *                 format: binary
  *     responses:
  *       '200':
  *         description: Tournoi créé avec succès
@@ -107,14 +102,14 @@ router.put("/:id",uploadTour.single('image'), tournamentMiddleware.validateTourn
  * @swagger
  * /api/tournaments/{id}:
  *   put:
- *     description: Utilisé pour mettre à jour un tournoi par son ID
+ *     description: Update a tournament by ID
  *     tags:
  *       - tournaments
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
- *         description: ID du tournoi à mettre à jour
+ *         description: ID of the tournament to update
  *         schema:
  *           type: string
  *     requestBody:
@@ -144,7 +139,7 @@ router.put("/:id",uploadTour.single('image'), tournamentMiddleware.validateTourn
  *                 format: float
  *               heure_debut:
  *                 type: string
- *                 format: time
+ *                 format: date-time
  *               objet_tournoi:
  *                 type: string
  *               nom_tournoi:
@@ -153,13 +148,11 @@ router.put("/:id",uploadTour.single('image'), tournamentMiddleware.validateTourn
  *                 type: string
  *     responses:
  *       '200':
- *         description: Tournoi mis à jour avec succès
- *       '400':
- *         description: Mauvaise requête
+ *         description: Tournament updated successfully
  *       '404':
- *         description: Tournoi non trouvé
+ *         description: Tournament not found
  *       '500':
- *         description: Erreur interne du serveur
+ *         description: Internal server error
  */
 
 router.delete("/:id", tournamentController.deleteTournament);

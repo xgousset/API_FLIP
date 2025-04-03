@@ -1,32 +1,26 @@
 const usersService = require('../services/users.services');
 
-exports.saveUser = async (req,res) => {
-    const {nom,prenom,email,motDePasse,role, identifant} = req.body;
-    try{
-        const data = usersService.createUser(nom,prenom,email,motDePasse,role, identifant);
+exports.saveUser = async (req, res) => {
+    const { nom, prenom, email, motDePasse, type, identifant } = req.body;
+
+    console.log("Données de l'utilisateur:", req.body);
+    console.log("Nom:", nom);
+    console.log("Prénom:", prenom);
+    console.log("Email:", email);
+    console.log("Mot de passe:", motDePasse);
+    console.log("Rôle:", type);
+    console.log("Identifiant:", identifant);
+    
+
+    try {
+        console.log("Création de l'utilisateur avec les données:", nom, prenom, email, motDePasse, type, identifant);
+        const data = usersService.createUser(nom, prenom, email, motDePasse, type, identifant);
         return res.status(200).send(data);
     } catch (error) {
         console.error("Erreur de création d'utilisateur:", error);
         return res.status(500).send("Erreur");
     }
-}
-
-
-
-
-exports.checkPassword = async (req,res) => {
-    const id = req.params.id;
-    const password = req.body.password;
-    const user = usersService.fetchSpecificUser(id);
-    if(!user){
-        return res.status(404).send("Utilisateur non trouvé");
-    }
-    if(await usersService.checkPassword(password, id)){
-        return res.status(200).send("Mot de passe correct");
-    }else{
-        return res.status(401).send("Mot de passe incorrect");
-    }
-}
+};
 
 exports.getUsers = async (req,res) => {
     try{
@@ -52,17 +46,17 @@ exports.getUserById = async (req,res) => {
     }
 }
 
-exports.updateUser = async (req,res) => {
+exports.updateUser = async (req, res) => {
     const id = req.params.id;
-    const {nom,prenom,email,motDePasse,role, identifant} = req.body;
+    const { nom, prenom, email, motDePasse, type, identifiant } = req.body;
     try {
-        const data = await usersService.updateUser(id,nom,prenom,email,motDePasse,role, identifant);
+        const data = await usersService.updateUser(id, nom, prenom, email, motDePasse, type, identifiant);
         return res.status(200).send(data);
     } catch (error) {
         console.error("Erreur de mise à jour de l'utilisateur:", error);
         return res.status(500).send("Erreur");
     }
-}
+};
 
 exports.deleteUser = async (req,res) => {
     const id = req.params.id;

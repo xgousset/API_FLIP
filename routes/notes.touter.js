@@ -17,17 +17,17 @@ router.post("/", notesController.saveNote);
  *         schema:
  *           type: object
  *           required:
- *             - id_utilisateur
- *             - id_article
- *             - note
+ *             - idUser
+ *             - restaurantId
+ *             - rating
  *           properties:
- *             id_utilisateur:
+ *             idUser:
  *               type: integer
  *               example: 1
- *             id_article:
+ *             restaurantId:
  *               type: integer
  *               example: 1
- *             note:
+ *             rating:
  *               type: integer
  *               example: 5
  *     responses:
@@ -37,51 +37,21 @@ router.post("/", notesController.saveNote);
  *         description: Erreur interne du serveur
  */
 
-router.get("/specificNote/:idStand/:idUser", async (req, res) => await notesController.getNote(req, res));
-/**
- * @swagger
- * /api/notes/specificNote/{idStand}/{idUser}:
- *   get:
- *     description: Utilisé pour obtenir une note spécifique d'un stand
- *     tags:
- *       - notes
- *     parameters:
- *       - in: path
- *         name: idStand
- *         required: true
- *         description: ID du stand pour lequel on veut la note
- *         schema:
- *           type: integer
- *           example: 1
- *       - in: path
- *         name: idUser
- *         required: true
- *         description: ID de l'utilisateur pour lequel on veut la note
- *         schema:
- *           type: integer
- *           example: 1
- *     responses:
- *       '200':
- *         description: Note trouvée avec succès
- *       '404':
- *         description: Note non trouvée
- *       '500':
- *         description: Erreur interne du serveur
- */
 
-router.get("/avg/:idStand", async (req, res) => await notesController.getAverageNote(req, res));
+
+router.get("/:idStand", async (req, res) => await notesController.getAverageNote(req, res));
 /**
  * @swagger
- * /api/notes/avg/{idStand}:
+ * /api/notes/{idStand}:
  *   get:
- *     description: Utilisé pour obtenir la note moyenne d'un stand
+ *     description: Utilisé pour obtenir les notes d'un stand
  *     tags:
  *       - notes
  *     parameters:
  *       - in: path
  *         name: idStand
  *         required: true
- *         description: ID du stand pour lequel on veut la note moyenne
+ *         description: ID du stand pour lequel on veut les notes
  *         schema:
  *           type: integer
  *           example: 1
@@ -109,14 +79,10 @@ router.put("/", async (req, res) => await notesController.updateNote(req, res));
  *         schema:
  *           type: object
  *           required:
- *             - id_utilisateur
- *             - id_article
+ *             - idRating
  *             - note
  *           properties:
- *             id_utilisateur:
- *               type: integer
- *               example: 1
- *             id_article:
+ *             idRating:
  *               type: integer
  *               example: 1
  *             note:
@@ -144,13 +110,9 @@ router.delete("/", async (req, res) => await notesController.deleteNote(req, res
  *         schema:
  *           type: object
  *           required:
- *             - id_utilisateur
- *             - id_article
+ *             - ratingId
  *           properties:
- *             id_utilisateur:
- *               type: integer
- *               example: 1
- *             id_article:
+ *             ratingId:
  *               type: integer
  *               example: 1
  *     responses:

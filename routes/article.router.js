@@ -37,10 +37,10 @@ router.post("/", uploadArt.single('image'), articleMiddleware.validateArticle, a
  *             prix:
  *               type: number
  *               format: float
- *               example: 19.99
+ *               example: 29.99
  *             type:
  *               type: string
- *               example: "Nourriture"
+ *               example: "Accessoire"
  *             image:
  *               type: string
  *               format: binary
@@ -131,10 +131,10 @@ router.put("/:id", uploadArt.single('image'), articleMiddleware.validateArticle,
  *             prix:
  *               type: number
  *               format: float
- *               example: 24.99
+ *               example: 29.99
  *             type:
  *               type: string
- *               example: "Nourriture"
+ *               example: "Accessoire"
  *             image:
  *               type: string
  *               format: binary

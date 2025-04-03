@@ -3,17 +3,20 @@ const router = express.Router();
 const pool = require('../database/db');
 
 router.post('/login', async (req, res) => {
-    const { username, password } = req.body;
+    const { identifiant, password } = req.body;
     const client = await pool.connect();
     try {
-        const query = 'SELECT * FROM utilisateur WHERE nom = $1 AND mdp = $2';
-        const values = [username, password];
-        const result = await client.query(query, values);
-        if (result.rows.length > 0) {
-            req.session.user = { username };
-            res.status(200).send('Logged in');
-        } else {
-            res.status(401).send('Invalid credentials');
+        const findUser = 'SELECT mdp FROM utilisateur WHERE identifiant = $1';
+        const result = await client.query(findUser, [identifiant]);
+        if (result.rows.length === 0) {
+            return res.status(401).send('Utilisateur non trouvé');
+        }
+        if (result.rows[0].mdp === bcrypt.hashSync(password, 10)) {
+            req.session.user = { username: identifiant };
+            return res.status(200).send('Connecté');
+        }
+        else {
+            return res.status(401).send('Mot de passe incorrect');
         }
     } catch (error) {
         console.log(error);
@@ -22,7 +25,6 @@ router.post('/login', async (req, res) => {
         client.release();
     }
 });
-
 /**
  * @swagger
  * /login:
@@ -60,7 +62,6 @@ router.post('/logout', (req, res) => {
         res.status(200).send('Logged out');
     });
 });
-
 /**
  * @swagger
  * /logout:
@@ -82,7 +83,6 @@ router.get('/status', (req, res) => {
         res.status(401).send('Not logged in');
     }
 });
-
 /**
  * @swagger
  * /status:

@@ -15,34 +15,7 @@ const createComment = async (id_stand, id_utilisateur, contenu) => {
     }
 }
 
-const fetchComments = async () => {
-    const client = await pool.connect();
-    try {
-        const query = 'SELECT * FROM commentaires';
-        const result = await client.query(query);
-        return result.rows;
-    } catch (error) {
-        console.log(error);
-        return [];
-    } finally {
-        client.release();
-    }
-}
 
-const fetchSpecificComment = async (id) => {
-    const client = await pool.connect();
-    try {
-        const query = 'SELECT * FROM commentaires WHERE id = $1';
-        const values = [id];
-        const result = await client.query(query, values);
-        return result.rows[0];
-    } catch (error) {
-        console.log(error);
-        return null;
-    } finally {
-        client.release();
-    }
-}
 
 const deleteComment = async (id) => {
     const client = await pool.connect();
@@ -92,19 +65,5 @@ const fetchCommentsByStand = async (id_stand) => {
     }
 }
 
-const fetchCommentsByUser = async (id_utilisateur) => {
-    const client = await pool.connect();
-    try {
-        const query = 'SELECT * FROM commentaires WHERE id_utilisateur = $1';
-        const values = [id_utilisateur];
-        const result = await client.query(query, values);
-        return result.rows;
-    } catch (error) {
-        console.log(error);
-        return [];
-    } finally {
-        client.release();
-    }
-}
 
-module.exports = { createComment, fetchComments, fetchSpecificComment, deleteComment, updateComment, fetchCommentsByStand, fetchCommentsByUser };
+module.exports = { createComment,  deleteComment, updateComment, fetchCommentsByStand,  };

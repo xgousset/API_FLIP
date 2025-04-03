@@ -64,7 +64,7 @@ const swaggerOption = {
             servers: ["http://localhost:3000/"],
         },
     }),
-    apis: ["index.js", "./routes/*.js"],
+    apis: ["./main.js", "./routes/*.js"],
 };
 const swaggerDocs = swaggerJsdoc(swaggerOption);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
@@ -78,7 +78,8 @@ app.use("*", (req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
-    res.status(err.status).send(err.message);
+    const status = err.status || 500; // Ensure a valid status code is set
+    res.status(status).send(err.message || "Internal Server Error");
 });
 
 app.listen(PORT, () => {

@@ -32,10 +32,13 @@ router.post("/", uploadStand.single('image') , prestataireMiddleware.validatePre
  *               example: 1
  *             emplacement:
  *               type: integer
- *               example: 1
+ *               example: 2
  *             description:
  *               type: string
- *               example: "Description du stand 1"
+ *               example: "Updated description of the stand"
+ *             image:
+ *               type: string
+ *               format: binary
  *     responses:
  *       '200':
  *         description: Prestataire created successfully
@@ -48,8 +51,8 @@ router.post("/", uploadStand.single('image') , prestataireMiddleware.validatePre
  *         {
  *           "nom": "Prestataire 1",
  *           "type": 1,
- *           "emplacement": 1,
- *           "description": "Description du stand 1"
+ *           "emplacement": 2,
+ *           "description": "Updated description of the stand"
  *         }
  */
 
@@ -88,8 +91,8 @@ router.get("/", prestataireController.getPrestataires);
  *                 "id": 1,
  *                 "nom_stand": "Stand 1",
  *                 "id_type": 1,
- *                 "id_emplacement": 1,
- *                 "description": "Description du stand 1"
+ *                 "id_emplacement": 2,
+ *                 "description": "Updated description of the stand"
  *               }
  *             ]
  *       '500':
@@ -136,8 +139,8 @@ router.get("/:id", prestataireController.getPrestataireById);
  *                 "id": 1,
  *                 "nom_stand": "Stand 1",
  *                 "id_type": 1,
- *                 "id_emplacement": 1,
- *                 "description": "Description du stand 1"
+ *                 "id_emplacement": 2,
+ *                 "description": "Updated description of the stand"
  *               }
  *             ]
  *       '404':
@@ -176,10 +179,10 @@ router.put("/:id",uploadStand.single('image') , prestataireMiddleware.validatePr
  *               example: 1
  *             emplacement:
  *               type: integer
- *               example: 1
+ *               example: 2
  *             description:
  *               type: string
- *               example: "Description du stand 1"
+ *               example: "Updated description of the stand"
  *     responses:
  *       '200':
  *         description: Prestataire updated successfully
