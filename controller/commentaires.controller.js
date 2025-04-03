@@ -25,9 +25,9 @@ exports.deleteComment = async (req, res) => {
 
 exports.updateComment = async (req, res) => {
     const id = req.params.id;
-    const { comment } = req.body;
+    const { contenu } = req.body;
     try {
-        const data = await commentairesService.updateComment(id,  comment);
+        const data = await commentairesService.updateComment(id,  contenu);
         return res.status(200).send(data);
     } catch (error) {
         console.error("Error updating comment:", error);

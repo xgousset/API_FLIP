@@ -59,9 +59,6 @@ router.delete("/:id", commentairesController.deleteComment);
  *         description: Erreur interne du serveur
  */
 
-
-
-
 router.put("/:id", commentairesController.updateComment);
 /**
  * @swagger
@@ -77,33 +74,31 @@ router.put("/:id", commentairesController.updateComment);
  *         description: ID du commentaire à mettre à jour
  *         schema:
  *           type: string
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             required:
- *               - id_utilisateur
- *               - id_article
- *               - contenu
- *             properties:
- *               id_utilisateur:
- *                 type: integer
- *                 example: 1
- *               id_article:
- *                 type: integer
- *                 example: 1
- *               contenu:
- *                 type: string
- *                 example: "Ceci est un commentaire"
+ *       - in: body
+ *         name: commentaire
+ *         description: Données du commentaire à créer
+ *         schema:
+ *           type: object
+ *           required:
+ *             - id_utilisateur
+ *             - id_article
+ *             - contenu
+ *           properties:
+ *             id_utilisateur:
+ *               type: integer
+ *               example: 1
+ *             id_article:
+ *               type: integer
+ *               example: 1
+ *             contenu:
+ *               type: string
+ *               example: "Ceci est un commentaire"
  *     responses:
  *       '200':
  *         description: Commentaire mis à jour avec succès
  *       '500':
  *         description: Erreur interne du serveur
  */
-
 
 router.get("/comm/stand/:id", commentairesController.getCommentsByStand)
 /**
@@ -126,6 +121,5 @@ router.get("/comm/stand/:id", commentairesController.getCommentsByStand)
  *       '500':
  *         description: Erreur interne du serveur
  */
-
 
 module.exports = router;
