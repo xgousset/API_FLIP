@@ -132,6 +132,13 @@ CREATE TABLE IF NOT EXISTS inscription (
     date_inscription TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE IF NOT EXISTS reservationJeu(
+    id SERIAL PRIMARY KEY,
+    id_jeu INTEGER REFERENCES jeu(id) ON DELETE CASCADE,
+    id_utilisateur INTEGER REFERENCES utilisateur(id) ON DELETE CASCADE,
+    date_reservation TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Insert test data into emplacement table
 INSERT INTO emplacement (coordonnees_x, coordonnees_y, categorie, nom, reserve) VALUES
     (10.5, 20.3, 'A', 'Emplacement 1', FALSE),

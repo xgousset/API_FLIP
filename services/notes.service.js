@@ -25,7 +25,7 @@ const fetchNote = async (id_stand) => {
         const query = 'SELECT * FROM note WHERE id_stand = $1';
         const values = [id_stand];
         const result = await client.query(query, values);
-        return result.rows[0];
+        return result.rows;
     } catch (error) {
         console.log(error);
         return null;

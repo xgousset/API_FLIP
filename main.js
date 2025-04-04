@@ -52,6 +52,7 @@ app.use("/api/session", sessionRouter);
 app.use("/api/inscription", require('./routes/inscription.router'));
 app.use("/api/commentaires", require('./routes/commentaires.router'));
 app.use("/api/notes", require('./routes/notes.touter'));
+app.use("/aapi/reservJeu", require('./routes/reservJeu.router'))
 
 const swaggerOption = {
     swaggerDefinition: (swaggerJsdoc.Options = {
@@ -70,6 +71,12 @@ const swaggerDocs = swaggerJsdoc(swaggerOption);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 /** Swagger Initialization - END */
 
+app.use("/imgArticles", express.static("images/articles"));
+app.use("/imgStand", express.static("images/stands"));
+app.use("/imgTournament", express.static("images/tournois"));
+
+//ajoute les chemins vers les images
+app.use('/images', express.static('images'));
 // Middlewaires Gestion erreurs
 app.use("*", (req, res, next) => {
     const error = new Error("Route non trouvée");

@@ -2,10 +2,10 @@ const notesService = require('../services/notes.service');
 const assert = require("node:assert");
 
 exports.saveNote = async (req, res) => {
-    const { idUser, restaurantId, note } = req.body;
-    assert(note >= 0 && note <= 5, "La note doit être comprise entre 0 et 5");
+    const { idUser, restaurantId, rating } = req.body;
+    assert(rating >= 0 && rating <= 5, "La note doit être comprise entre 0 et 5");
     try {
-        const data = await notesService.addNote(restaurantId, idUser,  note);
+        const data = await notesService.addNote(restaurantId, idUser,  rating);
         return res.status(200).send(data);
     } catch (error) {
         console.error("Error creating note:", error);
@@ -28,10 +28,10 @@ exports.deleteNote = async (req, res) => {
 
 exports.updateNote = async (req, res) => {
     const ratingId = req.params.ratingId
-    const {  note } = req.body;
-    assert(note >= 0 && note <= 5, "La note doit être comprise entre 0 et 5");
+    const {  rating } = req.body;
+    assert(rating >= 0 && rating <= 5, "La note doit être comprise entre 0 et 5");
     try {
-        const data = await notesService.updateNote(ratingId, note);
+        const data = await notesService.updateNote(ratingId, rating);
         return res.status(200).send(data);
     } catch (error) {
         console.error("Error updating note:", error);

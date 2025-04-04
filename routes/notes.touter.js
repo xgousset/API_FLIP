@@ -39,7 +39,7 @@ router.post("/", notesController.saveNote);
 
 
 
-router.get("/:idStand", async (req, res) => await notesController.getAverageNote(req, res));
+router.get("/:idStand", async (req, res) => await notesController.getNote(req, res));
 /**
  * @swagger
  * /api/notes/{idStand}:
@@ -80,12 +80,12 @@ router.put("/", async (req, res) => await notesController.updateNote(req, res));
  *           type: object
  *           required:
  *             - idRating
- *             - note
+ *             - rating
  *           properties:
  *             idRating:
  *               type: integer
  *               example: 1
- *             note:
+ *             rating:
  *               type: integer
  *               example: 5
  *     responses:
