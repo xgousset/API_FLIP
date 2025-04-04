@@ -1,20 +1,20 @@
 const usersService = require('../services/users.services');
 
 exports.saveUser = async (req, res) => {
-    const { nom, prenom, email, motDePasse, type, identifant } = req.body;
+    const { nom, prenom, email, motDePasse, role, identifant } = req.body;
 
     console.log("Données de l'utilisateur:", req.body);
     console.log("Nom:", nom);
     console.log("Prénom:", prenom);
     console.log("Email:", email);
     console.log("Mot de passe:", motDePasse);
-    console.log("Rôle:", type);
+    console.log("Rôle:", role);
     console.log("Identifiant:", identifant);
     
 
     try {
-        console.log("Création de l'utilisateur avec les données:", nom, prenom, email, motDePasse, type, identifant);
-        const data = usersService.createUser(nom, prenom, email, motDePasse, type, identifant);
+        console.log("Création de l'utilisateur avec les données:", nom, prenom, email, motDePasse, role, identifant);
+        const data = usersService.createUser(nom, prenom, email, motDePasse, role, identifant);
         return res.status(200).send(data);
     } catch (error) {
         console.error("Erreur de création d'utilisateur:", error);
@@ -48,9 +48,9 @@ exports.getUserById = async (req,res) => {
 
 exports.updateUser = async (req, res) => {
     const id = req.params.id;
-    const { nom, prenom, email, motDePasse, type, identifiant } = req.body;
+    const { nom, prenom, email, motDePasse, role, identifiant } = req.body;
     try {
-        const data = await usersService.updateUser(id, nom, prenom, email, motDePasse, type, identifiant);
+        const data = await usersService.updateUser(id, nom, prenom, email, motDePasse, role, identifiant);
         return res.status(200).send(data);
     } catch (error) {
         console.error("Erreur de mise à jour de l'utilisateur:", error);

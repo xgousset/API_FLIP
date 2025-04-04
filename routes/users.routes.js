@@ -28,7 +28,7 @@ var router = express.Router();
  *             - prenom
  *             - email
  *             - motDePasse
- *             - type
+ *             - role
  *             - identifant
  *           properties:
  *             nom:
@@ -43,7 +43,7 @@ var router = express.Router();
  *             motDePasse:
  *               type: string
  *               example: "password123"
- *             type:
+ *             role:
  *               type: string
  *               example: "admin"
  *             identifant:
@@ -115,7 +115,7 @@ router.get("/:id", userController.getUserById);
  *             - prenom
  *             - email
  *             - motDePasse
- *             - type
+ *             - role
  *             - identifiant
  *           properties:
  *             nom:
@@ -130,7 +130,7 @@ router.get("/:id", userController.getUserById);
  *             motDePasse:
  *               type: string
  *               example: "password123"
- *             type:
+ *             role:
  *               type: string
  *               example: "admin"
  *             identifiant:
