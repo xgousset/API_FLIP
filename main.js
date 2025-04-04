@@ -52,7 +52,7 @@ app.use("/api/session", sessionRouter);
 app.use("/api/inscription", require('./routes/inscription.router'));
 app.use("/api/commentaires", require('./routes/commentaires.router'));
 app.use("/api/notes", require('./routes/notes.touter'));
-app.use("/aapi/reservJeu", require('./routes/reservJeu.router'))
+app.use("/api/reservJeu", require('./routes/reservJeu.router'))
 
 const swaggerOption = {
     swaggerDefinition: (swaggerJsdoc.Options = {

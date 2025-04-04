@@ -12,27 +12,27 @@ const router = express.Router();
 
 /**
  * @swagger
- * /aapi/reservJeu/reservations:
+ * /api/reservJeu/reservations:
  *   post:
  *     tags: [reservJeu]
  *     summary: Create a new reservation
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               idJeu:
- *                 type: integer
- *                 example: 1
- *               idUtilisateur:
- *                 type: integer
- *                 example: 1
- *               dateDebut:
- *                 type: string
- *                 format: date-time
- *                 example: '2023-01-01T10:00:00Z'
+ *     parameters:
+ *       - in: body
+ *         name: body
+ *         required: true
+ *         schema:
+ *           type: object
+ *           properties:
+ *             idJeu:
+ *               type: integer
+ *               example: 1
+ *             idUtilisateur:
+ *               type: integer
+ *               example: 1
+ *             dateReserv:
+ *               type: string
+ *               format: date-time
+ *               example: '2023-01-01T10:00:00Z'
  *     responses:
  *       200:
  *         description: Reservation created successfully
@@ -43,7 +43,7 @@ router.post('/reservations', reservJeuController.saveReservation);
 
 /**
  * @swagger
- * /aapi/reservJeu/reservations/{id}:
+ * /api/reservJeu/reservations/{id}:
  *   delete:
  *     tags: [reservJeu]
  *     summary: Delete a reservation
@@ -65,7 +65,7 @@ router.delete('/reservations/:id', reservJeuController.deleteReservation);
 
 /**
  * @swagger
- * /aapi/reservJeu/reservations/jeu/{id}:
+ * /api/reservJeu/reservations/jeu/{id}:
  *   get:
  *     tags: [reservJeu]
  *     summary: Get all reservations for a specific game
@@ -87,7 +87,7 @@ router.get('/reservations/jeu/:id', reservJeuController.getReservationsJeu);
 
 /**
  * @swagger
- * /aapi/reservJeu/reservations/user/{id}:
+ * /api/reservJeu/reservations/user/{id}:
  *   get:
  *     tags: [reservJeu]
  *     summary: Get all reservations for a specific user

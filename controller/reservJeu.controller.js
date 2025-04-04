@@ -3,9 +3,9 @@
 const reservJeuServices = require('../services/reservJeu.service');
 
 exports.saveReservation = async (req, res) => {
-    const { idJeu, idUtilisateur, dateDebut, dateFin } = req.body;
+    const { idJeu, idUtilisateur, dateReserv } = req.body;
     try {
-        const data = await reservJeuServices.createReservation(idJeu, idUtilisateur, dateDebut, dateFin);
+        const data = await reservJeuServices.createReservation(idJeu, idUtilisateur, dateReserv);
         return res.status(200).send(data);
     } catch (error) {
         console.error("Error creating reservation:", error);
