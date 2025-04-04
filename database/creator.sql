@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS utilisateur (
                                            prenom VARCHAR(50) NOT NULL,
                                            mdp VARCHAR(255) NOT NULL, -- Considérer un hachage pour la sécurité
                                            email VARCHAR(100),
-                                           type varchar(100),
+                                           role varchar(100),
                                            currentBasket INTEGER REFERENCES panier(id) ON DELETE CASCADE
 );
 
@@ -187,7 +187,7 @@ VALUES
     ('Cartes', 2, 10, 7, 30, (SELECT id FROM produit WHERE nom_produit = 'Uno'));
 
 -- Insérer des utilisateurs
-INSERT INTO utilisateur (identifiant, nom, prenom, mdp, email, type, currentBasket)
+INSERT INTO utilisateur (identifiant, nom, prenom, mdp, email, role, currentBasket)
 VALUES
     ('user1', 'Dupont', 'Jean', 'hashed_mdp_123', 'jean.dupont@email.com', 'Utilisateur', NULL),
     ('user2', 'Martin', 'Sophie', 'hashed_mdp_456', 'sophie.martin@email.com', 'Utilisateur', NULL);
