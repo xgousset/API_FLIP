@@ -12,7 +12,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /reservations:
+ * /aapi/reservJeu/reservations:
  *   post:
  *     tags: [reservJeu]
  *     summary: Create a new reservation
@@ -43,7 +43,7 @@ router.post('/reservations', reservJeuController.saveReservation);
 
 /**
  * @swagger
- * /reservations/{id}:
+ * /aapi/reservJeu/reservations/{id}:
  *   delete:
  *     tags: [reservJeu]
  *     summary: Delete a reservation
@@ -65,7 +65,7 @@ router.delete('/reservations/:id', reservJeuController.deleteReservation);
 
 /**
  * @swagger
- * /reservations/jeu/{id}:
+ * /aapi/reservJeu/reservations/jeu/{id}:
  *   get:
  *     tags: [reservJeu]
  *     summary: Get all reservations for a specific game
@@ -87,7 +87,7 @@ router.get('/reservations/jeu/:id', reservJeuController.getReservationsJeu);
 
 /**
  * @swagger
- * /reservations/user/{id}:
+ * /aapi/reservJeu/reservations/user/{id}:
  *   get:
  *     tags: [reservJeu]
  *     summary: Get all reservations for a specific user
