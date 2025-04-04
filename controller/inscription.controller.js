@@ -1,11 +1,11 @@
 const pool = require('../database/db');
 
 exports.inscrireUtilisateur = async (req, res) => {
-    const { id_utilisateur, id_edition_tournoi } = req.body;
+    const { id_utilisateur, id_edition_tournoi, nomEquipe } = req.body;
     const client = await pool.connect();
     try {
-        const query = 'INSERT INTO inscription (id_utilisateur, id_edition_tournoi) VALUES ($1, $2) RETURNING *';
-        const values = [id_utilisateur, id_edition_tournoi];
+        const query = 'INSERT INTO inscription (id_utilisateur, id_edition_tournoi, nomequipe) VALUES ($1, $2, $3) RETURNING *';
+        const values = [id_utilisateur, id_edition_tournoi, nomEquipe];
         const result = await client.query(query, values);
         //ajoute 1 au nombre d'inscrits
         const query2 = 'UPDATE edition_tournoi SET current_participants = current_participants + 1 WHERE id = $1';

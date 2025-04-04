@@ -12,6 +12,7 @@ DROP TABLE IF EXISTS historique_commandes CASCADE;
 DROP TABLE IF EXISTS panier_produit CASCADE;
 DROP TABLE IF EXISTS edition_tournoi CASCADE;
 DROP TABLE IF EXISTS inscription CASCADE;
+DROP TABLE IF EXISTS reservationJeu CASCADE;
 
 CREATE TABLE IF NOT EXISTS emplacement (
     id SERIAL PRIMARY KEY,
@@ -129,6 +130,7 @@ CREATE TABLE IF NOT EXISTS inscription (
     id SERIAL PRIMARY KEY,
     id_utilisateur INTEGER REFERENCES utilisateur(id) ON DELETE CASCADE,
     id_edition_tournoi INTEGER REFERENCES edition_tournoi(id) ON DELETE CASCADE,
+    nomEquipe VARCHAR(100),
     date_inscription TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

@@ -4,7 +4,7 @@ const inscriptionController = require('../controller/inscription.controller');
 
 /**
  * @swagger
- * /inscrire:
+ * /api/inscription/inscrire:
  *   post:
  *     description: Inscrit un utilisateur à un tournoi
  *     tags:
@@ -18,13 +18,17 @@ const inscriptionController = require('../controller/inscription.controller');
  *           required:
  *             - id_utilisateur
  *             - id_session
+ *             - nomEquipe
  *           properties:
- *             nom:
+ *             id_utilisateur:
+ *               type: integer
+ *               example: 1
+ *             id_session:
+ *               type: integer
+ *               example: 1
+ *             nomEquipe:
  *               type: string
- *               example: "1"
- *             description:
- *               type: string
- *               example: "1"
+ *               example: "Team A"
  *     responses:
  *       '200':
  *         description: Inscription created successfully
