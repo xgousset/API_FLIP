@@ -1,10 +1,10 @@
 const express = require('express');
 const tournamentController = require('../controller/tournament.controller');
 const tournamentMiddleware = require('../middlewares/tournament.middleware');
-const { uploadTour} = require('../middlewares/upload');
+const { uploadTour } = require('../middlewares/upload');
 var router = express.Router();
 
-router.post("/", uploadTour.single('image') ,  tournamentMiddleware.validateTournament, tournamentController.saveTournament);
+router.post("/", uploadTour.single('image'), tournamentMiddleware.validateTournament, tournamentController.saveTournament);
 /**
  * @swagger
  * /api/tournaments:
@@ -12,43 +12,47 @@ router.post("/", uploadTour.single('image') ,  tournamentMiddleware.validateTour
  *     description: Utilisé pour créer un nouveau tournoi
  *     tags:
  *       - tournaments
- *     requestBody:
- *       required: true
- *       content:
- *         multipart/form-data:
- *           schema:
- *             type: object
- *             required:
- *               - id_stand
- *               - participants_min
- *               - participants_max
- *               - prix_entree
- *               - heure_debut
- *               - objet_tournoi
- *               - nom_tournoi
- *               - description_tournoi
- *             properties:
- *               id_stand:
- *                 type: integer
- *               participants_min:
- *                 type: integer
- *               participants_max:
- *                 type: integer
- *               prix_entree:
- *                 type: number
- *                 format: float
- *               heure_debut:
- *                 type: string
- *                 format: date-time
- *               objet_tournoi:
- *                 type: string
- *               nom_tournoi:
- *                 type: string
- *               description_tournoi:
- *                 type: string
- *               image:
- *                 type: string
- *                 format: binary
+ *     parameters:
+ *       - in: body
+ *         name: tournament
+ *         description: Tournoi data to create a new tournament
+ *         schema:
+ *           type: object
+ *           required:
+ *             - id_stand
+ *             - participants_min
+ *             - participants_max
+ *             - prix_entree
+ *             - heure_debut
+ *             - objet_tournoi
+ *             - nom_tournoi
+ *             - description_tournoi
+ *           properties:
+ *             id_stand:
+ *               type: integer
+ *               example: 1
+ *             lieu:
+ *               type: string
+ *               example: "Lieu du tournoi"
+ *             participants_min:
+ *               type: integer
+ *               example: 5
+ *             participants_max:
+ *               type: integer
+ *               example: 10
+ *             prix_entree:
+ *               type: number
+ *               format: float
+ *               example: 5.99
+ *             nom_tournoi:
+ *               type: string
+ *               example: "Nom du tournoi"
+ *             description_tournoi:
+ *               type: string
+ *               example: "Description du tournoi"
+ *             image:
+ *               type: string
+ *               format: binary
  *     responses:
  *       '200':
  *         description: Tournoi créé avec succès
@@ -97,7 +101,7 @@ router.get("/:id", tournamentController.getTournamentById);
  *         description: Erreur interne du serveur
  */
 
-router.put("/:id",uploadTour.single('image'), tournamentMiddleware.validateTournament, tournamentController.updateTournament);
+router.put("/:id", uploadTour.single('image'), tournamentMiddleware.validateTournament, tournamentController.updateTournament);
 /**
  * @swagger
  * /api/tournaments/{id}:
@@ -112,40 +116,25 @@ router.put("/:id",uploadTour.single('image'), tournamentMiddleware.validateTourn
  *         description: ID of the tournament to update
  *         schema:
  *           type: string
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             required:
- *               - id_stand
- *               - participants_min
- *               - participants_max
- *               - prix_entree
- *               - heure_debut
- *               - objet_tournoi
- *               - nom_tournoi
- *               - description_tournoi
- *             properties:
- *               id_stand:
- *                 type: integer
- *               participants_min:
- *                 type: integer
- *               participants_max:
- *                 type: integer
- *               prix_entree:
- *                 type: number
- *                 format: float
- *               heure_debut:
- *                 type: string
- *                 format: date-time
- *               objet_tournoi:
- *                 type: string
- *               nom_tournoi:
- *                 type: string
- *               description_tournoi:
- *                 type: string
+ *       - in: body
+ *         name: tournament
+ *         description: Tournoi data to create a new tournament
+ *         schema:
+ *           type: object
+ *           required:
+ *             - nom_tournoi
+ *             - description_tournoi
+ *             - image
+ *           properties:
+ *             nom_tournoi:
+ *               type: string
+ *               example: "Nom du tournoi"
+ *             description_tournoi:
+ *               type: string
+ *               example: "Description du tournoi"
+ *             image:
+ *               type: string
+ *               format: binary
  *     responses:
  *       '200':
  *         description: Tournament updated successfully
@@ -179,7 +168,6 @@ router.delete("/:id", tournamentController.deleteTournament);
  *         description: Erreur interne du serveur
  */
 
-
 router.get("/editions/:id", tournamentController.fetchEdition);
 /**
  * @swagger
@@ -200,6 +188,42 @@ router.get("/editions/:id", tournamentController.fetchEdition);
  *         description: Éditions récupérées avec succès
  *       '404':
  *         description: Tournoi non trouvé
+ *       '500':
+ *         description: Erreur interne du serveur
+ */
+
+router.post("/editions", tournamentController.saveEdition);
+/**
+ * @swagger
+ * /api/tournaments/editions:
+ *   post:
+ *     description: Utilisé pour créer une nouvelle édition de tournoi
+ *     tags:
+ *       - tournaments
+ *     parameters:
+ *       - in: body
+ *         name: edition
+ *         description: Édition data to create a new edition
+ *         schema:
+ *           type: object
+ *           required:
+ *             - id_tournoi
+ *             - date_debut
+ *             - date_fin
+ *           properties:
+ *             id_tournoi:
+ *               type: integer
+ *             date_debut:
+ *               type: string
+ *               format: date-time
+ *             date_fin:
+ *               type: string
+ *               format: date-time
+ *     responses:
+ *       '200':
+ *         description: Édition créée avec succès
+ *       '400':
+ *         description: Mauvaise requête
  *       '500':
  *         description: Erreur interne du serveur
  */

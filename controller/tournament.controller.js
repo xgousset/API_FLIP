@@ -1,15 +1,12 @@
 const tournamentService = require('../services/tournament.service');
 
 exports.saveTournament = async (req, res) => {
-    const { id_stand, participants_min, participants_max, prix_entree, heure_debut, objet_tournoi, nom_tournoi, description_tournoi } = req.body;
+    const { id_stand,lieu, participants_max, prix_entree,  nom_tournoi, description_tournoi } = req.body;
     const image_path = req.file ? `/images/tournaments/${req.file.filename}` : null;
 
-    if (!id_stand || !participants_min || !participants_max || !prix_entree || !heure_debut || !objet_tournoi || !nom_tournoi || !description_tournoi) {
-        return res.status(400).send("Tous les champs requis doivent être fournis.");
-    }
 
     await tournamentService.createTournament(
-        id_stand, participants_min, participants_max, prix_entree, heure_debut, objet_tournoi, nom_tournoi, description_tournoi, image_path,
+        id_stand, lieu, participants_max, prix_entree,  nom_tournoi, description_tournoi, image_path,
         (error, data) => {
             if (error) {
                 return res.status(500).send("Erreur lors de la création du tournoi.");
@@ -55,10 +52,20 @@ exports.fetchEdition = async (req, res) => {
 exports.updateTournament = async (req, res) => {
     const id = req.params.id;
     const image_path = req.file ? `/images/tournaments/${req.file.filename}` : null;
-    const { id_stand, lieu, prix, nom, description } = req.body;
-    await tournamentService.updateTournament(id, id_stand, lieu, prix, nom, description, image_path, (error, data) => {
+    const { nom_tournoi, description_tournoi } = req.body;
+    await tournamentService.updateTournament(id,  nom_tournoi, description_tournoi, image_path, (error, data) => {
         if (error) {
             return res.status(500).send("Erreur");
+        }
+        return res.status(200).send(data);
+    });
+}
+
+exports.saveEdition = async (req, res) => {
+    const { id_tournoi, capacite, date_edition } = req.body;
+    await tournamentService.addEdition(id_tournoi, capacite, date_edition, (error, data) => {
+        if (error) {
+            return res.status(500).send("Erreur lors de la création de l'édition.");
         }
         return res.status(200).send(data);
     });

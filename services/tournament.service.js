@@ -84,7 +84,7 @@ const deleteTournament = async (id, callback) => {
 const updateTournament = async (id, nom, description,  image_path, callback) => {
     const client = await pool.connect();
     try {
-        const query = 'UPDATE tournoi SET nom_tournoi= $2, description_tournoi = $3,  image_path = $5 WHERE id = $1 RETURNING *';
+        const query = 'UPDATE tournoi SET nom_tournoi= $2, description_tournoi = $3,  image_path = $4 WHERE id = $1 RETURNING *';
         const values = [id, nom, description,  image_path];
         const result = await client.query(query, values);
         if (result.rowCount === 0) {
@@ -114,6 +114,21 @@ const fetchEditions = async (id_tournoi) => {
     }
 }
 
+const createEdition = async (id_tournoi, capacitee, date_edition) => {
+    const client = await pool.connect();
+    try {
+        const query = 'INSERT INTO edition_tournoi (id_tournoi, capacitee, date_edition) VALUES ($1, $2, $3)';
+        const values = [id_tournoi, capacitee, date_edition];
+        await client.query(query, values);
+        return "écriture réussie";
+    } catch (error) {
+        console.log(error);
+        return null;
+    } finally {
+        client.release();
+    }
+};
+
 module.exports = {
     createTournament,
     fetchTournaments,
@@ -121,5 +136,6 @@ module.exports = {
     deleteTournament,
     updateTournament,
     addEdition,
-    fetchEditions
+    fetchEditions,
+    createEdition
 };
