@@ -29,7 +29,7 @@ var router = express.Router();
  *             - email
  *             - motDePasse
  *             - role
- *             - identifant
+ *             - identifiant
  *           properties:
  *             nom:
  *               type: string
@@ -46,9 +46,16 @@ var router = express.Router();
  *             role:
  *               type: string
  *               example: "admin"
- *             identifant:
+ *             identifiant:
  *               type: string
  *               example: "johndoe"
+ *     responses:
+ *       '200':
+ *         description: User created successfully
+ *       '400':
+ *         description: Bad request
+ *       '500':
+ *         description: Internal server error
  */
 router.post("/", userMiddleware.validateUser, userController.saveUser);
 

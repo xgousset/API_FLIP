@@ -1,7 +1,7 @@
 const usersService = require('../services/users.services');
 
 exports.saveUser = async (req, res) => {
-    const { nom, prenom, email, motDePasse, role, identifant } = req.body;
+    const { nom, prenom, email, motDePasse, role, identifiant } = req.body;
 
     console.log("Données de l'utilisateur:", req.body);
     console.log("Nom:", nom);
@@ -9,12 +9,11 @@ exports.saveUser = async (req, res) => {
     console.log("Email:", email);
     console.log("Mot de passe:", motDePasse);
     console.log("Rôle:", role);
-    console.log("Identifiant:", identifant);
+    console.log("Identifiant:", identifiant);
     
 
     try {
-        console.log("Création de l'utilisateur avec les données:", nom, prenom, email, motDePasse, role, identifant);
-        const data = usersService.createUser(nom, prenom, email, motDePasse, role, identifant);
+        const data = await usersService.createUser(nom, prenom, email, motDePasse, role, identifiant);
         return res.status(200).send(data);
     } catch (error) {
         console.error("Erreur de création d'utilisateur:", error);
