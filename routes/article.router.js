@@ -23,6 +23,7 @@ router.post("/", uploadArt.single('image'), articleMiddleware.validateArticle, a
  *             - description
  *             - stocks
  *             - prix
+ *             - idStand
  *             - type
  *           properties:
  *             nom:
@@ -41,6 +42,9 @@ router.post("/", uploadArt.single('image'), articleMiddleware.validateArticle, a
  *             type:
  *               type: string
  *               example: "Accessoire"
+ *             idStand:
+ *               type: integer
+ *               example: 1
  *             image:
  *               type: string
  *               format: binary
@@ -117,6 +121,7 @@ router.put("/:id", uploadArt.single('image'), articleMiddleware.validateArticle,
  *             - description
  *             - stocks
  *             - prix
+ *             - idStand
  *             - type
  *           properties:
  *             nom:
@@ -135,6 +140,9 @@ router.put("/:id", uploadArt.single('image'), articleMiddleware.validateArticle,
  *             type:
  *               type: string
  *               example: "Accessoire"
+ *             idStand:
+ *               type: integer
+ *               example: 1
  *             image:
  *               type: string
  *               format: binary

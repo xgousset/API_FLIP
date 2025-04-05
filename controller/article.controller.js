@@ -1,10 +1,10 @@
 const articleService = require('../services/article.services');
 
 exports.saveArticle = async (req, res) => {
-    const { nom,  prix, type_article, idStand } = req.body;
+    const { nom,  prix, type, idStand } = req.body;
     const image_path = req.file ? `/images/articles/${req.file.filename}` : null;
     try {
-        const data = await articleService.createArticle( nom, prix, type_article,idStand, image_path);
+        const data = await articleService.createArticle( nom, prix, type,idStand, image_path);
         return res.status(200).send(data);
     } catch (error) {
         console.error("Error creating article:", error);

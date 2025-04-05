@@ -39,4 +39,30 @@ const inscriptionController = require('../controller/inscription.controller');
  */
 router.post('/inscrire', inscriptionController.inscrireUtilisateur);
 
+
+
+/**
+ * @swagger
+ * /api/inscription/inscriptions/{id}:
+ *   get:
+ *     description: Récupère une inscription par ID de l'utilisateur
+ *     tags:
+ *       - inscription
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: ID de l'utilisateur pour lequel récupérer les inscriptions
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       '200':
+ *         description: Inscription récupérée avec succès
+ *       '404':
+ *         description: Inscription non trouvée
+ */
+router.get('/inscriptions/:id', inscriptionController.fetchInscription);
+
+
+
 module.exports = router;
