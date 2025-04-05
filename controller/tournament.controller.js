@@ -43,6 +43,15 @@ exports.getTournaments = async (req, res) => {
     return res.status(200).send(tournaments);
 }
 
+exports.fetchEdition = async (req, res) => {
+    const idTournoi = req.params.id;
+    const edition = await tournamentService.fetchEditions(idTournoi)
+    if (!edition) {
+        return res.status(404).send("Edition non trouvée");
+    }
+    return res.status(200).send(edition);
+}
+
 exports.updateTournament = async (req, res) => {
     const id = req.params.id;
     const image_path = req.file ? `/images/tournaments/${req.file.filename}` : null;

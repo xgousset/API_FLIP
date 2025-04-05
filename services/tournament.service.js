@@ -99,11 +99,27 @@ const updateTournament = async (id, nom, description,  image_path, callback) => 
     }
 };
 
+const fetchEditions = async (id_tournoi) => {
+    const client = await pool.connect();
+    try {
+        const query = 'SELECT * FROM edition_tournoi WHERE id_tournoi = $1';
+        const values = [id_tournoi];
+        const result = await client.query(query, values);
+        return result.rows;
+    } catch (error) {
+        console.log(error);
+        return null;
+    } finally {
+        client.release();
+    }
+}
+
 module.exports = {
     createTournament,
     fetchTournaments,
     fetchSpecificTournament,
     deleteTournament,
     updateTournament,
-    addEdition
+    addEdition,
+    fetchEditions
 };

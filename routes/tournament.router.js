@@ -179,4 +179,29 @@ router.delete("/:id", tournamentController.deleteTournament);
  *         description: Erreur interne du serveur
  */
 
+
+router.get("/editions/:id", tournamentController.fetchEdition);
+/**
+ * @swagger
+ * /api/tournaments/editions/{id}:
+ *   get:
+ *     description: Utilisé pour récupérer les éditions d'un tournoi par son ID
+ *     tags:
+ *       - tournaments
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: ID du tournoi dont on veut récupérer les éditions
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: Éditions récupérées avec succès
+ *       '404':
+ *         description: Tournoi non trouvé
+ *       '500':
+ *         description: Erreur interne du serveur
+ */
+
 module.exports = router;
