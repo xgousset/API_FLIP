@@ -31,12 +31,7 @@ CREATE TABLE IF NOT EXISTS types_stand (
                                            peutAnimer BOOLEAN DEFAULT FALSE
 );
 
-CREATE TABLE IF NOT EXISTS panier (
-                                      id SERIAL PRIMARY KEY,
-                                      valeur_panier NUMERIC DEFAULT 0,
-                                      recuperation_panier TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                                      paid BOOLEAN DEFAULT FALSE
-);
+
 
 CREATE TABLE IF NOT EXISTS utilisateur (
                                            id SERIAL PRIMARY KEY,
@@ -45,8 +40,16 @@ CREATE TABLE IF NOT EXISTS utilisateur (
                                            prenom VARCHAR(50) NOT NULL,
                                            mdp VARCHAR(255) NOT NULL, -- Considérer un hachage pour la sécurité
                                            email VARCHAR(100),
-                                           role varchar(100),
-                                           currentBasket INTEGER REFERENCES panier(id) ON DELETE CASCADE
+                                           role varchar(100)
+);
+
+CREATE TABLE IF NOT EXISTS panier (
+                                      id SERIAL PRIMARY KEY,
+                                      valeur_panier NUMERIC DEFAULT 0,
+                                      recuperation_panier TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                      paid BOOLEAN DEFAULT FALSE,
+                                        id_utilisateur INTEGER REFERENCES utilisateur(id) ON DELETE CASCADE,
+                                        type VARCHAR(100) DEFAULT 'jeu'
 );
 
 CREATE TABLE IF NOT EXISTS stand (
@@ -187,16 +190,16 @@ VALUES
     ('Cartes', 2, 10, 7, 30, (SELECT id FROM produit WHERE nom_produit = 'Uno'));
 
 -- Insérer des utilisateurs
-INSERT INTO utilisateur (identifiant, nom, prenom, mdp, email, role, currentBasket)
+INSERT INTO utilisateur (identifiant, nom, prenom, mdp, email, role)
 VALUES
-    ('user1', 'Dupont', 'Jean', 'hashed_mdp_123', 'jean.dupont@email.com', 'Utilisateur', NULL),
-    ('user2', 'Martin', 'Sophie', 'hashed_mdp_456', 'sophie.martin@email.com', 'Utilisateur', NULL);
+    ('user1', 'Dupont', 'Jean', 'hashed_mdp_123', 'jean.dupont@email.com', 'Utilisateur'),
+    ('user2', 'Martin', 'Sophie', 'hashed_mdp_456', 'sophie.martin@email.com', 'Utilisateur');
 
 -- Insérer un panier pour les utilisateurs
-INSERT INTO panier (valeur_panier, recuperation_panier, paid)
+INSERT INTO panier (valeur_panier, recuperation_panier, paid, id_utilisateur,type)
 VALUES
-    (0, CURRENT_TIMESTAMP, FALSE),
-    (0, CURRENT_TIMESTAMP, FALSE);
+    (0, CURRENT_TIMESTAMP, FALSE,1,'jeu'),
+    (0, CURRENT_TIMESTAMP, FALSE,1,'souvenir');
 
 -- Associer des produits au panier
 INSERT INTO panier_produit (id_panier, id_produit, quantite)

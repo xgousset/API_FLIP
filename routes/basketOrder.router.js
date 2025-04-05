@@ -1,6 +1,5 @@
 const express = require('express');
 const basketOrderController = require('../controller/basketOrder.controller');
-const basketOrderMiddleware = require('../middlewares/basketOrder.middleware');
 const router = express.Router();
 
 router.get("/", basketOrderController.getBasket);
@@ -31,7 +30,8 @@ router.get("/:id", basketOrderController.getBasketById);
  *         name: id
  *         description: Basket ID
  *         required: true
- *         type: integer
+ *         schema:
+ *           type: integer
  *     responses:
  *       '200':
  *         description: Successfully retrieved basket
@@ -41,7 +41,7 @@ router.get("/:id", basketOrderController.getBasketById);
  *         description: Internal server error
  */
 
-router.post("/", basketOrderMiddleware.validateBasketOrder, basketOrderController.createBasket);
+router.post("/", basketOrderController.createBasket);
 /**
  * @swagger
  * /api/basket:
@@ -52,55 +52,19 @@ router.post("/", basketOrderMiddleware.validateBasketOrder, basketOrderControlle
  *     parameters:
  *       - in: body
  *         name: basket
- *         description: Basket data
  *         required: true
  *         schema:
  *           type: object
  *           properties:
- *             id_produit:
+ *             id_utilisateur:
  *               type: integer
- *             quantite:
- *               type: integer
- *               example: 3
+ *               example: 1
+ *             type:
+ *               type: string
+ *               example: 'jeux'
  *     responses:
  *       '201':
  *         description: Successfully created basket
- *       '500':
- *         description: Internal server error
- */
-
-router.put("/:id", basketOrderController.updateBasketValue);
-/**
- * @swagger
- * /api/basket/{id}:
- *   put:
- *     description: Used to update a specific basket
- *     tags:
- *       - basket
- *     parameters:
- *       - in: path
- *         name: id
- *         description: Basket ID
- *         required: true
- *         type: integer
- *     responses:
- *       '200':
- *         description: Successfully updated basket
- *       '500':
- *         description: Internal server error
- */
-
-router.get("/order", basketOrderController.getOrderFromBasket);
-/**
- * @swagger
- * /api/basket/order:
- *   get:
- *     description: Used to get the order from the basket
- *     tags:
- *       - basket
- *     responses:
- *       '200':
- *         description: Successfully retrieved order
  *       '500':
  *         description: Internal server error
  */
@@ -118,7 +82,8 @@ router.delete("/:id", basketOrderController.deleteBasket);
  *         name: id
  *         description: Basket ID
  *         required: true
- *         type: integer
+ *         schema:
+ *           type: integer
  *     responses:
  *       '200':
  *         description: Successfully deleted basket
@@ -134,6 +99,23 @@ router.post("/addProduct", basketOrderController.addProductToBasket);
  *     description: Used to add a product to the basket
  *     tags:
  *       - basket
+ *     parameters:
+ *       - in: body
+ *         name: product
+ *         description: Product data
+ *         required: true
+ *         schema:
+ *           type: object
+ *           properties:
+ *             id_produit:
+ *               type: integer
+ *               example: 1
+ *             id_panier:
+ *               type: integer
+ *               example: 1
+ *             quantite:
+ *               type: integer
+ *               example: 3
  *     responses:
  *       '201':
  *         description: Successfully added product to basket
@@ -149,6 +131,23 @@ router.put("/removeProduct", basketOrderController.removeProductFromBasket);
  *     description: Used to remove a product from the basket
  *     tags:
  *       - basket
+ *     parameters:
+ *       - in: body
+ *         name: product
+ *         description: Product data
+ *         required: true
+ *         schema:
+ *           type: object
+ *           properties:
+ *             id_produit:
+ *               type: integer
+ *               example: 1
+ *             id_panier:
+ *               type: integer
+ *               example: 1
+ *             quantite:
+ *               type: integer
+ *               example: 3
  *     responses:
  *       '200':
  *         description: Successfully removed product from basket
@@ -164,6 +163,23 @@ router.put("/updateProduct", basketOrderController.updateAmmountOfInBasket);
  *     description: Used to update a product in the basket
  *     tags:
  *       - basket
+ *     parameters:
+ *       - in: body
+ *         name: product
+ *         description: Product data
+ *         required: true
+ *         schema:
+ *           type: object
+ *           properties:
+ *             id_produit:
+ *               type: integer
+ *               example: 1
+ *             id_panier:
+ *               type: integer
+ *               example: 1
+ *             quantite:
+ *               type: integer
+ *               example: 3
  *     responses:
  *       '200':
  *         description: Successfully updated product in basket
@@ -184,7 +200,8 @@ router.get("/userHistory/:id_utilisateur", basketOrderController.fetchUserHistor
  *         name: id_utilisateur
  *         description: User ID
  *         required: true
- *         type: integer
+ *         schema:
+ *           type: integer
  *     responses:
  *       '200':
  *         description: Successfully retrieved user's historic
@@ -205,7 +222,8 @@ router.get("/specificOrder/:id", basketOrderController.fetchSpecificOrderInHisto
  *         name: id
  *         description: Order ID
  *         required: true
- *         type: integer
+ *         schema:
+ *           type: integer
  *     responses:
  *       '200':
  *         description: Successfully retrieved specific order
@@ -228,10 +246,35 @@ router.post("/sendBasket/:id", basketOrderController.sendBasketToHistoric);
  *         name: id
  *         description: Basket ID
  *         required: true
- *         type: integer
+ *         schema:
+ *           type: integer
  *     responses:
  *       '201':
  *         description: Successfully sent basket to historic
+ *       '500':
+ *         description: Internal server error
+ */
+
+
+
+router.get("/userBasket/:id_utilisateur", basketOrderController.getBasketByUserId);
+/**
+ * @swagger
+ * /api/basket/userBasket/{id_utilisateur}:
+ *   get:
+ *     description: Used to get the user's basket
+ *     tags:
+ *       - basket
+ *     parameters:
+ *       - in: path
+ *         name: id_utilisateur
+ *         description: User ID
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       '200':
+ *         description: Successfully retrieved user's basket
  *       '500':
  *         description: Internal server error
  */

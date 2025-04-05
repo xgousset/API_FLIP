@@ -1,247 +1,123 @@
-const pool = require('../database/db');
-const { updateArticle } = require('./article.services');
+// services/basketOrder.service.js
 
-const fetchOrderFromBasket = async (id) => {
-    const client = await pool.connect();
-    try {
-        const query = 'SELECT produit.id,produit.nom_produit, produit.prix_produit, panier_produit.quantite FROM panier_produit JOIN public.produit ON public.produit.id = public.panier_produit.id_produit WHERE id_panier = $1';
-        const values = [id];
-        const result = await client.query(query, values);
-        return result.rows[0];
-    } catch (error) {
-        console.log(error);
-        return null;
-    } finally {
-        client.release();
-    }
+const db = require('../database/db'); // Assurez-vous d'avoir un fichier de connexion à la base de données
+
+// Service to get all baskets
+async function getBasket() {
+    const result = await db.query('SELECT * FROM panier');
+    return result.rows;
 }
 
-const fetchBasket = async () => {
-    const client = await pool.connect();
-    try {
-        const query = 'SELECT * FROM panier_produit';
-        const result = await client.query(query);
-        return result.rows;
-    } catch (error) {
-        console.log(error);
-        return [];
-    } finally {
-        client.release();
-    }
+// Service to get a basket by ID
+async function getBasketById(id) {
+    const result = await db.query('SELECT * FROM panier WHERE id = $1', [id]);
+    return result.rows[0];
 }
 
-const deleteBasket = async (id) => {
-    const client = await pool.connect();
-    try {
-        const query = 'DELETE FROM panier_produit WHERE id_panier = $1 RETURNING *';
-        const values = [id];
-        const result = await client.query(query, values);
-        return result.rows[0];
-    } catch (error) {
-        console.log(error);
-        return null;
-    } finally {
-        client.release();
-    }
+// Service to create a new basket
+async function createBasket(basket) {
+    const result = await db.query(
+        'INSERT INTO panier (valeur_panier,  id_utilisateur, type) VALUES ($1, $2, $3) RETURNING *',
+        [0,basket.id_utilisateur, basket.type]
+    );
+    return result.rows[0];
 }
 
-const addProductToBasket = async (id_panier, id_produit, quantite) => {
-    const client = await pool.connect();
-    const product = await fetchProductById(id_produit);
-    try {
-        if (product.rows[0].stocks < quantite) {
-            return null;
-        }
-        const query = 'INSERT INTO panier_produit (id_panier, id_produit, quantite) VALUES ($1,$2,$3) RETURNING *';
-        const values = [id_panier, id_produit, quantite];
-        const result = await client.query(query, values);
-        await updateArticle(id_produit,product.rows[0].nom_produit,product.rows[0].prix_produit,product.rows[0].stocks - quantite);
-        return result.rows[0];
-    } catch (error) {
-        console.log(error);
-        return null;
-    } finally {
-        client.release();
-    }
-    await updateBasketValue(id_panier);
+async function getBasketByUserId(userId) {
+    const result = await db.query('SELECT * FROM panier WHERE id_utilisateur = $1', [userId]);
+    return result.rows;
 }
 
 
-const removeProductFromBasket = async (id_panier, id_produit) => {
-    const client = await pool.connect();
-    const product = await fetchProductById(id_produit);
-    try {
-        const query = 'DELETE FROM panier_produit WHERE id_panier = $1 AND id_produit = $2 RETURNING *';
-        const values = [id_panier, id_produit];
-        const result = await client.query(query, values);
-        await updateArticle(id_produit, product.rows[0].nom_produit, product.rows[0].prix_produit, product.rows[0].stocks + result.rows[0].quantite);
-        return result.rows[0];
-    } catch (error) {
-        console.log(error);
-        return null;
-    } finally {
-        client.release();
-    }
-    await updateBasketValue(id_panier);
+
+// Service to delete a basket
+async function deleteBasket(id) {
+    await db.query('DELETE FROM panier WHERE id = $1', [id]);
 }
 
-const updateAmmountOfInBasket = async (id_panier, id_produit, quantite) => {
-    const client = await pool.connect();
-    const product = await fetchProductById(id_produit);
-    try {
-        if (product.rows[0].stocks < quantite || quantite < 0) {
-            return null;
-        }
-        const query = 'UPDATE panier_produit SET quantite = $3 WHERE id_panier = $1 AND id_produit = $2 RETURNING *';
-        const values = [id_panier, id_produit, quantite];
-        const result = await client.query(query, values);
-        await updateArticle(id_produit, product.rows[0].nom_produit, product.rows[0].prix_produit, product.rows[0].stocks - quantite);
-        return result.rows[0];
-    } catch (error) {
-        console.log(error);
-        return null;
-    } finally {
-        client.release();
-    }
-    await updateBasketValue(id_panier);
+// Service to add a product to a basket
+async function addProductToBasket(basketId, productId, quantity) {
+    const result = await db.query(
+        'INSERT INTO panier_produit (id_panier, id_produit, quantite) VALUES ($1, $2, $3) RETURNING *',
+        [basketId, productId, quantity]
+    );
+    const value = await db.query(
+        'SELECT prix_produit FROM produit WHERE id = $1',
+        [productId]
+    );
+    const totalValue = value.rows[0].prix_produit * quantity;
+
+    const updateResult = await db.query(
+        'UPDATE panier SET valeur_panier = valeur_panier + $1 WHERE id = $2 RETURNING *',
+        [totalValue, basketId]
+    );
+
+    return result.rows[0];
 }
 
-const createBasket = async (id_utilisateur) => {
-    const client = await pool.connect();
-    try {
-        const query = 'INSERT INTO panier (valeur_panier) VALUES ($1) RETURNING *';
-        const result = await client.query(query, [0]);
-        const query2 = 'UPDATE utilisateur SET currentbasket = $1 WHERE id = $2 RETURNING *';
-        const result2 = await client.query(query2, [result.rows[0].id, id_utilisateur]);
-        return result.rows[0];
-    } catch (error) {
-        console.log(error);
-        return null;
-    } finally {
-        client.release();
+// Service to remove a product from a basket
+async function removeProductFromBasket(basketId, productId,quantitee) {
+    let totalAmmount = await db.query(
+        'SELECT quantite FROM panier_produit WHERE id_panier = $1 AND id_produit = $2',
+        [basketId, productId]
+    );
+    console.log(totalAmmount.rows);
+    let total = totalAmmount.rows[0].quantite;
+    if (total <= quantitee) {
+        total=quantitee
+        await db.query('DELETE FROM panier_produit WHERE id_panier = $1 AND id_produit = $2', [basketId, productId]);
+
     }
-}
-
-const updateBasketValue = async (id_panier) => {
-    const client = await pool.connect();
-    try {
-        // Reset the basket value to 0
-        await client.query('UPDATE panier SET valeur_panier = 0 WHERE id = $1', [id_panier]);
-
-        // Fetch all products in the basket
-        const query = 'SELECT produit.prix_produit, panier_produit.quantite FROM panier_produit JOIN produit ON panier_produit.id_produit = produit.id WHERE id_panier = $1';
-        const result = await client.query(query, [id_panier]);
-
-        // Calculate the total value
-        let totalValue = 0;
-        result.rows.forEach(row => {
-            totalValue += row.prix_produit * row.quantite;
-        });
-
-        // Update the basket with the new total value
-        const updateQuery = 'UPDATE panier SET valeur_panier = $2 WHERE id = $1 RETURNING *';
-        const updateResult = await client.query(updateQuery, [id_panier, totalValue]);
-        return updateResult.rows[0];
-    } catch (error) {
-        console.log(error);
-        return null;
-    } finally {
-        client.release();
+    else {
+        await db.query('UPDATE panier_produit SET quantite = quantite - $1 WHERE id_panier = $2 AND id_produit = $3', [quantitee, basketId, productId]);
     }
-}
 
-const fetchSpecificBasket = async (id) => {
-    const client = await pool.connect();
-    try {
-        const query = 'SELECT * FROM panier WHERE id = $1';
-        const values = [id];
-        const result = await client.query(query, values);
-        return result.rows[0];
-    } catch (error) {
-        console.log(error);
-        return null;
-    } finally {
-        client.release();
-    }
-}
+    const value = await db.query(
+        'SELECT prix_produit FROM produit WHERE id = $1',
+        [productId]
+    );
 
-const sendBasketToHistoric = async (id_panier) => {
-    const client = await pool.connect();
-    let userResult = await client.query('SELECT id FROM utilisateur WHERE currentbasket = $1', [id_panier]);
-    let id_utilisateur = userResult.rows[0].id;
-    try {
-        const query = 'INSERT INTO historique_commandes (id_panier,id_utilisateur) VALUES ($1,$2) RETURNING *';
-        const values = [id_panier, id_utilisateur];
-        const result = await client.query(query, values);
-        await createBasket(id_utilisateur);
-        return result.rows[0];
-    } catch (error) {
-        console.log(error);
-        return null;
-    } finally {
-        client.release();
-    }
-}
+    const totalValue = value.rows[0].prix_produit * total;
 
-const fetchUserHistoric = async (id_utilisateur) => {
-    const client = await pool.connect();
-    try {
-        const query = 'SELECT * FROM historique_commandes WHERE id_utilisateur = $1';
-        const values = [id_utilisateur];
-        const result = await client.query(query, values);
-        return result.rows;
-    } catch (error) {
-        console.log(error);
-        return [];
-    } finally {
-        client.release();
-    }
+    const updateResult = await db.query(
+        'UPDATE panier SET valeur_panier = valeur_panier - $1 WHERE id = $2 RETURNING *',
+        [totalValue, basketId]
+    );
 }
 
 
-const fetchSpecificOrderInHistoric = async (id) => {
-    const client = await pool.connect();
-    try {
-        const query = 'SELECT * FROM historique_commandes WHERE id = $1';
-        const values = [id];
-        const result = await client.query(query, values);
-        return result.rows[0];
-    } catch (error) {
-        console.log(error);
-        return null;
-    } finally {
-        client.release();
-    }
+// Service to fetch user historic
+async function fetchUserHistoric(userId) {
+    const result = await db.query('SELECT * FROM panier WHERE id_utilisateur = $1 AND paid = true', [userId]);
+    return result.rows;
 }
 
-
-const fetchAllHistoric = async () => {
-    const client = await pool.connect();
-    try {
-        const query = 'SELECT * FROM historique_commandes';
-        const result = await client.query(query);
-        console.log(result.rows);
-        return result.rows;
-    } catch (error) {
-        console.log(error);
-        return [];
-    } finally {
-        client.release();
-    }
+// Service to fetch a specific order in historic
+async function fetchSpecificOrderInHistoric(orderId) {
+    const result = await db.query('SELECT * FROM panier WHERE id = $1', [orderId]);
+    return result.rows[0];
 }
+
+// Service to send the basket to historic
+async function sendBasketToHistoric(basketId) {
+    const result = await db.query(
+        'UPDATE panier SET paid = TRUE WHERE id = $1 RETURNING *',
+        [basketId]
+    );
+    return result.rows[0];
+}
+
 
 module.exports = {
-    fetchOrderFromBasket,
-    fetchBasket,
+    getBasket,
+    getBasketById,
+    createBasket,
     deleteBasket,
     addProductToBasket,
     removeProductFromBasket,
-    updateAmmountOfInBasket,
-    createBasket,
-    updateBasketValue,
-    fetchSpecificBasket,
-    sendBasketToHistoric,
     fetchUserHistoric,
     fetchSpecificOrderInHistoric,
-    fetchAllHistoric
-}
+    sendBasketToHistoric,
+    getBasketByUserId
+
+};
