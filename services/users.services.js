@@ -9,7 +9,7 @@ const createUser = async (nom, prenom, email, password, type, identifiant) => {
 
     try {
         const hashedPassword = await bcrypt.hash(password, saltRounds);
-        const requete = 'INSERT INTO utilisateur (identifiant, nom, prenom, mdp, email, type, currentbasket) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *';
+        const requete = 'INSERT INTO utilisateur (identifiant, nom, prenom, mdp, email, role, currentbasket) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *';
         const values = [identifiant, nom, prenom, hashedPassword, email, type, null];
         const result = await clients.query(requete, values);
         return result.rows;
@@ -40,7 +40,7 @@ const updateUser = async (id, nom, prenom, email, motDePasse, type, identifiant)
     const clients = await pool.connect();
     try {
         const hashedPassword = await bcrypt.hash(motDePasse, saltRounds);
-        const requete = 'UPDATE utilisateur SET nom = $1, prenom = $2, mdp = $3, email = $4, type = $5, identifiant = $7 WHERE id = $6 RETURNING *';
+        const requete = 'UPDATE utilisateur SET nom = $1, prenom = $2, mdp = $3, email = $4, role = $5, identifiant = $7 WHERE id = $6 RETURNING *';
         const values = [nom, prenom, hashedPassword, email, type, id, identifiant];
         const result = await clients.query(requete, values);
         return result.rows;
