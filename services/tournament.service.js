@@ -129,6 +129,21 @@ const createEdition = async (id_tournoi, capacitee, date_edition) => {
     }
 };
 
+const getAllEditions = async () => {
+    const client = await pool.connect();
+    console.log("getAllEditions");
+    try {
+        const query = 'SELECT * FROM edition_tournoi';
+        const result = await client.query(query);
+        return result.rows;
+    } catch (error) {
+        console.log(error);
+        return null;
+    } finally {
+        client.release();
+    }
+};
+
 module.exports = {
     createTournament,
     fetchTournaments,
@@ -137,5 +152,6 @@ module.exports = {
     updateTournament,
     addEdition,
     fetchEditions,
-    createEdition
+    createEdition,
+    getAllEditions
 };

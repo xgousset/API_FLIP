@@ -71,3 +71,8 @@ exports.saveEdition = async (req, res) => {
     });
 }
 
+exports.getAllEditions = async (req, res) => {
+    const editions = await tournamentService.getAllEditions();
+    return res.status(200).send(editions);
+}
+
