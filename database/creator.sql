@@ -181,14 +181,20 @@ VALUES
     ('Monopoly', 25.99, 10, 'Jeu de société', TRUE,
      (SELECT id FROM stand WHERE nom_stand = 'Stand Jeux Famille'), 'monopoly.jpg'),
 
+    ('Catan', 34.50, 15, 'Jeu de société', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Stand Stratégie'), 'catan.jpg'),
+
+    ('Uno', 9.99, 30, 'Cartes', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Stand Cartes'), 'uno.jpg'),
+
+    ('Croque-Carotte', 31.90, 30, 'Jeu de société', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Stand Jeux Enfants'), 'croque_carotte.jpg'),
+
     ('Cluedo', 27.99, 8, 'Jeu de société', TRUE,
      (SELECT id FROM stand WHERE nom_stand = 'Stand Jeux Famille'), 'cluedo.jpg'),
 
     ('La Bonne Paye', 22.00, 12, 'Jeu de société', TRUE,
      (SELECT id FROM stand WHERE nom_stand = 'Stand Jeux Famille'), 'bonne_paye.jpg'),
-
-    ('Catan', 34.50, 15, 'Jeu de société', TRUE,
-     (SELECT id FROM stand WHERE nom_stand = 'Stand Stratégie'), 'catan.jpg'),
 
     ('Risk', 39.99, 7, 'Jeu de stratégie', TRUE,
      (SELECT id FROM stand WHERE nom_stand = 'Stand Stratégie'), 'risk.jpg'),
@@ -196,17 +202,11 @@ VALUES
     ('7 Wonders', 44.90, 10, 'Jeu de stratégie', TRUE,
      (SELECT id FROM stand WHERE nom_stand = 'Stand Stratégie'), '7wonders.jpg'),
 
-    ('Uno', 9.99, 30, 'Cartes', TRUE,
-     (SELECT id FROM stand WHERE nom_stand = 'Stand Cartes'), 'uno.jpg'),
-
     ('Le Président', 5.50, 50, 'Cartes', TRUE,
      (SELECT id FROM stand WHERE nom_stand = 'Stand Cartes'), 'jeu_president.jpg'),
 
     ('Saboteur', 13.99, 25, 'Cartes', TRUE,
      (SELECT id FROM stand WHERE nom_stand = 'Stand Cartes'), 'saboteur.jpg'),
-
-    ('Croque-Carotte', 31.90, 30, 'Jeu de société', TRUE,
-     (SELECT id FROM stand WHERE nom_stand = 'Stand Jeux Enfants'), 'croque_carotte.jpg'),
 
     ('Docteur Maboul', 28.00, 20, 'Jeu enfant', TRUE,
      (SELECT id FROM stand WHERE nom_stand = 'Stand Jeux Enfants'), 'docteur_maboule.jpg'),
@@ -273,9 +273,9 @@ VALUES
 INSERT INTO edition_tournoi (id_tournoi, capacitee, current_participants, date_edition)
 VALUES
     ((SELECT id FROM tournoi WHERE nom_tournoi = 'Tournoi Monopoly'), 16, 0, CURRENT_TIMESTAMP),
-    ((SELECT id FROM tournoi WHERE nom_tournoi = 'Tournoi pour de Uno'), 150, 0, CURRENT_TIMESTAMP),
-    ((SELECT id FROM tournoi WHERE nom_tournoi = 'Tournoi Molkky'), 15, 0, CURRENT_TIMESTAMP),
-    ((SELECT id FROM tournoi WHERE nom_tournoi = 'Tournoi Corn Hole'), 10, 0, CURRENT_TIMESTAMP);
+    ((SELECT id FROM tournoi WHERE nom_tournoi = 'Tournoi de Uno'), 150, 0, CURRENT_TIMESTAMP),
+    ((SELECT id FROM tournoi WHERE nom_tournoi = 'Tournoi de Molkky'), 15, 0, CURRENT_TIMESTAMP),
+    ((SELECT id FROM tournoi WHERE nom_tournoi = 'Tournoi de Corn Hole'), 10, 0, CURRENT_TIMESTAMP);
 
 -- Insérer des commentaires
 INSERT INTO commentaires (id_stand, id_utilisateur, commentaire)
