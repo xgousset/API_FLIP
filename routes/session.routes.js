@@ -46,9 +46,7 @@ router.post('/login', async (req, res) => {
         if (result.rows.length === 0) {
             return res.status(401).send('Utilisateur non trouvé');
         }
-        console.log(result.rows[0]);
-        console.log(password);
-        if (bcrypt.compare(password, result.rows[0].mdp)) {
+        if (await bcrypt.compare(password, result.rows[0].mdp)) {
             req.session.user = { username: identifiant };
             return res.status(200).send('Connecté');
         } else {

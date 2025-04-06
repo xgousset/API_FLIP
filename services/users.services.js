@@ -9,8 +9,8 @@ const createUser = async (nom, prenom, email, password, type, identifiant) => {
 
     try {
         const hashedPassword = await bcrypt.hash(password, saltRounds);
-        const requete = 'INSERT INTO utilisateur (identifiant, nom, prenom, mdp, email, role, currentbasket) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *';
-        const values = [identifiant, nom, prenom, hashedPassword, email, type, null];
+        const requete = 'INSERT INTO utilisateur (identifiant, nom, prenom, mdp, email, role) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *';
+        const values = [identifiant, nom, prenom, hashedPassword, email, type];
         const result = await clients.query(requete, values);
         return result.rows;
     } catch (error) {
