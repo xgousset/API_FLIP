@@ -110,7 +110,7 @@ router.post("/addProduct", basketOrderController.addProductToBasket);
  *             id_produit:
  *               type: integer
  *               example: 1
- *             id_panier:
+ *             id_user:
  *               type: integer
  *               example: 1
  *             quantite:
@@ -275,6 +275,29 @@ router.get("/userBasket/:id_utilisateur", basketOrderController.getBasketByUserI
  *     responses:
  *       '200':
  *         description: Successfully retrieved user's basket
+ *       '500':
+ *         description: Internal server error
+ */
+
+
+router.get("/basketContent/:id_panier", basketOrderController.getBasketContent);
+/**
+ * @swagger
+ * /api/basket/basketContent/{id_panier}:
+ *   get:
+ *     description: Used to get the basket content
+ *     tags:
+ *       - basket
+ *     parameters:
+ *       - in: path
+ *         name: id_panier
+ *         description: Basket ID
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       '200':
+ *         description: Successfully retrieved basket content
  *       '500':
  *         description: Internal server error
  */

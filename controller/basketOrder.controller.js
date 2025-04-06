@@ -47,9 +47,9 @@ exports.deleteBasket = async (req, res) => {
 };
 
 exports.addProductToBasket = async (req, res) => {
-    const { id_panier, id_produit, quantite } = req.body;
+    const { id_user, id_produit, quantite } = req.body;
     try {
-        const basket = await basketOrderService.addProductToBasket(id_panier, id_produit, quantite);
+        const basket = await basketOrderService.addProductToBasket(id_produit,id_user, quantite);
         return res.status(201).send(basket);
     } catch (error) {
         console.error("Error adding product to basket:", error);
@@ -125,3 +125,14 @@ exports.getBasketByUserId = async (req, res) => {
         return res.status(500).send("Erreur serveur");
     }
 };
+
+exports.getBasketContent = async (req, res) => {
+    const id = req.params.id_panier;
+    try {
+        const content = await basketOrderService.fetchBasketContent(id);
+        return res.status(200).send(content);
+    } catch (error) {
+        console.error("Error fetching basket content:", error);
+        return res.status(500).send("Erreur serveur");
+    }
+}
