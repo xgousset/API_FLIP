@@ -209,7 +209,7 @@ VALUES
      (SELECT id FROM stand WHERE nom_stand = 'Stand Jeux Enfants'), 'croque_carotte.jpg'),
 
     ('Docteur Maboul', 28.00, 20, 'Jeu enfant', TRUE,
-     (SELECT id FROM stand WHERE nom_stand = 'Stand Jeux Enfants'), 'docteur_maboul.jpg'),
+     (SELECT id FROM stand WHERE nom_stand = 'Stand Jeux Enfants'), 'docteur_maboule.jpg'),
 
     ('Qui est-ce ?', 26.50, 18, 'Jeu enfant', TRUE,
      (SELECT id FROM stand WHERE nom_stand = 'Stand Jeux Enfants'), 'qui_est_ce.jpg');
