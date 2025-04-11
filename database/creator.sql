@@ -48,8 +48,8 @@ CREATE TABLE IF NOT EXISTS panier (
                                       valeur_panier NUMERIC DEFAULT 0,
                                       recuperation_panier TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                       paid BOOLEAN DEFAULT FALSE,
-                                        id_utilisateur INTEGER REFERENCES utilisateur(id) ON DELETE CASCADE,
-                                        type VARCHAR(100) DEFAULT 'jeu'
+                                      id_utilisateur INTEGER REFERENCES utilisateur(id) ON DELETE CASCADE,
+                                      type VARCHAR(100) DEFAULT 'jeu'
 );
 
 CREATE TABLE IF NOT EXISTS stand (
@@ -150,32 +150,50 @@ VALUES
     ('Jeux Famille', TRUE, TRUE, FALSE),
     ('Jeux Stratégie', TRUE, TRUE, FALSE),
     ('Jeux de Cartes', TRUE, TRUE, FALSE),
-    ('Jeux Enfants', TRUE, TRUE, FALSE);
+    ('Jeux Enfants', TRUE, TRUE, FALSE),
+    ('Restaurant', TRUE, TRUE, FALSE),
+    ('Activité', TRUE, TRUE, FALSE);
+
+
 
 -- Insérer des emplacements
 INSERT INTO emplacement (coordonnees_x, coordonnees_y, categorie, nom, reserve)
 VALUES
-    (10, 20, 'Grande Salle', 'Emplacement A', FALSE),
-    (15, 25, 'Grande Salle', 'Emplacement B', FALSE),
-    (20, 30, 'Grande Salle', 'Emplacement C', FALSE),
-    (25, 35, 'Grande Salle', 'Emplacement D', FALSE);
+    (10, 20, 'Grande Salle', 'Emplacement A1', FALSE),
+    (15, 25, 'Grande Salle', 'Emplacement B1', FALSE),
+    (20, 30, 'Grande Salle', 'Emplacement C1', FALSE),
+    (25, 35, 'Grande Salle', 'Emplacement D1', FALSE),
+    (35, 40, 'Extérieur', 'Emplacement A2', FALSE),
+    (30, 40, 'Extérieur', 'Emplacement B2', FALSE);
 
 -- Insérer les stands
 INSERT INTO stand (nom_stand, id_type, id_emplacement, comptes, image_path)
 VALUES
     ('Stand Jeux Famille', (SELECT id FROM types_stand WHERE intitule = 'Jeux Famille'),
-     (SELECT id FROM emplacement WHERE nom = 'Emplacement A'), '{}', 'images/stand1.jpg'),
+     (SELECT id FROM emplacement WHERE nom = 'Emplacement A1'), '{}', 'stand1.jpg'),
 
     ('Stand Stratégie', (SELECT id FROM types_stand WHERE intitule = 'Jeux Stratégie'),
-     (SELECT id FROM emplacement WHERE nom = 'Emplacement B'), '{}', 'images/stand2.jpg'),
+     (SELECT id FROM emplacement WHERE nom = 'Emplacement B1'), '{}', 'stand2.jpg'),
 
     ('Stand Cartes', (SELECT id FROM types_stand WHERE intitule = 'Jeux de Cartes'),
-     (SELECT id FROM emplacement WHERE nom = 'Emplacement C'), '{}', 'images/stand3.jpg'),
+     (SELECT id FROM emplacement WHERE nom = 'Emplacement C1'), '{}', 'stand3.jpg'),
     ('Stand Jeux Enfants', (SELECT id FROM types_stand WHERE intitule = 'Jeux Enfants'),
-     (SELECT id FROM emplacement WHERE nom = 'Emplacement D'), '{}', 'images/stand4.jpg');
+     (SELECT id FROM emplacement WHERE nom = 'Emplacement D1'), '{}', 'stand4.jpg'),
+
+    ('Derya', (SELECT id FROM types_stand WHERE intitule = 'Restaurant'),
+     (SELECT id FROM emplacement WHERE nom = 'Emplacement A2'), '{}', 'Derya.png'),
+
+    ('L orientale', (SELECT id FROM types_stand WHERE intitule = 'Restaurant'),
+     (SELECT id FROM emplacement WHERE nom = 'Emplacement B2'), '{}', 'Lorientale.png'),
+
+    ('Dream Bubble', (SELECT id FROM types_stand WHERE intitule = 'Restaurant'),
+     (SELECT id FROM emplacement WHERE nom = 'Emplacement C2'), '{}', 'dreambubble.png'),
+
+    ('Activité', (SELECT id FROM types_stand WHERE intitule = 'Activité'),
+     (SELECT id FROM emplacement WHERE nom = 'Emplacement D1'), '{}', 'stand4.png');
 
 
--- Insérer des produits vendus par les stands
+-- Insérer des produits vendus par les stands de jeux
 INSERT INTO produit (nom_produit, prix_produit, stocks, type_article, aVendre, venduPar, image_path)
 VALUES
     ('Monopoly', 25.99, 10, 'Jeu de société', TRUE,
@@ -214,6 +232,105 @@ VALUES
     ('Qui est-ce ?', 26.50, 18, 'Jeu enfant', TRUE,
      (SELECT id FROM stand WHERE nom_stand = 'Stand Jeux Enfants'), 'qui_est_ce.jpg');
 
+-- Insérer des produits vendus par les stands de restauration (Derya)
+INSERT INTO produit (nom_produit, prix_produit, stocks, type_article, aVendre, venduPar, image_path)
+VALUES
+    ('Tacos', 8, 18, 'Nourriture', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Derya'), 'tacos.png'),
+
+    ('Crêpes turque', 10, 30, 'Nourriture', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Derya'), 'crepe_turc.png'),
+
+    ('Kebab', 9, 50, 'Nourriture', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Derya'), 'kebab.png'),
+
+    ('Frites', 3.50, 100, 'Nourriture', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Derya'), 'frites.png'),
+
+    ('Oasis', 3.50, 50, 'Boisson', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Derya'), 'oasis.png'),
+
+    ('Coca', 3, 45, 'Boisson', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Derya'), 'coca.png'),
+
+    ('Coca zéro', 4, 50, 'Boisson', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Derya'), 'coca_zero.png'),
+
+    ('Fuzetea', 2.50, 60, 'Boisson', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Derya'), 'fuzetea.png');
+
+-- Insérer des produits vendus par les stands de restauration (L'orientale)
+INSERT INTO produit (nom_produit, prix_produit, stocks, type_article, aVendre, venduPar, image_path)
+VALUES
+    ('Burger', 8, 32, 'Nourriture', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'L orientale'), 'burger.png'),
+
+    ('Couscous Maison', 12, 20, 'Nourriture', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'L orientale'), 'couscous.png'),
+
+    ('Kebab', 9, 45, 'Nourriture', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'L orientale'), 'kebab.png'),
+
+    ('Frites', 2.80, 70, 'Nourriture', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'L orientale'), 'frites.png'),
+
+    ('Coca', 3, 55, 'Boisson', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'L orientale'), 'coca.png'),
+
+    ('Coca zéro', 4, 50, 'Boisson', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'L orientale'), 'coca_zero.png'),
+
+    ('Fanta', 3.50, 30, 'Boisson', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'L orientale'), 'fanta.png');
+
+
+-- Insérer des produits vendus par les stands de restauration (L'orientale)
+INSERT INTO produit (nom_produit, prix_produit, stocks, type_article, aVendre, venduPar, image_path)
+VALUES
+    ('Churros', 4.50, 50, 'Nourriture', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Dream Bubble'), 'churros.png'),
+
+    ('Cookies', 1.50, 150, 'Nourriture', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Dream Bubble'), 'cookies.png'),
+
+    ('Barbapapa', 3.20, 25, 'Nourriture', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Dream Bubble'), 'barbapapa.png'),
+
+    ('Crêpe nutella', 6, 25, 'Nourriture', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Dream Bubble'), 'crepe_nutella.png'),
+
+    ('Crêpe aux sucres', 5, 25, 'Nourriture', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Dream Bubble'), 'crepe_sucre.png'),
+
+    ('Coca', 3.50, 35, 'Boisson', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Dream Bubble'), 'coca.png'),
+
+    ('Coca zéro', 4, 50, 'Boisson', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Dream Bubble'), 'coca_zero.png'),
+
+    ('Orangina', 3, 55, 'Boisson', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Dream Bubble'), 'orangina.png'),
+
+    ('Fanta', 3.50, 30, 'Boisson', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Dream Bubble'), 'fanta.png');
+
+-- Insérer des produits vendus par les stands de restauration (Derya)
+INSERT INTO produit (nom_produit, prix_produit, stocks, type_article, aVendre, venduPar, image_path)
+VALUES
+    ('Woopy', 1.50, 150, 'Souvenir', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Stand Jeux Famille'), 'souvenir_woopys.png'),
+
+    ('Chapeau de paille', 2, 50, 'Souvenir', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Stand Jeux Famille'), 'souvenir_chapeau.png'),
+
+    ('Aimant flip', 5, 60, 'Souvenir', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Stand Jeux Famille'), 'souvenir_aimant_flip.png'),
+
+    ('Lunette Flip Up', 4.50, 65, 'Souvenir', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Stand Jeux Famille'), 'souvenir_lunette.png'),
+
+    ('Stylo personnalisable', 5, 70, 'Souvenir', TRUE,
+     (SELECT id FROM stand WHERE nom_stand = 'Stand Jeux Famille'), 'souvenir_stylo.png');
 
 
 -- Insérer des jeux associés aux produits
@@ -258,24 +375,36 @@ VALUES
 INSERT INTO tournoi (id_stand, lieu, participants_max, prix_entree, nom_tournoi, description_tournoi, image_path)
 VALUES
     ((SELECT id FROM stand WHERE nom_stand = 'Stand Jeux Famille'), 'Salle A', 16, 5.00,
-     'Tournoi Monopoly', 'Un grand tournoi de Monopoly pour tous les âges.', 'monopoly.jpg'),
+     'Monopoly', 'Un grand tournoi de Monopoly pour tous les âges.', 'monopoly.jpg'),
+
+    ((SELECT id FROM stand WHERE nom_stand = 'Activité'), 'Domaine des loges', 10, 5.00,
+     'Molkky', 'Participez à un tournoi de Molkky, le célèbre jeu de quilles finlandaises.', 'Molkky.jpg'),
+
+    ((SELECT id FROM stand WHERE nom_stand = 'Activité'), 'Domaine des loges', 8, 5.00,
+     'Corn Hole', 'Affrontez d''autres participants dans un tournoi de Corn Hole.', 'corn_hole.jpg'),
+
+    ((SELECT id FROM stand WHERE nom_stand = 'Activité'), 'Château de Parthenay', 10, 20.00,
+     'Paintball', 'Une bataille de paintball en équipe dans un cadre unique.', 'tournois_paintball.png'),
+
+    ((SELECT id FROM stand WHERE nom_stand = 'Activité'), 'Place du drapeau', 6, 3.00,
+     'Basketball', 'Un tournoi de basketball 3 contre 3.', 'tournois_basketball.png'),
+
+    ((SELECT id FROM stand WHERE nom_stand = 'Activité'), 'Palais des congrès', 12, 5.00,
+     'Rocket League', 'Un tournoi e-sport de Rocket League pour les passionnés de jeux vidéo.', 'tournois_rocketleague.png'),
 
     ((SELECT id FROM stand WHERE nom_stand = 'Stand Cartes'), 'Salle A', 100, 5.00,
-     'Tournoi de Uno', 'Un grand tournoi de Uno pour tous les âges.', 'uno.jpg'),
-
-    ((SELECT id FROM stand WHERE nom_stand = 'Stand Stratégie'), 'Salle B', 10, 8.00,
-     'Tournoi de Molkky', 'Un tournoi de Molkky drôle et pour tout les âges.', 'Molkky.jpg'),
-
-    ((SELECT id FROM stand WHERE nom_stand = 'Stand Stratégie'), 'Salle B', 8, 9.00,
-     'Tournoi de Corn Hole', 'Un tournoi de Corn Hole et pour tout les âges.', 'corn_hole.jpg');
+     'Uno', 'Un grand tournoi de Uno pour tous les âges.', 'uno.jpg');
 
 -- Insérer une édition de tournoi
 INSERT INTO edition_tournoi (id_tournoi, capacitee, current_participants, date_edition)
 VALUES
-    ((SELECT id FROM tournoi WHERE nom_tournoi = 'Tournoi Monopoly'), 16, 0, CURRENT_TIMESTAMP),
-    ((SELECT id FROM tournoi WHERE nom_tournoi = 'Tournoi de Uno'), 150, 0, CURRENT_TIMESTAMP),
-    ((SELECT id FROM tournoi WHERE nom_tournoi = 'Tournoi de Molkky'), 15, 0, CURRENT_TIMESTAMP),
-    ((SELECT id FROM tournoi WHERE nom_tournoi = 'Tournoi de Corn Hole'), 10, 0, CURRENT_TIMESTAMP);
+    ((SELECT id FROM tournoi WHERE nom_tournoi = 'Monopoly'), 100, 0, CURRENT_TIMESTAMP),
+    ((SELECT id FROM tournoi WHERE nom_tournoi = 'Molkky'), 55, 0, CURRENT_TIMESTAMP),
+    ((SELECT id FROM tournoi WHERE nom_tournoi = 'Corn Hole'), 50, 0, CURRENT_TIMESTAMP),
+    ((SELECT id FROM tournoi WHERE nom_tournoi = 'Paintball'), 50, 0, CURRENT_TIMESTAMP),
+    ((SELECT id FROM tournoi WHERE nom_tournoi = 'Basketball'), 50, 0, CURRENT_TIMESTAMP),
+    ((SELECT id FROM tournoi WHERE nom_tournoi = 'Rocket League'), 50, 0, CURRENT_TIMESTAMP),
+    ((SELECT id FROM tournoi WHERE nom_tournoi = 'Uno'), 150, 0, CURRENT_TIMESTAMP);
 
 -- Insérer des commentaires
 INSERT INTO commentaires (id_stand, id_utilisateur, commentaire)
@@ -304,8 +433,8 @@ VALUES
 -- Insérer des réservations de jeux
 INSERT INTO reservationJeu (id_jeu, id_utilisateur)
 VALUES
-    ((SELECT id FROM jeu WHERE type = 'Stratégie'), (SELECT id FROM utilisateur WHERE identifiant = 'user1')),
-    ((SELECT id FROM jeu WHERE type = 'Cartes'), (SELECT id FROM utilisateur WHERE identifiant = 'user1')),
-    ((SELECT id FROM jeu WHERE type = 'Déduction'), (SELECT id FROM utilisateur WHERE identifiant = 'user1')),
-    ((SELECT id FROM jeu WHERE type = 'Gestion'), (SELECT id FROM utilisateur WHERE identifiant = 'user2')),
-    ((SELECT id FROM jeu WHERE type = 'Adresse'), (SELECT id FROM utilisateur WHERE identifiant = 'user2'));
+    ((SELECT id FROM jeu WHERE type = 'Stratégie' LIMIT 1), (SELECT id FROM utilisateur WHERE identifiant = 'user1')),
+    ((SELECT id FROM jeu WHERE type = 'Cartes' LIMIT 1), (SELECT id FROM utilisateur WHERE identifiant = 'user1')),
+    ((SELECT id FROM jeu WHERE type = 'Déduction' LIMIT 1), (SELECT id FROM utilisateur WHERE identifiant = 'user1')),
+    ((SELECT id FROM jeu WHERE type = 'Gestion' LIMIT 1), (SELECT id FROM utilisateur WHERE identifiant = 'user2')),
+    ((SELECT id FROM jeu WHERE type = 'Adresse' LIMIT 1), (SELECT id FROM utilisateur WHERE identifiant = 'user2'));
