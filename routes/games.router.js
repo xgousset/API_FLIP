@@ -52,6 +52,9 @@ router.post("/", gameMiddleware.validateGame, gameController.createGame);
  *             type:
  *               type: string
  *               example: "Stratégie"
+ *             duree:
+ *               type: integer
+ *               example: 60
  *     responses:
  *       '201':
  *         description: Game created successfully
