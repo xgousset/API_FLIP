@@ -25,6 +25,7 @@ router.post("/", gameMiddleware.validateGame, gameController.createGame);
  *             - nbJoueursMin
  *             - nbJoueursMax
  *             - ageLimite
+ *             - type
  *           properties:
  *             nom_produit:
  *               type: string
@@ -48,6 +49,9 @@ router.post("/", gameMiddleware.validateGame, gameController.createGame);
  *             ageLimite:
  *               type: integer
  *               example: 12
+ *             type:
+ *               type: string
+ *               example: "Stratégie"
  *     responses:
  *       '201':
  *         description: Game created successfully

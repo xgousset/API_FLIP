@@ -39,7 +39,7 @@ const createGame = async (name, type, prix, stocks, nbJoueursMin, nbJoueursMax,a
         const productresult = await client.query(productquery, productvalues);
         console.log(productresult.rows[0].id);
         const gamequery = 'INSERT INTO jeu (nombre_joueurs_min,nombre_joueurs_max,age_limite,duree,produit_id) VALUES ($1,$2,$3,$4,$5) RETURNING *';
-        const gamevalues = [nbJoueursMin,nbJoueursMax,ageLimite,productresult.rows[0].id];
+        const gamevalues = [nbJoueursMin,nbJoueursMax,ageLimite,duree,productresult.rows[0].id];
         const gameresult = await client.query(gamequery, gamevalues);
         console.log(gameresult.rows[0]);
         console.log(productresult.rows[0]);
