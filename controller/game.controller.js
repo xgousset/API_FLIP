@@ -26,10 +26,12 @@ exports.getGameById = async (req, res) => {
 }
 
 exports.createGame = async (req, res) => {
-    const { name, type, prix, nbJoueursMin, nbJoueursMax, age_minimum, duree } = req.body;
+    const { name, type,  nbJoueursMin, nbJoueursMax, ageLimite, duree, id_stand } = req.body;
+    console.log(req.body);
+    console.log(id_stand)
     const image_path = req.file ? `/images/articles/${req.file.filename}` : null;
     try {
-        const game = await gameService.createGame(name, type, prix, -1, nbJoueursMin, nbJoueursMax, age_minimum, image_path, duree);
+        const game = await gameService.createGame(name, type, nbJoueursMin, nbJoueursMax, ageLimite, image_path, duree,id_stand);
         if (!game) {
             return res.status(400).send("Erreur lors de la création du jeu");
         }

@@ -20,26 +20,18 @@ router.post("/", gameMiddleware.validateGame, gameController.createGame);
  *           required:
  *             - nom_produit
  *             - description_produit
- *             - prix_produit
- *             - stocks
  *             - nbJoueursMin
  *             - nbJoueursMax
  *             - ageLimite
  *             - type
+ *             - id_stand
  *           properties:
- *             nom_produit:
+ *             name:
  *               type: string
  *               example: "Jeu 1"
  *             description_produit:
  *               type: string
  *               example: "Description du jeu 1"
- *             prix_produit:
- *               type: number
- *               format: float
- *               example: 19.99
- *             stocks:
- *               type: integer
- *               example: 100
  *             nbJoueursMin:
  *               type: integer
  *               example: 2
@@ -55,6 +47,9 @@ router.post("/", gameMiddleware.validateGame, gameController.createGame);
  *             duree:
  *               type: integer
  *               example: 60
+ *             id_stand:
+ *               type: integer
+ *               example: 1
  *     responses:
  *       '201':
  *         description: Game created successfully
