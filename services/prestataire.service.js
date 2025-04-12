@@ -4,6 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 // Create a new prestataire with a name, type, and emplacement
 const createPrestataire = async (nom, type, emplacement, comptes, image_path) => {
     const client = await pool.connect();
+    console.log("emplacement", emplacement)
     try {
         const query = 'INSERT INTO stand (nom_stand, id_type, id_emplacement,comptes, image_path) VALUES ($1, $2, $3, $4, $5) RETURNING *';
         const values = [nom, type, emplacement,comptes, image_path];

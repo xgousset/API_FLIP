@@ -1,10 +1,10 @@
 const prestataireService = require('../services/prestataire.service');
 
 exports.savePrestataire = (req, res) => {
-    const {nom, type,id_point,compte} = req.body;
+    const {nom, type,emplacement,compte} = req.body;
     const image_path = req.file ? `/images/prestataires/${req.file.filename}` : null;
     try {
-        const data = prestataireService.createPrestataire(nom, type,id_point, compte, image_path);
+        const data = prestataireService.createPrestataire(nom, type,emplacement, compte, image_path);
         return res.status(200).send(data);
     } catch (error) {
         console.error("Error creating prestataire:", error);
