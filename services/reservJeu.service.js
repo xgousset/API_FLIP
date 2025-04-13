@@ -73,10 +73,26 @@ const cancelReservation = async (idReservation) => {
 }
 
 
+const fetchAllReservations = async () => {
+    const client = await pool.connect();
+    try {
+        const query = 'SELECT * FROM reservationjeu';
+        const result = await client.query(query);
+        return result.rows;
+    } catch (error) {
+        console.log(error);
+        return null;
+    } finally {
+        client.release();
+    }
+}
+
+
 
 module.exports = {
     createReservation,
     fetchReservations,
     fetchReservationsByUser,
-    cancelReservation
+    cancelReservation,
+    fetchAllReservations
 }

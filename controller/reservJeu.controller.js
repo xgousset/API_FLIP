@@ -47,3 +47,14 @@ exports.getReservationsByUser = async (req, res) => {
         return res.status(500).send("Erreur");
     }
 }
+
+
+exports.getAllReservations = async (req, res) => {
+    try {
+        const data = await reservJeuServices.fetchAllReservations();
+        return res.status(200).send(data);
+    } catch (error) {
+        console.error("Error fetching all reservations:", error);
+        return res.status(500).send("Erreur");
+    }
+}

@@ -107,4 +107,20 @@ router.get('/reservations/jeu/:id', reservJeuController.getReservationsJeu);
  */
 router.get('/reservations/user/:id', reservJeuController.getReservationsByUser);
 
+
+/**
+ * @swagger
+ * /api/reservJeu/reservations:
+ *   get:
+ *     tags: [reservJeu]
+ *     summary: Get all reservations
+ *     responses:
+ *       200:
+ *         description: List of all reservations
+ *       500:
+ *         description: Error fetching reservations
+ */
+router.get('/reservations', reservJeuController.getAllReservations);
+
+
 module.exports = router;

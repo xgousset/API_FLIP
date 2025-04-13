@@ -208,17 +208,17 @@ router.post("/editions", tournamentController.saveEdition);
  *           type: object
  *           required:
  *             - id_tournoi
- *             - date_debut
- *             - date_fin
+ *             - date_edition
+ *             - capacite
  *           properties:
  *             id_tournoi:
  *               type: integer
- *             date_debut:
+ *             date_edition:
  *               type: string
  *               format: date-time
- *             date_fin:
- *               type: string
- *               format: date-time
+ *             capacite:
+ *               type: integer
+ *               example: 100
  *     responses:
  *       '200':
  *         description: Édition créée avec succès
