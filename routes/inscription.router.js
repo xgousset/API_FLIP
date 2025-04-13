@@ -65,4 +65,20 @@ router.get('/inscriptions/:id', inscriptionController.fetchInscription);
 
 
 
+router.get('/inscriptions', inscriptionController.fetchAllInscription);
+/**
+ * @swagger
+ * /api/inscription/inscriptions:
+ *   get:
+ *     description: Récupère toutes les inscriptions
+ *     tags:
+ *       - inscription
+ *     responses:
+ *       '200':
+ *         description: Inscription récupérée avec succès
+ *       '500':
+ *         description: Erreur interne du serveur
+ */
+
+
 module.exports = router;

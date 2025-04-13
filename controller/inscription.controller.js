@@ -36,3 +36,18 @@ exports.fetchInscription = async (req, res) => {
         client.release();
     }
 };
+
+
+exports.fetchAllInscription = async (req, res) => {
+    const client = await pool.connect();
+    try {
+        const query = 'SELECT * FROM inscription';
+        const result = await client.query(query);
+        res.status(200).send(result.rows);
+    } catch (error) {
+        console.error("Erreur de récupération des inscriptions:", error);
+        res.status(500).send("Erreur");
+    } finally {
+        client.release();
+    }
+}
