@@ -29,9 +29,6 @@ router.post("/", gameMiddleware.validateGame, gameController.createGame);
  *             name:
  *               type: string
  *               example: "Jeu 1"
- *             description_produit:
- *               type: string
- *               example: "Description du jeu 1"
  *             nbJoueursMin:
  *               type: integer
  *               example: 2

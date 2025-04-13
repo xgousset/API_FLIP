@@ -1,6 +1,6 @@
 exports.validateArticle = (req, res, next) => {
-    const { nom, description, stocks, prix } = req.body;
-    if (!nom || !description || stocks === undefined || prix === undefined) {
+    const { nom, stocks, prix } = req.body;
+    if (!nom ||  stocks === undefined || prix === undefined) {
         return res.status(400).send("Nom, description, stocks, et prix sont obligatoires");
     }
     if (typeof stocks !== 'number' || stocks < 0) {

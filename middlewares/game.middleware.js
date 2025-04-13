@@ -1,6 +1,6 @@
 exports.validateGame = (req, res, next) => {
-    const { name, description_produit, nbJoueursMin, nbJoueursMax, ageLimite } = req.body;
-    if (!name || !description_produit  || nbJoueursMin === undefined || nbJoueursMax === undefined || ageLimite === undefined) {
+    const { name,  nbJoueursMin, nbJoueursMax, ageLimite } = req.body;
+    if (!name ||  nbJoueursMin === undefined || nbJoueursMax === undefined || ageLimite === undefined) {
         return res.status(400).send("Nom, description, prix, stocks, nbJoueursMin, nbJoueursMax et ageLimite sont obligatoires");
     }
     if (typeof nbJoueursMin !== 'number' || nbJoueursMin < 0) {

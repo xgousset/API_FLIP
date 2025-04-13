@@ -29,9 +29,6 @@ router.post("/", uploadArt.single('image'), articleMiddleware.validateArticle, a
  *             nom:
  *               type: string
  *               example: "Article 1"
- *             description:
- *               type: string
- *               example: "Description de l'article 1"
  *             stocks:
  *               type: integer
  *               example: 100
