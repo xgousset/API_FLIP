@@ -49,10 +49,10 @@ exports.getArticles = async (req, res) => {
 
 exports.updateArticle = async (req, res) => {
     const id = req.params.id;
-    const { nom, prix, type_article } = req.body;
+    const { nom, prix, type } = req.body;
     const image_path = req.file ? `/images/articles/${req.file.filename}` : null;
     try {
-        const data = await articleService.updateArticle(id, nom, prix, type_article, image_path);
+        const data = await articleService.updateArticle(id, nom, prix, type, image_path);
         return res.status(200).send(data);
     } catch (error) {
         console.error("Error updating article:", error);

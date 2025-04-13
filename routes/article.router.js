@@ -115,21 +115,12 @@ router.put("/:id", uploadArt.single('image'), articleMiddleware.validateArticle,
  *           type: object
  *           required:
  *             - nom
- *             - description
- *             - stocks
  *             - prix
- *             - idStand
  *             - type
  *           properties:
  *             nom:
  *               type: string
  *               example: "Article 1"
- *             description:
- *               type: string
- *               example: "Description mise à jour de l'article 1"
- *             stocks:
- *               type: integer
- *               example: 150
  *             prix:
  *               type: number
  *               format: float
@@ -137,9 +128,6 @@ router.put("/:id", uploadArt.single('image'), articleMiddleware.validateArticle,
  *             type:
  *               type: string
  *               example: "Accessoire"
- *             idStand:
- *               type: integer
- *               example: 1
  *             image:
  *               type: string
  *               format: binary
